@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Felipe Cidade | Contato</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span>Felipe Cidade</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projetos</a>
+        <a href="profile.html">Perfil</a>
+        <a href="contact.html" class="active">Contato</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-hero">
+      <h2>Contato</h2>
+      <p>Quer conversar sobre uma vaga, projeto ou colaboração? Me chama por aqui.</p>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <article class="contact-card">
+            <h3>LinkedIn</h3>
+            <p>O canal mais rápido para falar comigo.</p>
+            <a class="btn-premium" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">
+              Abrir LinkedIn
+            </a>
+          </article>
+
+          <article class="contact-card">
+            <h3>GitHub</h3>
+            <p>Repositórios, documentação e projetos completos.</p>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">
+              Abrir GitHub
+            </a>
+          </article>
+
+          <article class="contact-card wide">
+            <h3>E-mail</h3>
+            <p>Clique para copiar (e sim, agora vai).</p>
+
+            <div class="email-row">
+              <code id="emailText">felipecidade94@gmail.com</code>
+              <button class="copy-btn" id="copyEmailBtn" type="button">Copiar</button>
+            </div>
+
+            <p class="hint" id="copyHint">Dica: cole no seu e-mail e mande uma mensagem rápida com a vaga.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-final">
+      <div class="container cta-box">
+        <div>
+          <h2>Quer ir direto ao ponto?</h2>
+          <p>Veja os projetos em destaque ou confira meu perfil completo.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn-premium" href="projects.html">Projetos</a>
+          <a class="btn-premium secondary" href="profile.html">Perfil</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="container footer-inner">
+      <p>© 2026 Felipe Cidade</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("copyEmailBtn");
+      const emailEl = document.getElementById("emailText");
+      const hint = document.getElementById("copyHint");
+
+      if (!btn || !emailEl) {
+        alert("Não achei os elementos do botão ou do e-mail. Confere os IDs.");
+        return;
+      }
+
+      btn.addEventListener("click", async function () {
+        const email = (emailEl.textContent || "").trim();
+
+        // Teste imediato: se isso aparecer, o clique está chegando
+        // Você pode apagar depois
+        console.log("Clique no botão OK. Email:", email);
+
+        // Tenta clipboard moderno (quando permitido)
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            // Fallback que funciona em mais casos
+            const ta = document.createElement("textarea");
+            ta.value = email;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+          }
+
+          btn.textContent = "Copiado!";
+          if (hint) hint.textContent = "Pronto. Agora é só colar no seu e-mail.";
+
+          setTimeout(function () {
+            btn.textContent = "Copiar";
+            if (hint) hint.textContent = "Dica: cole no seu e-mail e mande uma mensagem rápida com a vaga.";
+          }, 1400);
+
+        } catch (err) {
+          console.error(err);
+          if (hint) hint.textContent = "Não consegui copiar automaticamente. Copie manualmente o e-mail ali em cima.";
+          alert("Falhou ao copiar. Abre o Console (F12) que eu te digo exatamente o motivo.");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
