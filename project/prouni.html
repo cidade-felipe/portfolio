@@ -23,7 +23,7 @@
    </nav>
 
    <div class="topbar-actions">
-      <a class="primary" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
       <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
    </div>
    </div>
@@ -79,7 +79,7 @@
          <p>
             Algumas perguntas que guiam o projeto:
             qual a proporção de bolsas integrais vs parciais,
-            como o perfil demográfico se distribui (idade e sexo),
+            como o perfil demográfico se distribui (idade e gênero),
             como evolui ao longo dos anos e quais estados concentram mais concessões.
          </p>
          </section>
@@ -92,8 +92,62 @@
          </p>
 
          <div class="figure">
-            <div class="cap">
-               Sugestão: colocar aqui um print do pipeline ou do notebook mostrando etapas de limpeza.
+            <div class="pipeline">
+            <div class="row">
+               <div class="left-box">
+                  <strong>Fonte</strong><br>
+                  Kaggle (kagglehub)<br>
+                  dataset “brasil-students-scholarship-prouni-2005-2019”
+               </div>
+               <div class="arrow">→</div>
+               <div class="right-box">
+                  <strong>Ingestão</strong><br>
+                  Leitura do CSV com Pandas
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="left-box">
+                  <strong>Pré‑processamento</strong><br>
+                  Renomeia colunas (padroniza nomes)<br>
+                  Remove nulos (dropna)<br>
+                  Remove colunas sensíveis (CPF, nascimento, código e-MEC)<br>
+                  Filtra idade (15–90)
+               </div>
+               <div class="arrow">→</div>
+               <div class="right-box">
+                  <strong>Saída limpa</strong><br>
+                  Salva em data/prouni_2005_2019_processed.csv
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="left-box">
+                  <strong>Carregamento</strong><br>
+                  Lê CSV processado
+               </div>
+               <div class="arrow">→</div>
+               <div class="right-box">
+                  <strong>Transformações</strong><br>
+                  Renomeia colunas legíveis<br>
+                  Remove “BOLSA COMPLEMENTAR 25%”<br>
+                  Cria “FAIXA DE IDADE”
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="left-box">
+                  <strong>Visualizações</strong><br>
+                  Plotly + ipywidgets<br>
+                  Sexo x tipo, Raça x tipo, Crescimento por período<br>
+                  Mapa por UF (GeoJSON local)
+               </div>
+               <div class="arrow">→</div>
+               <div class="right-box">
+                  <strong>Exportação</strong><br>
+                  Salva gráficos em `figures/`
+               </div>
+            </div>
             </div>
          </div>
          </section>
@@ -112,27 +166,34 @@
          </div>
          </section>
 
-         <section id="insights" class="report-section">
-         <h2>5. Insights</h2>
-         <p>
-            Aqui entra a parte mais valiosa: traduzir os gráficos em conclusões objetivas e discutíveis,
-            sem viajar. Se você me disser 3 insights que você curte desse projeto, eu deixo essa seção
-            afiada e com frases de portfólio.
-         </p>
-         </section>
+<section id="insights" class="report-section">
+  <h2>5. Insights</h2>
+  <p>
+    Aqui entra a parte mais valiosa: traduzir os gráficos em conclusões objetivas e discutíveis.
+    Para deixar essa seção afiada, eu sugiro colocar 3 a 5 insights em formato direto, cada um com 1 frase.
+  </p>
+</section>
 
+<section id="conclusao" class="report-section">
+  <h2>6. Conclusão</h2>
+  <p>
+    O Prouni Data Insights transforma dados públicos em uma leitura clara do perfil dos beneficiários e da
+    distribuição das bolsas no país. O resultado é um projeto com EDA e visualizações que ajudam a responder
+    perguntas reais com transparência e contexto.
+  </p>
+</section>
          <section id="proximos" class="report-section">
-         <h2>6. Próximos passos</h2>
-         <p>
-            Próximos passos naturais seriam publicar os visuais como dashboard web, criar uma camada
-            de dados pronta para consumo e adicionar comparações regionais mais detalhadas.
-         </p>
+  <h2>7. Próximos passos</h2>
+  <p>
+    Próximos passos naturais seriam publicar os visuais como um dashboard web, criar uma camada de dados pronta
+    para consumo e adicionar comparações regionais mais detalhadas.
+  </p>
 
-         <div class="cta-row" style="justify-content: start; margin-top: 14px;">
-            <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
-            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/Prouni-Data-Insights" target="_blank" rel="noreferrer">Visitar repositório</a>
-         </div>
-         </section>
+  <div class="cta-row" style="justify-content: start; margin-top: 14px;">
+    <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+    <a class="btn-premium secondary" href="https://github.com/cidade-felipe/Prouni-Data-Insights" target="_blank" rel="noreferrer">Visitar repositório</a>
+  </div>
+</section>
 
       </article>
    </div>
