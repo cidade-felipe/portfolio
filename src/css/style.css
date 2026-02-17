@@ -665,7 +665,7 @@ body {
 }
 
 .about-text p {
-  color: var(--muted);
+  color: #2c2e31;
   line-height: 1.8;
   margin-bottom: 14px;
 }
