@@ -272,8 +272,12 @@ body {
 
 
 .btn-premium.secondary {
-  background: rgba(20, 26, 40, 0.55);
-  color: var(--text);
+    background: linear-gradient(
+    135deg,
+    #5f7cff,
+    #6bbcff
+  );
+  color: #0f131a;
   border: 1px solid rgba(124, 124, 255, 0.30);
   box-shadow: none;
 }
@@ -372,6 +376,11 @@ body {
 .feature p {
   color: var(--muted);
   line-height: 1.7;
+  text-align: left;
+}
+
+.feature-text {
+  margin-top: 12px;
 }
 
 .cards-2 {
