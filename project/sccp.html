@@ -25,6 +25,7 @@
    <div class="topbar-actions">
       <a class="primary" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
       <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+   
    </div>
    </div>
 </header>
@@ -39,7 +40,7 @@
       </p>
 
       <div class="badges">
-         <span>Python</span><span>Pandas</span><span>EDA</span><span>ML</span><span>Scikit-learn</span>
+         <span>Python</span><span>Pandas</span><span>Plotly</span><span>EAD</span><span>ML</span><span>Scikit-learn</span>
       </div>
 
       <div class="meta">
@@ -60,7 +61,6 @@
          <a href="#pipeline">4. Pipeline e features</a>
          <a href="#modelos">5. Análises realizadas</a>
          <a href="#insights">6. Conclusão</a>
-         <a href="https://github.com/cidade-felipe/Student-Course-Completion-Prediction-Dataset" target="_blank" rel="noreferrer">Ir para o Repositório</a>
       </aside>
 
       <article class="report-content">
@@ -115,7 +115,7 @@
          <h2>3. Fonte e estrutura dos dados</h2>
          <p>
             A origem dos dados é de um dataset que pode ser encontrado na plataforma Kaggle,
-            no link: https://www.kaggle.com/datasets/nisargpatel344/student-course-completionprediction-dataset.
+            disponível <a href="https://www.kaggle.com/datasets/nisargpatel344/student-course-completion-prediction-dataset" target="_blank" rel="noreferrer">aqui</a>.
             O dataset contém informações sobre os estudantes, como idade, gênero, tempo de gasto
             na plataforma, formação, entre outros, e também as informações sobre os cursos, como o
             nome do curso, a duração, o preço, entre outros. A variável de interesse está na coluna
@@ -129,8 +129,7 @@
             O dataset foi extraído do Kaggle e salvo no arquivo "student_course_completion.csv".
             O arquivo foi carregado através da biblioteca pandas, da linguagem Python e os dados
             foram explorados para entender as características dos estudantes e dos cursos. O código
-            fonte está disponível no repositório do GitHub:
-            https://github.com/cidade-felipe/StudentCourse-Completion-Prediction-Dataset.
+            fonte está disponível <a href="https://github.com/cidade-felipe/StudentCourse-Completion-Prediction-Dataset" target="_blank" rel="noreferrer">aqui</a>.
          </p>
          <p>
             As variáveis selecionadas para a análise estão categorizadas, listadas e descritas na
@@ -212,10 +211,9 @@
             perdeu uma atividade, mas sim pelo desengajamento progressivo gerado pela sequência de
             atividades perdidas.
          </p>
-         <div class="figure">
-            <div class="cap">Sugestão: boxplot ou violino de atividades perdidas por status de conclusão.</div>
-         </div>
-
+            <div class="chars">
+               <img src="/src/figure/chars/sccp/Boxplot_atividades_perdidas.png" alt="Boxplot comparando atividades perdidas entre alunos que concluíram e não concluíram o curso" height="300px">
+            </div>
          <h3>Dias desde o último acesso</h3>
          <p>
             Quem concluiu o curso tende a ter poucos dias desde o último login, com a maior
@@ -223,9 +221,9 @@
             caudas longas, com muitos casos de longos períodos sem acesso. Quanto maior o tempo sem
             acessar a plataforma, menor a chance de conclusão.
          </p>
-         <div class="figure">
-            <div class="cap">Sugestão: distribuição de dias desde o último login por grupo.</div>
-         </div>
+         <div class="chars">
+               <img src="/src/figure/chars/sccp/Boxplot_dias_desde_último_login.png" alt="Boxplot comparando dias desde o último acesso entre alunos que concluíram e não concluíram o curso" height="300px">
+            </div>
 
          <h3>Tempo total dedicado ao curso</h3>
          <p>
@@ -238,10 +236,9 @@
             Aqui aparece a diferença entre esforço contínuo e esforço esporádico. Dedicar mais
             tempo não garante conclusão, mas dedicar pouco praticamente garante o oposto.
          </p>
-         <div class="figure">
-            <div class="cap">Sugestão: boxplot de horas dedicadas por status de conclusão.</div>
-         </div>
-
+            <div class="chars">
+               <img src="/src/figure/chars/sccp/Boxplot_tempo_gasto_vs_conclusão.png" alt="Boxplot comparando tempo total dedicado ao curso entre alunos que concluíram e não concluíram o curso" height="300px">
+            </div>
          <h3>Taxa de conclusão de vídeos</h3>
          <p>
             A distribuição dos alunos que concluíram está visivelmente deslocada para taxas mais
@@ -249,9 +246,9 @@
             médios e baixos. Isso indica que assistir ao conteúdo até o fim é um bom proxy de
             engajamento real. Não é só entrar na plataforma, é consumir o material de forma consistente.
          </p>
-         <div class="figure">
-            <div class="cap">Sugestão: histograma ou densidade da taxa de conclusão de vídeos.</div>
-         </div>
+            <div class="chars">
+               <img src="/src/figure/chars/sccp/Histograma_taxa_de_conclusão_de_vídeos.png" alt="Histograma comparando taxa de conclusão de vídeos entre alunos que concluíram e não concluíram o curso" height="300px">
+            </div>
 
          <h3>Esforço versus desempenho</h3>
          <p>
@@ -266,9 +263,9 @@
             explica tudo. Existem alunos que estudam bastante e mesmo assim não concluem, o que abre
             espaço para fatores como organização, dificuldades conceituais ou contexto pessoal.
          </p>
-         <div class="figure">
-            <div class="cap">Sugestão: scatter de horas dedicadas vs média de quizzes, colorido por conclusão.</div>
-         </div>
+            <div class="chars">
+               <img src="/src/figure/chars/sccp/Scatter_esforço_vs_desempenho.png" alt="Scatter plot comparando esforço vs desempenho entre alunos que concluíram e não concluíram o curso" height="300px">
+            </div>
 
          <h3>Correlação entre variáveis</h3>
          <p>
@@ -279,9 +276,9 @@
             entre Assignments_Submitted e Assignments_Missed, o que é coerente e ajuda a validar a
             consistência do dataset.
          </p>
-         <div class="figure">
-            <div class="cap">Sugestão: heatmap de correlações com destaque para variáveis de engajamento.</div>
-         </div>
+            <div class="chars">
+               <img src="/src/figure/chars/sccp/Heatmap_de_correlação_(variáveis_numéricas).png" alt="Mapa de correlações entre variáveis do dataset" height="300px">
+            </div>
          </section>
 
          <section id="insights" class="report-section">
@@ -296,9 +293,8 @@
          </section>
          <div class="cta-row" style="justify-content: start; margin-top: 14px;">
             <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
-            <a class="btn-premium secondary" href="../contact.html">Contato</a>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/StudentCourse-Completion-Prediction-Dataset" target="_blank" rel="noreferrer">Visitar repositório</a>
          </div>
-         </section>
 
       </article>
    </div>

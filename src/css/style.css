@@ -490,6 +490,7 @@ body {
   border-top: 1px solid rgba(31, 38, 53, 0.9);
   padding: 22px 0;
   color: #000000;
+  margin-top: 5px;
 }
 
 .footer-inner {
@@ -498,6 +499,8 @@ body {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 1px;
+  max-width: 1100px;
 }
 
 .footer-links {
@@ -763,7 +766,7 @@ body {
 }
 
 .report-content {
-  background: rgba(18, 23, 34, 0.45);
+  background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(31, 38, 53, 0.9);
   border-radius: 18px;
   padding: 22px;
@@ -872,4 +875,10 @@ body {
   .kpi-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.chars {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0;
 }
