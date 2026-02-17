@@ -321,7 +321,7 @@ body {
 }
 
 .section-head p {
-  color: var(--muted);
+  color: #000000;
 }
 
 .section-head.split {
@@ -408,6 +408,12 @@ body {
   transform: translateY(-6px);
   border-color: rgba(124, 124, 255, 0.35);
   box-shadow: 0 0 28px rgba(124, 124, 255, 0.18);
+}
+
+.project-top h3 {
+  color: var(--text);
+  line-height: 1.7;
+  margin-top: 8px;
 }
 
 .project-top p {
