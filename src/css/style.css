@@ -4,6 +4,7 @@
   --panel2: #171c2b;
   --text: #e6e8ef;
   --muted: #a7afc0;
+  --report-title: #0f131a;
   --report-content: #0f131a;
   --line: #263044;
   --accent: #6ea8fe;
@@ -779,7 +780,7 @@ body {
 
 .report-section h2 {
   margin: 0 0 10px 0;
-  color: var(--text);
+  color: var(--report-title);
   font-size: 24px;
 }
 
@@ -787,6 +788,7 @@ body {
   color: var(--report-content);
   line-height: 1.85;
   margin: 0 0 12px 0;
+  text-align: justify;
 }
 
 .kpi-grid {
@@ -845,6 +847,7 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 14px;
+  justify-content: center;
 }
 
 .badges span {
@@ -853,7 +856,7 @@ body {
   border-radius: 999px;
   color: #cfd3ff;
   background: rgba(16, 22, 38, 0.45);
-  border: 1px solid rgba(31, 38, 53, 0.9);
+  
 }
 
 @media (max-width: 980px) {

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Course Completion Prediction | Projeto</title>
+<link rel="stylesheet" href="../src/css/style.css" />
+</head>
+
+<body>
+<header class="topbar">
+   <div class="topbar-inner">
+   <a class="brand" href="../index.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+   </a>
+
+   <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projetos</a>
+      <a href="../profile.html">Perfil</a>
+      <a href="../contact.html">Contato</a>
+   </nav>
+
+   <div class="topbar-actions">
+      <a class="primary" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+   </div>
+   </div>
+</header>
+
+<main>
+   <section class="project-hero">
+   <div class="container project-title">
+      <h1>Student Course Completion Prediction</h1>
+      <p>
+         Análise e predição de conclusão em cursos online, com pipeline de preparação,
+         exploração de engajamento e modelos supervisionados para prever conclusão.
+      </p>
+
+      <div class="badges">
+         <span>Python</span><span>Pandas</span><span>EDA</span><span>ML</span><span>Scikit-learn</span>
+      </div>
+
+      <div class="meta">
+         <span>Autor: Felipe Cidade Soares</span>
+         <span>Tipo: EDA + ML</span>
+      </div>
+   </div>
+   </section>
+
+   <section class="report">
+   <div class="container report-grid">
+
+      <aside class="toc">
+         <h3>Sumário</h3>
+         <a href="#intro">1. Introdução</a>
+         <a href="#objetivos">2. Objetivos</a>
+         <a href="#dados">3. Fonte e preparação</a>
+         <a href="#pipeline">4. Pipeline e features</a>
+         <a href="#modelos">5. Análises realizadas</a>
+         <a href="#insights">6. Conclusão</a>
+         <a href="https://github.com/cidade-felipe/Student-Course-Completion-Prediction-Dataset" target="_blank" rel="noreferrer">Ir para o Repositório</a>
+      </aside>
+
+      <article class="report-content">
+
+         <section id="intro" class="report-section">
+         <h2>1. Introdução</h2>
+         <p>
+            O ensino online teve um aumento significativo, principalmente durante a pandemia de
+            COVID-19. Nesse contexto, as instituições de ensino precisaram se adaptar e implementar
+            novas tecnologias, o que acabou proporcionando uma maior integração de novas tecnologias
+            no ensino. Além disso, a educação online facilitou o acesso a cursos para estudantes em
+            áreas mais remotas, contribuindo para a democratização do acesso à educação.
+         </p>
+         <p>
+            O trabalho em questão visa realizar uma análise exploratória dos dados para
+            entender as características dos estudantes e dos cursos, identificar os fatores que
+            influenciam a conclusão de cursos, por meio dos padrões de engajamento e gerar insights
+            acionáveis para acompanhamento.
+         </p>
+         </section>
+
+         <section id="objetivos" class="report-section">
+         <h2>2. Objetivos</h2>
+         <p>
+            O objetivo geral deste trabalho é realizar uma análise dos fatores que levam os
+            estudantes a concluir ou não cursos remotos.
+         </p>
+         <p>Os objetivos específicos deste trabalho são:</p>
+         <ul>
+            <li>Realizar uma análise exploratória dos dados para entender as características dos estudantes e dos cursos.</li>
+            <li>Identificar os fatores que influenciam a conclusão de cursos, por meio dos padrões de engajamento.</li>
+            <li>Gerar insights acionáveis para acompanhamento.</li>
+         </ul>
+
+         <div class="kpi-grid">
+            <div class="kpi">
+               <div class="label">Foco</div>
+               <div class="value">Engajamento</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Foco</div>
+               <div class="value">Predição</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Foco</div>
+               <div class="value">Reprodutibilidade</div>
+            </div>
+         </div>
+         </section>
+
+         <section id="dados" class="report-section">
+         <h2>3. Fonte e estrutura dos dados</h2>
+         <p>
+            A origem dos dados é de um dataset que pode ser encontrado na plataforma Kaggle,
+            no link: https://www.kaggle.com/datasets/nisargpatel344/student-course-completionprediction-dataset.
+            O dataset contém informações sobre os estudantes, como idade, gênero, tempo de gasto
+            na plataforma, formação, entre outros, e também as informações sobre os cursos, como o
+            nome do curso, a duração, o preço, entre outros. A variável de interesse está na coluna
+            "Completed", que indica se o estudante concluiu o curso ou não.
+         </p>
+         </section>
+
+         <section id="pipeline" class="report-section">
+         <h2>4. Extração e preparação dos dados</h2>
+         <p>
+            O dataset foi extraído do Kaggle e salvo no arquivo "student_course_completion.csv".
+            O arquivo foi carregado através da biblioteca pandas, da linguagem Python e os dados
+            foram explorados para entender as características dos estudantes e dos cursos. O código
+            fonte está disponível no repositório do GitHub:
+            https://github.com/cidade-felipe/StudentCourse-Completion-Prediction-Dataset.
+         </p>
+         <p>
+            As variáveis selecionadas para a análise estão categorizadas, listadas e descritas na
+            tabela abaixo.
+         </p>
+
+         <div class="table-wrap">
+            <table style="width: 100%; border-collapse: collapse;">
+               <thead>
+                  <tr>
+                     <th style="border: 1px solid #d9d9d9; padding: 10px; text-align: left;">Categoria</th>
+                     <th style="border: 1px solid #d9d9d9; padding: 10px; text-align: left;">Coluna</th>
+                     <th style="border: 1px solid #d9d9d9; padding: 10px; text-align: left;">Descrição</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Variável alvo</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Completed</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Indica se o curso foi concluído</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Variável derivada</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Completed_Label</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Rótulo categórico da conclusão do curso</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Engajamento</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Login_Frequency</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Frequência de acessos à plataforma</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Engajamento</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Time_Spent_Hours</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Total de horas dedicadas ao curso</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Engajamento</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Days_Since_Last_Login</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Dias desde o último acesso</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Engajamento</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Video_Completion_Rate</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Percentual de vídeos concluídos</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Avaliação acadêmica</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Quiz_Score_Avg</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Média das notas dos quizzes</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Avaliação acadêmica</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Assignments_Submitted</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Quantidade de atividades entregues</td>
+                  </tr>
+                  <tr>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Avaliação acadêmica</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Assignments_Missed</td>
+                     <td style="border: 1px solid #d9d9d9; padding: 10px;">Quantidade de atividades não entregues</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         </section>
+
+         <section id="modelos" class="report-section">
+         <h2>5. Análises realizadas</h2>
+         <p>
+            Foram realizadas análises exploratórias dos dados para entender os fatores que
+            influenciam a conclusão de cursos, por meio dos padrões de engajamento.
+         </p>
+         <h3>Atividades perdidas vs conclusão</h3>
+         <p>
+            Alunos que concluíram o curso têm uma mediana menor de atividades perdidas e uma
+            distribuição mais concentrada. Já os que não concluíram apresentam maior dispersão e valores
+            máximos mais altos. Isso sugere que perder atividades não é um evento isolado, mas um
+            comportamento recorrente associado à evasão. Um aluno não abandona um curso porque
+            perdeu uma atividade, mas sim pelo desengajamento progressivo gerado pela sequência de
+            atividades perdidas.
+         </p>
+         <div class="figure">
+            <div class="cap">Sugestão: boxplot ou violino de atividades perdidas por status de conclusão.</div>
+         </div>
+
+         <h3>Dias desde o último acesso</h3>
+         <p>
+            Quem concluiu o curso tende a ter poucos dias desde o último login, com a maior
+            parte dos valores concentrados perto de zero. Já os alunos que não concluíram apresentam
+            caudas longas, com muitos casos de longos períodos sem acesso. Quanto maior o tempo sem
+            acessar a plataforma, menor a chance de conclusão.
+         </p>
+         <div class="figure">
+            <div class="cap">Sugestão: distribuição de dias desde o último login por grupo.</div>
+         </div>
+
+         <h3>Tempo total dedicado ao curso</h3>
+         <p>
+            Os alunos que concluíram apresentam uma mediana de horas dedicadas claramente
+            maior, além de uma distribuição deslocada para valores mais altos. Já os que não concluíram
+            concentram-se em poucas horas de dedicação, com alguns outliers que indicam tentativas
+            pontuais, mas sem consistência.
+         </p>
+         <p>
+            Aqui aparece a diferença entre esforço contínuo e esforço esporádico. Dedicar mais
+            tempo não garante conclusão, mas dedicar pouco praticamente garante o oposto.
+         </p>
+         <div class="figure">
+            <div class="cap">Sugestão: boxplot de horas dedicadas por status de conclusão.</div>
+         </div>
+
+         <h3>Taxa de conclusão de vídeos</h3>
+         <p>
+            A distribuição dos alunos que concluíram está visivelmente deslocada para taxas mais
+            altas de consumo de vídeo, enquanto os que não concluíram concentram-se em valores
+            médios e baixos. Isso indica que assistir ao conteúdo até o fim é um bom proxy de
+            engajamento real. Não é só entrar na plataforma, é consumir o material de forma consistente.
+         </p>
+         <div class="figure">
+            <div class="cap">Sugestão: histograma ou densidade da taxa de conclusão de vídeos.</div>
+         </div>
+
+         <h3>Esforço versus desempenho</h3>
+         <p>
+            Existe uma tendência geral de que mais horas dedicadas estejam associadas a
+            melhores médias nos quizzes, mas o mais importante é a separação visual dos grupos. Alunos
+            que concluem aparecem com mais frequência na região de maior esforço e melhor
+            desempenho, enquanto os que não concluem se espalham mais nos níveis baixos e
+            intermediários.
+         </p>
+         <p>
+            Esse gráfico é ótimo para discussão, porque mostra que esforço ajuda, mas não
+            explica tudo. Existem alunos que estudam bastante e mesmo assim não concluem, o que abre
+            espaço para fatores como organização, dificuldades conceituais ou contexto pessoal.
+         </p>
+         <div class="figure">
+            <div class="cap">Sugestão: scatter de horas dedicadas vs média de quizzes, colorido por conclusão.</div>
+         </div>
+
+         <h3>Correlação entre variáveis</h3>
+         <p>
+            As correlações com a variável Completed são moderadas, não exageradas, o que é
+            esperado em dados comportamentais reais. Destacam-se a correlação positiva com
+            Video_Completion_Rate e Assignments_Submitted, e a correlação negativa com
+            Assignments_Missed. O destaque mais forte do mapa é a correlação negativa quase perfeita
+            entre Assignments_Submitted e Assignments_Missed, o que é coerente e ajuda a validar a
+            consistência do dataset.
+         </p>
+         <div class="figure">
+            <div class="cap">Sugestão: heatmap de correlações com destaque para variáveis de engajamento.</div>
+         </div>
+         </section>
+
+         <section id="insights" class="report-section">
+         <h2>6. Conclusão</h2>
+         <p>
+            A análise exploratória dos dados revelou que os fatores que influenciam a conclusão
+            de cursos são multivariados, combinando engajamento, esforço e desempenho acadêmico.
+            Nota-se que nenhuma variável isolada explica completamente a conclusão. Assim, é possível
+            concluir que a conclusão de cursos remotos é um fenômeno multivariado, combinando
+            engajamento, esforço e desempenho acadêmico.
+         </p>
+         </section>
+         <div class="cta-row" style="justify-content: start; margin-top: 14px;">
+            <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+            <a class="btn-premium secondary" href="../contact.html">Contato</a>
+         </div>
+         </section>
+
+      </article>
+   </div>
+   </section>
+</main>
+
+<footer class="footer-premium">
+   <div class="container footer-inner">
+   <p>© 2026 Felipe Cidade</p>
+   <div class="footer-links">
+      <a href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+   </div>
+   </div>
+</footer>
+</body>
+</html>
