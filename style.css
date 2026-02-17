@@ -348,6 +348,12 @@ body {
   box-shadow: 0 0 22px rgba(124, 124, 255, 0.08);
 }
 
+.feature:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 124, 255, 0.35);
+  box-shadow: 0 0 28px rgba(124, 124, 255, 0.18);
+}
+
 .feature-icon {
   width: 42px;
   height: 42px;
