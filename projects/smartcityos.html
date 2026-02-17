@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SmartCityOS | Projeto</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+<header class="topbar">
+   <div class="topbar-inner">
+   <a class="brand" href="../index.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+   </a>
+
+   <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projetos</a>
+      <a href="../profile.html">Perfil</a>
+      <a href="../contact.html">Contato</a>
+   </nav>
+
+   <div class="topbar-actions">
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+   </div>
+   </div>
+</header>
+
+<main>
+   <section class="project-hero">
+   <div class="container project-title">
+      <h1>SmartCityOS</h1>
+      <p>
+         Sistema de gestão urbana com PostgreSQL e Python, focado em modelagem de dados,
+         automações com triggers, auditoria e uma aplicação desktop para operação e análises.
+      </p>
+
+      <div class="badges">
+         <span>PostgreSQL</span><span>SQL</span><span>Triggers</span><span>Auditoria</span><span>Python</span><span>PySide6</span>
+      </div>
+
+      <div class="meta">
+         <span>Autor: Felipe Cidade Soares</span>
+         <span>Tipo: Banco + Aplicação</span>
+      </div>
+   </div>
+   </section>
+
+   <section class="report">
+   <div class="container report-grid">
+
+      <aside class="toc">
+         <h3>Sumário</h3>
+         <a href="#intro">1. Introdução</a>
+         <a href="#perguntas">2. Perguntas de análise</a>
+         <a href="#dados">3. Fonte e preparação</a>
+         <a href="#analises">4. Análises e visuais</a>
+         <a href="#insights">5. Insights</a>
+         <a href="#conclusao">6. Conclusão</a>
+         <a href="#proximos">7. Próximos passos</a>   
+         <a href="https://github.com/cidade-felipe/smart-city-os" target="_blank" rel="noreferrer"> Ir para o Repositório</a>      
+      </aside>
+
+      <article class="report-content">
+
+         <section id="intro" class="report-section">
+         <h2>1. Introdução</h2>
+         <p>
+            O SmartCityOS foi desenvolvido como um sistema integrado para simular e organizar operações
+            comuns de uma cidade, com foco no que mais importa em dados: estrutura consistente, regras
+            automatizadas e rastreabilidade.
+         </p>
+         <p>
+            A ideia é demonstrar domínio de modelagem relacional e SQL avançado, usando triggers para
+            automatizar processos, além de uma interface desktop para consulta e operação.
+         </p>
+         </section>
+
+         <section id="objetivos" class="report-section">
+         <h2>2. Objetivos</h2>
+         <p>
+            Construir uma base relacional robusta para entidades urbanas (cidadãos, veículos, sensores,
+            incidentes e multas) e adicionar automações e garantias via banco, reduzindo inconsistência
+            e centralizando regras de negócio.
+         </p>
+
+         <div class="kpi-grid">
+            <div class="kpi">
+               <div class="label">Pilar</div>
+               <div class="value">Modelagem relacional</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Pilar</div>
+               <div class="value">Triggers e auditoria</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Pilar</div>
+               <div class="value">App para operação</div>
+            </div>
+         </div>
+         </section>
+
+         <section id="stack" class="report-section">
+         <h2>3. Stack e Arquitetura</h2>
+         <p>
+            O projeto foi dividido em dois blocos: banco PostgreSQL (DDL, índices, views e triggers)
+            e uma aplicação em Python (PySide6) para navegação de dados, dashboards e consultas.
+         </p>
+
+         <div class="figure">
+            <div class="cap">
+               Sugestão: colocar aqui um diagrama simples do fluxo “App → SQL seguro → Banco → Views/Relatórios”.
+            </div>
+         </div>
+         </section>
+
+         <section id="banco" class="report-section">
+         <h2>4. Banco e Automação</h2>
+         <p>
+            O núcleo do SmartCityOS é o banco. A lógica de automação usa triggers para auditoria,
+            controle de alterações e regras como soft delete. Isso garante rastreabilidade e consistência,
+            mesmo que o consumo venha de diferentes interfaces.
+         </p>
+
+         <div class="codebox">
+-- Exemplo de ideia (ajuste com o seu código real)
+-- Triggers para auditoria e integridade
+CREATE TRIGGER ...;
+         </div>
+
+         <p>
+            Também foram pensados índices e views para facilitar consultas recorrentes e performance
+            em cenários de leitura.
+         </p>
+         </section>
+
+         <section id="app" class="report-section">
+         <h2>5. Aplicação Desktop</h2>
+         <p>
+            A aplicação em PySide6 oferece uma camada visual para navegar pelas entidades, executar
+            consultas com segurança (modo somente leitura) e exportar resultados em Excel. Isso demonstra
+            um ciclo completo: banco bem construído e uma interface que facilita o uso.
+         </p>
+
+         <div class="figure">
+            <div class="cap">
+               Sugestão: colocar screenshots da aplicação (dashboard, tabelas, console SQL, exportação).
+            </div>
+         </div>
+         </section>
+
+         <section id="como-rodar" class="report-section">
+         <h2>6. Como rodar</h2>
+         <p>
+            Aqui você coloca o passo a passo: criar o banco, rodar scripts SQL, configurar conexão e
+            executar o app.
+         </p>
+
+         <div class="codebox">
+# Exemplo
+# 1) Crie o banco e rode os scripts .sql
+# 2) Configure as credenciais no app
+# 3) Rode:
+python qt_app.py
+         </div>
+         </section>
+
+         <section id="resultados" class="report-section">
+         <h2>7. Resultados e próximos passos</h2>
+         <p>
+            Resultado: um sistema completo com regras no banco, auditoria e uma interface real.
+            Próximos passos naturais seriam testes automatizados, containerização (Docker) e uma camada
+            de API para uso web.
+         </p>
+
+         <div class="cta-row" style="justify-content: start; margin-top: 14px;">
+            <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+            <a class="btn-premium secondary" href="../contact.html">Contato</a>
+         </div>
+         </section>
+
+      </article>
+   </div>
+   </section>
+</main>
+
+<footer class="footer-premium">
+   <div class="container footer-inner">
+   <p>© 2026 Felipe Cidade</p>
+   <div class="footer-links">
+      <a href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+   </div>
+   </div>
+</footer>
+</body>
+</html>
