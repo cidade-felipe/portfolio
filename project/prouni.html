@@ -57,10 +57,9 @@
          <a href="#intro">1. Introdução</a>
          <a href="#perguntas">2. Perguntas de análise</a>
          <a href="#dados">3. Fonte e preparação</a>
-         <a href="#analises">4. Análises e visuais</a>
-         <a href="#insights">5. Insights</a>
-         <a href="#conclusao">6. Conclusão</a>
-         <a href="#proximos">7. Próximos passos</a>   
+         <a href="#insights">4. Análises dos visuais e insights</a>
+         <a href="#conclusao">5. Conclusão</a>
+         <a href="#proximos">6. Próximos passos</a>   
       </aside>
 
       <article class="report-content">
@@ -152,48 +151,138 @@
          </div>
          </section>
 
-         <section id="analises" class="report-section">
-         <h2>4. Análises e visuais</h2>
+
+         <section id="insights" class="report-section">
+         <h2>4. Análises dos visuais e insights</h2>
          <p>
-            O projeto foca em visualizações com Plotly, incluindo comparações por ano, recortes por sexo e idade,
-            além de um mapa interativo com GeoJSON para mostrar distribuição por UF.
+            O projeto foca em visualizações com Plotly, incluindo comparações por ano, recortes por sexo e idade, além de um mapa interativo com GeoJSON para mostrar distribuição por UF.
+            A análise revelou padrões consistentes na distribuição das bolsas do PROUNI ao longo do tempo,
+            indicando diferenças regionais, demográficas e socioeconômicas relevantes.
          </p>
 
-         <div class="figure">
-            <div class="cap">
-               Sugestão: colocar prints dos gráficos mais fortes e do mapa interativo.
+         <h3>Expansão regional desigual</h3>
+         <p>
+            As regiões Norte e Nordeste apresentaram os maiores crescimentos percentuais ao longo dos anos,
+            especialmente após 2013, indicando um movimento de interiorização e ampliação do acesso ao ensino
+            superior fora dos grandes centros tradicionais.
+         </p>
+            <div class="chars">
+               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Crescimento_percentual_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Crescimento percentual de todas as bolsas comparando regiões por ano" height="400px" width="800px">
             </div>
-         </div>
+         <p>
+            Apesar disso, o Sudeste permanece como principal concentrador absoluto de bolsas, mostrando que,
+            mesmo com crescimento em outras regiões, a desigualdade regional ainda é significativa.
+         </p>
+            <div class="chars">
+               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Quantidade_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Quantidade de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+               
+            </div>
+            <div class="chars">
+               <img src="../src/figure/chars/prouni/mapa_bolsas_por_uf/Bolsas_do_Prouni_em_de_2005_a_2019.png" alt="Mapa de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+            </div>
+
+
+         <h3>Concentração por perfil racial</h3>
+         <p>
+            Os dados mostram que estudantes autodeclarados pardos e brancos concentram a maior parte das bolsas
+            concedidas no período analisado. O crescimento desses grupos é consistente ao longo dos anos.
+         </p>
+         <p>
+            Em contrapartida, a participação de estudantes indígenas permanece baixa e com crescimento limitado,
+            indicando um possível gargalo de acesso para esse grupo específico.
+         </p>
+            <div class="chars">
+               <img src="../src/figure/chars/prouni/total_idade_tipo_e_raça/Quantidade_de_bolsas_por_tipo_e_raça_de_2005_a_2019.png" alt="Quantidade de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+            </div>
+         <h3>Diferenças por sexo</h3>
+         <p>
+            Observa-se um aumento mais acelerado na participação feminina ao longo do tempo, com destaque para
+            bolsas integrais. A partir de 2014, mulheres passam a representar a maior parcela dos beneficiários.
+         </p>
+         <p>
+            Esse padrão sugere maior permanência e engajamento das mulheres nos programas de acesso ao ensino
+            superior via políticas públicas.
+         </p>
+            <div class="chars">
+               <img src="../src/figure/chars/prouni/grafico_crescimento_por_periodo_sexo/Quantidade_de_todas_as_bolsas_por_ano_comparando_sexo.png" alt="Quantidade de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+            </div>
+         <h3>Predominância de bolsas integrais</h3>
+         <p>
+            A maior parte das concessões corresponde a bolsas integrais, especialmente entre os grupos de maior
+            volume populacional. Isso reforça o papel do PROUNI como mecanismo efetivo de inclusão educacional
+            para estudantes em situação de vulnerabilidade socioeconômica.
+         </p>
+
+         <p>
+            As bolsas parciais apresentam volume menor e crescimento mais moderado, sugerindo que o programa
+            prioriza, majoritariamente, estudantes com menor capacidade de custeio.
+         </p>
+
+         <h3>Pico e estabilização após 2015</h3>
+         <p>
+            Em praticamente todos os recortes analisados, observa-se um pico entre 2014 e 2016, seguido por um
+            período de estabilização ou leve retração.
+         </p>
+
+         <p>
+            Esse comportamento pode estar associado a mudanças no cenário econômico, ajustes nas políticas
+            públicas e restrições orçamentárias no período pós-crise.
+         </p>
+         </section>
+         <section id="conclusao" class="report-section">
+         <h2>5. Conclusão</h2>
+            <p>
+               A análise dos dados do PROUNI entre 2005 e 2019 evidencia um processo relevante de expansão do acesso
+               ao ensino superior no Brasil, com crescimento expressivo no volume total de bolsas ao longo do período.
+            </p>
+
+            <p>
+               Observa-se uma ampliação significativa nas regiões Norte e Nordeste, embora o Sudeste ainda concentre
+               a maior quantidade absoluta de concessões. Esse comportamento revela avanços na interiorização do acesso,
+               mas também reforça a persistência de desigualdades regionais estruturais.
+            </p>
+
+            <p>
+               Do ponto de vista demográfico, o aumento da participação feminina e o crescimento consistente de grupos
+               historicamente sub-representados indicam impacto positivo das políticas públicas de inclusão. Ainda assim,
+               a baixa representatividade de determinados grupos sugere que desafios de equidade permanecem.
+            </p>
+
+            <p>
+               De forma geral, os resultados mostram que o PROUNI cumpre papel relevante na democratização do ensino
+               superior, especialmente por meio da predominância de bolsas integrais. Ao mesmo tempo, os dados reforçam
+               a importância de monitoramento contínuo e análise baseada em evidências para orientar ajustes e melhorias
+               na política pública.
+            </p>
+
+            <p>
+               Este projeto demonstra como dados públicos, quando organizados e interpretados com rigor, podem gerar
+               insights concretos sobre impacto social e distribuição de oportunidades educacionais.
+            </p>
+         </section>
+         <section id="proximos" class="report-section">
+         <h2>6. Próximos passos</h2>
+            <p>
+               Para aprofundar a análise, seria interessante incorporar dados mais recentes do PROUNI, especialmente
+               para avaliar o impacto da pandemia e as tendências pós-2019. Além disso, cruzar com dados de ENEM e
+               Censo Escolar poderia enriquecer a compreensão do perfil dos beneficiários e suas trajetórias educacionais.
+            </p>
+
+            <p>
+               Outra possibilidade é explorar análises preditivas para identificar fatores que influenciam a concessão de
+               bolsas e o desempenho acadêmico dos beneficiários, utilizando técnicas de machine learning.
+            </p>
+
+            <p>
+               Por fim, desenvolver um dashboard interativo com os principais indicadores e visualizações poderia facilitar
+               o acesso a esses insights por parte de gestores públicos, pesquisadores e sociedade em geral.
+            </p>
          </section>
 
-<section id="insights" class="report-section">
-  <h2>5. Insights</h2>
-  <p>
-    Aqui entra a parte mais valiosa: traduzir os gráficos em conclusões objetivas e discutíveis.
-    Para deixar essa seção afiada, eu sugiro colocar 3 a 5 insights em formato direto, cada um com 1 frase.
-  </p>
-</section>
-
-<section id="conclusao" class="report-section">
-  <h2>6. Conclusão</h2>
-  <p>
-    O Prouni Data Insights transforma dados públicos em uma leitura clara do perfil dos beneficiários e da
-    distribuição das bolsas no país. O resultado é um projeto com EDA e visualizações que ajudam a responder
-    perguntas reais com transparência e contexto.
-  </p>
-</section>
-         <section id="proximos" class="report-section">
-  <h2>7. Próximos passos</h2>
-  <p>
-    Próximos passos naturais seriam publicar os visuais como um dashboard web, criar uma camada de dados pronta
-    para consumo e adicionar comparações regionais mais detalhadas.
-  </p>
-
-  <div class="cta-row" style="justify-content: start; margin-top: 14px;">
-    <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
-    <a class="btn-premium secondary" href="https://github.com/cidade-felipe/Prouni-Data-Insights" target="_blank" rel="noreferrer">Visitar repositório</a>
-  </div>
-</section>
+   <div class="cta-row" style="justify-content: start; margin-top: 14px;">
+      <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+      <a class="btn-premium secondary" href="https://github.com/cidade-felipe/Prouni-Data-Insights" target="_blank" rel="noreferrer">Visitar repositório</a>
+   </div>
 
       </article>
    </div>
