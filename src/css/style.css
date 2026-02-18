@@ -102,11 +102,26 @@ body {
   box-shadow: 0 0 18px rgba(124, 124, 255, 0.25);
 }
 
+.primary:hover {
+  background: rgba(124, 124, 255, 0.35);
+  color: #cfd3ff;
+  box-shadow: 0 0 22px rgba(124, 124, 255, 0.35);
+  border-color: rgba(124, 124, 255, 0.35);
+}
+
 .ghost {
   border: 1px solid rgba(124, 124, 255, 0.35);
   color: #cfd3ff;
   background: rgba(16, 22, 38, 0.35);
 }
+
+.ghost:hover {
+  border-color: rgba(124, 124, 255, 1);
+  color: #cfd3ff;
+  background: rgba(124, 124, 255, 0.35);
+}
+
+
 
 .hero-premium {
   position: relative;
