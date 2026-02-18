@@ -91,67 +91,66 @@
          </p>
 
          <div class="figure">
-            <div class="pipeline">
-            <div class="row">
-               <div class="left-box">
-                  <strong>Fonte</strong><br>
-                  Kaggle (kagglehub)<br>
-                  dataset <a href="https://www.kaggle.com/datasets/lfarhat/brasil-students-scholarship-prouni-20052019" target="_blank" rel="noreferrer">Prouni Brazilian Scholarship Program</a>
+            <div class="pipeline two-col">
+               <div class="row">
+                  <div class="box">
+                     <strong>Fonte</strong><br>
+                     ● Kaggle (kagglehub)<br>
+                     ● Dataset <a href="https://www.kaggle.com/datasets/lfarhat/brasil-students-scholarship-prouni-20052019" target="_blank" rel="noreferrer">Prouni Brazilian Scholarship Program</a>
                </div>
-               <div class="arrow">→</div>
-               <div class="right-box">
+               <div class="arrow">➡️</div>
+               <div class="box">
                   <strong>Ingestão</strong><br>
-                  Leitura do CSV com Pandas
+                  ● Leitura do CSV com Pandas
                </div>
-            </div>
-
-            <div class="row">
-               <div class="left-box">
+               <div class="arrow">➡️</div>
+               <div class="box">
                   <strong>Pré‑processamento</strong><br>
-                  Renomeia colunas (padroniza nomes)<br>
-                  Remove nulos (dropna)<br>
-                  Remove colunas sensíveis (CPF, nascimento, código e-MEC)<br>
-                  Filtra idade (15–90)
+                  ● Renomeia colunas (padroniza nomes)<br>
+                  ● Remove nulos (dropna)<br>
+                  ● Remove colunas sensíveis (CPF, nascimento, código e-MEC)<br>
+                  ● Filtra idade (15–90)
                </div>
-               <div class="arrow">→</div>
-               <div class="right-box">
+               <div class="arrow">➡️</div>
+               <div class="box">
                   <strong>Saída limpa</strong><br>
-                  Salva em data/prouni_2005_2019_processed.csv
+                  ● Salva em data/prouni_2005_2019_processed.csv
                </div>
+               <div class="arrow">➡️</div>
             </div>
-
             <div class="row">
-               <div class="left-box">
-                  <strong>Carregamento</strong><br>
-                  Lê CSV processado
-               </div>
-               <div class="arrow">→</div>
-               <div class="right-box">
+               <div class="box">
                   <strong>Transformações</strong><br>
-                  Renomeia colunas legíveis<br>
-                  Remove “BOLSA COMPLEMENTAR 25%”<br>
-                  Cria “FAIXA DE IDADE”
+                  ● Renomeia colunas legíveis<br>
+                  ● Remove “BOLSA COMPLEMENTAR 25%”<br>
+                  ● Cria “FAIXA DE IDADE”
                </div>
-            </div>
-
+               <div class="arrow">➡️</div>
+               <div class="row">
+               <div class="box">
+                  <strong>Carregamento</strong><br>
+                  ● Lê CSV processado
+               </div>
+            <div class="arrow">➡️</div>
             <div class="row">
-               <div class="left-box">
+               <div class="box">
                   <strong>Visualizações</strong><br>
-                  Plotly + ipywidgets<br>
-                  Sexo x tipo, Raça x tipo, Crescimento por período<br>
-                  Mapa por UF (GeoJSON local)
+                  ● Plotly + ipywidgets<br>
+                  ● Sexo x tipo, Raça x tipo, Crescimento por período<br>
+                  ● Mapa por UF (GeoJSON local)
                </div>
-               <div class="arrow">→</div>
-               <div class="right-box">
+               <div class="arrow">➡️</div>
+               <div class="box">
                   <strong>Exportação</strong><br>
-                  Salva gráficos em `figures/`
+                  ● Salva gráficos em `figures/`
+               </div>
+               <div class="arrow">✅</div>
+               </div>
                </div>
             </div>
             </div>
          </div>
          </section>
-
-
          <section id="insights" class="report-section">
          <h2>4. Análises dos visuais e insights</h2>
          <p>
@@ -167,18 +166,18 @@
             superior fora dos grandes centros tradicionais.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Crescimento_percentual_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Crescimento percentual de todas as bolsas comparando regiões por ano" height="400px" width="800px">
+               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Crescimento_percentual_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Crescimento percentual de todas as bolsas comparando regiões por ano" >
             </div>
          <p>
             Apesar disso, o Sudeste permanece como principal concentrador absoluto de bolsas, mostrando que,
             mesmo com crescimento em outras regiões, a desigualdade regional ainda é significativa.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Quantidade_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Quantidade de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Quantidade_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Quantidade de todas as bolsas comparando regiões por anos" >
                
             </div>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/mapa_bolsas_por_uf/Bolsas_do_Prouni_em_de_2005_a_2019.png" alt="Mapa de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+               <img src="../src/figure/chars/prouni/mapa_bolsas_por_uf/Bolsas_do_Prouni_em_de_2005_a_2019.png" alt="Mapa de todas as bolsas comparando regiões por anos" >
             </div>
 
 
@@ -192,7 +191,7 @@
             indicando um possível gargalo de acesso para esse grupo específico.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/total_idade_tipo_e_raça/Quantidade_de_bolsas_por_tipo_e_raça_de_2005_a_2019.png" alt="Quantidade de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+               <img src="../src/figure/chars/prouni/total_idade_tipo_e_raça/Quantidade_de_bolsas_por_tipo_e_raça_de_2005_a_2019.png" alt="Quantidade de todas as bolsas comparando regiões por anos" >
             </div>
          <h3>Diferenças por sexo</h3>
          <p>
@@ -204,7 +203,7 @@
             superior via políticas públicas.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/grafico_crescimento_por_periodo_sexo/Quantidade_de_todas_as_bolsas_por_ano_comparando_sexo.png" alt="Quantidade de todas as bolsas comparando regiões por anos" height="400px" width="800px">
+               <img src="../src/figure/chars/prouni/grafico_crescimento_por_periodo_sexo/Quantidade_de_todas_as_bolsas_por_ano_comparando_sexo.png" alt="Quantidade de todas as bolsas comparando regiões por anos" >
             </div>
          <h3>Predominância de bolsas integrais</h3>
          <p>
@@ -212,7 +211,9 @@
             volume populacional. Isso reforça o papel do PROUNI como mecanismo efetivo de inclusão educacional
             para estudantes em situação de vulnerabilidade socioeconômica.
          </p>
-
+            <div class="chars">
+               <img src="../src/figure/chars/prouni/total_idade_tipo/Quantidade_de_bolsas_por_tipo_de_bolsa_de_2005_a_2019.png" alt="Quantidade de todas as bolsas comparando regiões por anos" >
+            </div>
          <p>
             As bolsas parciais apresentam volume menor e crescimento mais moderado, sugerindo que o programa
             prioriza, majoritariamente, estudantes com menor capacidade de custeio.
