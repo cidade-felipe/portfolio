@@ -57,6 +57,7 @@
          <a href="#intro">1. Introdução</a>
          <a href="#perguntas">2. Perguntas de análise</a>
          <a href="#dados">3. Fonte e preparação</a>
+         <a href="#pipeline">3.1 Pipeline (Mermaid)</a>
          <a href="#insights">4. Análises dos visuais e insights</a>
          <a href="#conclusao">5. Conclusão</a>
          <a href="#proximos">6. Próximos passos</a>   
@@ -86,73 +87,25 @@
          <section id="dados" class="report-section">
          <h2>3. Fonte e preparação</h2>
          <p>
-            A base passa por limpeza, padronização e estruturação para análise. O objetivo é reduzir ruído,
-            garantir consistência e preparar os dados para gráficos e mapa por UF.
+            A base passa por limpeza, padronização e estruturação para análise. O objetivo é reduzir ruído, garantir consistência e preparar os dados para gráficos e mapa por UF. Este processo é fundamental para garantir que as visualizações reflitam a realidade dos dados e permitam insights confiáveis.
          </p>
+         <p>
+            O pipeline inclui etapas de leitura, tratamento de nulos, renomeação de colunas, filtragem de idade e criação de novas variáveis, além de ajustes específicos para visualizações. Como mostra o diagrama abaixo, cada etapa é crucial para transformar a base bruta em um conjunto de dados limpo e estruturado, pronto para análise e visualização. Tal processo está representado no diagrama a seguir, que detalha cada fase do pipeline de dados, desde a ingestão até a exportação dos gráficos finais.
+         </p>
+            <h3>3.1 Pipeline</h3>
+            <pre class="mermaid">
+               flowchart TB
+               A["Fonte<br/>Kaggle (kagglehub)<br/>dataset: Prouni Brazilian Scholarship Program"] --> B["Ingestão<br/>Leitura do CSV com Pandas"]
+               B --> C["Pré-processamento<br/>Renomeia colunas<br/>Remove nulos (dropna)<br/>Remove colunas sensíveis (como o CPF)<br/>Filtra idade (15–90)"]
+               C --> D["Saída limpa<br/>data/prouni_2005_2019_processed.csv"]
+               D --> E["Carregamento<br/>Lê CSV processado com Pandas<br/>"]
+               E --> F["Transformações<br/>Renomeia colunas legíveis<br/>Remove “BOLSA COMPLEMENTAR 25%”<br/>Cria “FAIXA DE IDADE”"]
+               F --> G["Visualizações<br/>Plotly + ipywidgets<br/>Sexo x tipo, Raça x tipo, Crescimento por período<br/>Mapa por UF (GeoJSON local)"]
+               G --> H["Exportação<br/>Salva gráficos em figures/"]
+            </pre>
+           </section>
 
-         <div class="figure">
-            <div class="pipeline two-col">
-               <div class="row">
-                  <div class="box">
-                     <strong>Fonte</strong><br>
-                     ● Kaggle (kagglehub)<br>
-                     ● Dataset <a href="https://www.kaggle.com/datasets/lfarhat/brasil-students-scholarship-prouni-20052019" target="_blank" rel="noreferrer">Brazil Students Scholarship Prouni</a>
-                  
-               </div>
-               <div class="arrow">➡️</div>
-               <div class="box">
-                  <strong>Ingestão</strong><br>
-                  ● Leitura do CSV com Pandas
-               </div>
-               <div class="arrow">➡️</div>
-               <div class="box">
-                  <strong>Pré‑processamento</strong><br>
-                  ● Renomeia colunas (padroniza nomes)<br>
-                  ● Remove nulos (dropna)<br>
-                  ● Remove colunas sensíveis (CPF, nascimento, código e-MEC)<br>
-                  ● Filtra idade (15–90)
-               </div>
-               <div class="arrow">➡️</div>
-               <div class="box">
-                  <strong>Saída limpa</strong><br>
-                  ● Salva em data/prouni_2005_2019_processed.csv
-               </div>
-               <div class="arrow">➡️</div>
-            </div>
-            <div class="row">
-               <div class="box">
-                  <strong>Transformações</strong><br>
-                  ● Renomeia colunas legíveis<br>
-                  ● Remove “BOLSA COMPLEMENTAR 25%”<br>
-                  ● Cria “FAIXA DE IDADE”
-               </div>
-               <div class="arrow">➡️</div>
-               <div class="row">
-               <div class="box">
-                  <strong>Carregamento</strong><br>
-                  ● Lê CSV processado
-               </div>
-            <div class="arrow">➡️</div>
-            <div class="row">
-               <div class="box">
-                  <strong>Visualizações</strong><br>
-                  ● Plotly + ipywidgets<br>
-                  ● Sexo x tipo, Raça x tipo, Crescimento por período<br>
-                  ● Mapa por UF (GeoJSON local)
-               </div>
-               <div class="arrow">➡️</div>
-               <div class="box">
-                  <strong>Exportação</strong><br>
-                  ● Salva gráficos em `figures/`
-               </div>
-               <div class="arrow">✅</div>
-               </div>
-               </div>
-            </div>
-            </div>
-         </div>
-         </section>
-         <section id="insights" class="report-section">
+           <section id="insights" class="report-section">
          <h2>4. Análises dos visuais e insights</h2>
          <p>
             O projeto foca em visualizações com Plotly, incluindo comparações por ano, recortes por sexo e idade, além de um mapa interativo com GeoJSON para mostrar distribuição por UF.
@@ -299,5 +252,10 @@
    </div>
    </div>
 </footer>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
 </body>
 </html>

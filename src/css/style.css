@@ -11,12 +11,10 @@
   --accent2: #67d2c8;
   --soft-glow: rgba(110,168,254,0.22);
   --font: 'Inter', sans-serif;
+  --box-width: 300px;
 }
 
-.container {
-  width: min(1100px, 92%);
-  margin: 0 auto;
-}
+
 
 body {
   font-family: var(--font);
@@ -734,6 +732,7 @@ body {
   justify-content: center;
   margin-top: 10px;
   font-size: 13px;
+  min-width: max-content;
 }
 
 .project-title {
@@ -756,8 +755,14 @@ body {
   max-width: 860px;
 }
 
+
+
 .report {
-  padding: 38px 0 70px 0;
+  margin-top: 12px;
+  margin-left: 22px;
+  margin-right: 22px;
+  max-width: 1100px;
+
 }
 
 .report-grid {
@@ -802,11 +807,14 @@ body {
   border-radius: 18px;
   padding: 22px;
   size: block;
-}
+  min-width: 2000px;
+  overflow: auto;
+  }
 
 .report-section {
   padding: 10px 0 26px 0;
   border-bottom: 1px solid rgba(31, 38, 53, 0.65);
+  
 }
 
 .report-section:last-child {
@@ -853,23 +861,6 @@ body {
   font-size: 18px;
 }
 
-.figure {
-  margin: 0;
-  background: rgba(16, 22, 38, 0.35);
-  border: 1px dashed rgba(110,168,254,0.35);
-  border-radius: 16px;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.figure .cap {
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 8px;
-}
 
 .table-wrap {
   display: flex;
@@ -941,48 +932,11 @@ body {
   }
 }
 
-.chars {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-    min-width: max-content;
-}
-.pipeline { 
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-}
-  .pipeline.two-col {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    max-width: 1;
-  }
-  .pipeline.two-col .row {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    max-width: min-content;
-  }
-  .row .box {
-    border: 1px solid #bbb; border-radius: 6px; padding: 10px 12px;
-    background: #f7f7f7; width: 300px;
-    height: auto;
-    max-width: max-content;
-    min-width: 380px;
-    flex-direction: column;
-    align-items: left;
-    text-align: left;
-  }
 
-
-  .arrow { margin: 0 12px; font-size: 20px; }
 
 /* ===== Ajuste do layout do relatório (sumário mais à esquerda) ===== */
 
-.report .container {
-  width: fit-content !important;
-  margin-left: 20px;   /* puxa o layout pra esquerda */
-  margin-right: 20px;
-}
+
 
 .report-grid {
   display: grid;
@@ -997,3 +951,84 @@ body {
   align-self: start;
   margin-left: 0;
   }
+
+
+/* ===== FULL WIDTH REPORT (override final) ===== */
+
+/* mantém containers normais do site, mas libera o report */
+.report {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 23px;
+  padding-right: 23px;
+}
+
+/* só o container do report vira full width */
+.report .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* grid do report: sumário + conteúdo */
+.report-grid {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+/* sumário colado na esquerda */
+.toc {
+  justify-self: start;
+  margin: 0;
+  position: sticky;
+  top: 92px;
+}
+
+/* conteúdo ocupa o resto da largura sem estourar */
+.report-content {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden; /* evita scroll horizontal feio */
+}
+
+/* imagens e gráficos não estouram */
+.report-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* tabelas também */
+.table-wrap,
+.data-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* responsivo */
+@media (max-width: max-content) {
+  .report {
+    padding: 0 14px;
+  }
+
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    position: relative;
+    top: auto;
+  }
+
+}
+.chars {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  min-width: none;
+}
+.mermaid {
+  text-align: center;
+}
