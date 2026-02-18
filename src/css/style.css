@@ -505,7 +505,7 @@ body {
 
   box-shadow: 0 0 22px rgba(0,0,0,0.4);
   color: #cfd3ff;
-  max-width: 1040px;
+  min-width: max-content;
   
 }
 
