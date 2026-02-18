@@ -39,7 +39,7 @@
       </p>
 
       <div class="badges">
-        <span>Python</span><span>Pandas</span><span>EDA</span><span>Machine Learning</span><span>Power BI</span>
+        <span>Python</span><span>Pandas</span><span>EDA</span><span>Power BI</span>
       </div>
 
       <div class="meta">
@@ -57,7 +57,6 @@
         <a href="#intro">1. Introdução</a>
         <a href="#perguntas">2. Perguntas de análise</a>
         <a href="#dados">3. Fonte e preparação</a>
-        <a href="#pipeline">3.1 Pipeline</a>
         <a href="#eda">4. EDA e insights</a>
         <a href="#dashboard">5. Dashboard (Power BI)</a>
         <a href="#conclusao">6. Conclusão</a>
@@ -98,15 +97,12 @@
 
           <div class="mermaid-wrap">
             <pre class="mermaid">
-flowchart TB
-  A["Fonte de dados<br/>World Happiness (dataset)"] --> B["Ingestão<br/>Leitura com Pandas"]
-  B --> C["Pré-processamento<br/>Padronização de colunas<br/>Tratamento de nulos<br/>Tipos e filtros"]
-  C --> D["Base final<br/>Dataset limpo e consistente"]
-  D --> E["EDA<br/>Tendências por ano<br/>Distribuição global<br/>Correlação entre variáveis"]
-  D --> F["Modelagem<br/>Split treino/teste<br/>Treino do modelo<br/>Avaliação e ajuste"]
-  F --> G["Predição e insights<br/>Comparação real vs previsto<br/>Exploração por país/ano"]
-  E --> H["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
-  G --> H
+              flowchart TB
+                A["Fonte de dados<br/>World Happiness (dataset)"] --> B["Ingestão<br/>Leitura com Pandas"]
+                B --> C["Pré-processamento<br/>Padronização de colunas<br/>Tratamento de nulos<br/>Tipos e filtros"]
+                C --> D["Base final<br/>Dataset limpo e consistente"]
+                D --> E["EDA<br/>Tendências por ano<br/>Distribuição global<br/>Correlação entre variáveis"]
+                E --> F["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
             </pre>
           </div>
         </section>
