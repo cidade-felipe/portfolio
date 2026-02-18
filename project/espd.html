@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecommerce Shipping Performance | Projeto</title>
+  <link rel="stylesheet" href="../src/css/style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-dot"></span>
+        <span>Felipe Cidade Soares</span>
+      </a>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html" class="active">Projetos</a>
+        <a href="../profile.html">Perfil</a>
+        <a href="../contact.html">Contato</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container project-title">
+        <h1>Ecommerce Shipping Performance</h1>
+        <p>
+          Análise de performance logística com foco em SLA, atrasos e impacto no faturamento (GMV).
+          Dashboard no Power BI com visão executiva, operação por estado e evolução temporal.
+        </p>
+
+        <div class="badges">
+          <span>Power BI</span><span>DAX</span><span>KPIs</span><span>SLA</span><span>Logística</span><span>Storytelling</span>
+        </div>
+
+        <div class="meta">
+          <span>Autor: Felipe Cidade Soares</span>
+          <span>Tipo: BI e Analytics</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="report">
+      <div class="container report-grid">
+
+        <aside class="toc">
+          <h3>Sumário</h3>
+          <a href="#intro">1. Contexto</a>
+          <a href="#objetivos">2. Objetivos</a>
+          <a href="#kpis">3. KPIs e definições</a>
+          <a href="#dashboard">4. Dashboard e páginas</a>
+          <a href="#insights">5. Insights principais</a>
+          <a href="#conclusao">6. Conclusão</a>
+        </aside>
+
+        <article class="report-content">
+
+          <section id="intro" class="report-section">
+            <h2>1. Contexto</h2>
+            <p>
+              Em operações de ecommerce, a entrega é um dos maiores fatores de experiência do cliente.
+              Atrasos e falhas logísticas impactam diretamente métricas de negócio como GMV,
+              ticket médio e avaliação do pedido.
+            </p>
+            <p>
+              Este projeto organiza a visão de performance de entregas em um dashboard com recortes
+              por tempo, método de pagamento, categoria e geografia, permitindo identificar padrões,
+              gargalos e oportunidades de melhoria operacional.
+            </p>
+          </section>
+
+          <section id="objetivos" class="report-section">
+            <h2>2. Objetivos</h2>
+            <p>O objetivo é transformar dados de entregas em decisões práticas para operação e negócio.</p>
+
+            <ul>
+              <li>Medir performance de SLA (no prazo vs atrasado) e taxa de não entrega.</li>
+              <li>Encontrar estados e períodos com maior risco operacional.</li>
+              <li>Relacionar atrasos com impacto em GMV, ticket médio e avaliações.</li>
+              <li>Dar uma visão executiva rápida e uma visão operacional detalhada.</li>
+            </ul>
+
+            <div class="kpi-grid">
+              <div class="kpi">
+                <div class="label">Foco</div>
+                <div class="value">SLA</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Foco</div>
+                <div class="value">GMV</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Foco</div>
+                <div class="value">Operação</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="kpis" class="report-section">
+            <h2>3. KPIs e definições</h2>
+
+            <p>
+              O painel foi estruturado para responder perguntas de negócio com métricas simples e acionáveis.
+              Entre os principais indicadores estão:
+            </p>
+
+            <ul>
+              <li><strong>Tempo médio de entrega:</strong> tempo médio (dias) dos pedidos entregues.</li>
+              <li><strong>% entregues no prazo:</strong> proporção de pedidos entregues dentro do SLA.</li>
+              <li><strong>% atrasados:</strong> proporção de pedidos fora do SLA.</li>
+              <li><strong>GMV:</strong> faturamento bruto associado aos pedidos (entregues e total).</li>
+              <li><strong>Ticket médio:</strong> média do valor por pedido.</li>
+              <li><strong>Avaliação média:</strong> satisfação do cliente por entregas no prazo vs atrasadas.</li>
+            </ul>
+
+            <p>
+              Um ponto importante do dashboard é a comparação temporal entre anos e meses, além de leituras
+              de tendência que ajudam a separar os “picos do mês” de mudanças reais no comportamento.
+            </p>
+          </section>
+
+          <section id="dashboard" class="report-section">
+            <h2>4. Dashboard e páginas</h2>
+            <p>
+              O dashboard foi dividido em páginas para dar uma leitura em camadas: primeiro a visão executiva,
+              depois operação e SLA, e por fim evolução e tendências.
+            </p>
+
+            <h3>4.1. Visão geral (executivo)</h3>
+            <p>
+              Um resumo direto com os principais KPIs, distribuição de GMV por meio de pagamento, top categorias
+              e comparação de GMV com ano anterior.
+            </p>
+            <div class="chars">
+              <img src="/src/figure/chars/ecommerce/visao_geral.png" alt="Visão geral do dashboard de entregas" >
+            </div>
+
+            <h3>4.2. Operação e SLA</h3>
+            <p>
+              Diagnóstico operacional com mapa por estado, análise de atrasos ao longo do tempo e relações
+              com GMV e ticket médio.
+            </p>
+            <div class="chars">
+              <img src="/src/figure/chars/ecommerce/operacao_sla.png" alt="Operação e SLA no dashboard" >
+            </div>
+
+            <h3>4.3. Evolução e tendência</h3>
+            <p>
+              Leitura temporal com recorte dos últimos meses vs período anterior, comportamento do GMV
+              mensal e sinais de desaceleração ou recuperação.
+            </p>
+            <div class="chars">
+              <img src="/src/figure/chars/ecommerce/evolucao_tendencia.png" alt="Evolução e tendência do dashboard" >
+            </div>
+
+            <p style="margin-top: 12px;">
+              Observação: os prints acima representam o storytelling do painel, conectando operação (atrasos)
+              com impacto de negócio (GMV e ticket).
+            </p>
+          </section>
+
+          <section id="insights" class="report-section">
+            <h2>5. Insights principais</h2>
+
+            <h3>5.1. Atrasos tendem a “anteceder” queda em ticket médio</h3>
+            <p>
+              Em períodos com aumento de atrasos, o ticket médio tende a perder força nos meses seguintes,
+              sugerindo impacto indireto na conversão, na recompra ou no mix de produtos adquiridos.
+            </p>
+
+            <h3>5.2. GMV cresce, mas a operação pode estar “pagando a conta”</h3>
+            <p>
+              A comparação de GMV com ano anterior ajuda a mostrar crescimento, mas a leitura conjunta com
+              o percentual de atrasos revela momentos em que o crescimento ocorre com pressão operacional,
+              o que pode comprometer experiência e margem no longo prazo.
+            </p>
+
+            <h3>5.3. Concentração geográfica de atraso</h3>
+            <p>
+              O mapa evidencia que alguns estados concentram mais dias de atraso do que outros.
+              Isso abre caminho para ações específicas, como renegociação com transportadoras regionais,
+              revisão de prazo prometido ou ajuste de roteirização.
+            </p>
+
+            <h3>5.4. Pagamento e categorias ajudam a explicar o GMV</h3>
+            <p>
+              A leitura de GMV por meio de pagamento e o Top 10 categorias permite separar crescimento real
+              de mudanças no mix. Isso evita conclusões erradas do tipo “o GMV caiu porque a entrega atrasou”,
+              quando na verdade o mix ou o método de pagamento mudou.
+            </p>
+          </section>
+
+          <section id="conclusao" class="report-section">
+            <h2>6. Conclusão</h2>
+            <p>
+              O dashboard consolida uma visão completa de performance logística, conectando indicadores operacionais
+              (SLA, atraso e não entrega) com indicadores de negócio (GMV, ticket e avaliação).
+            </p>
+            <p>
+              O resultado é um painel que permite agir rápido: identificar períodos críticos, localizar gargalos por estado,
+              e entender se o crescimento está saudável ou acompanhado de degradação de experiência.
+            </p>
+            <p>
+              Este projeto demonstra capacidade de modelar um problema real de operação, definir métricas claras e
+              construir uma narrativa analítica pronta para tomada de decisão.
+            </p>
+          </section>
+
+          <div class="cta-row-final">
+            <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/ecommerce-shipping-performance-dashboard" target="_blank" rel="noreferrer">Repositório do Dashboard</a>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/ecommerce-shipping-analytics" target="_blank" rel="noreferrer">Repositório do Analytics</a>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="container footer-inner">
+      <p>© 2026 Felipe Cidade</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
