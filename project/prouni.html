@@ -57,7 +57,7 @@
          <a href="#intro">1. Introdução</a>
          <a href="#perguntas">2. Perguntas de análise</a>
          <a href="#dados">3. Fonte e preparação</a>
-         <a href="#pipeline">3.1 Pipeline (Mermaid)</a>
+         <a href="#pipeline">3.1 Pipeline</a>
          <a href="#insights">4. Análises dos visuais e insights</a>
          <a href="#conclusao">5. Conclusão</a>
          <a href="#proximos">6. Próximos passos</a>   
@@ -93,6 +93,7 @@
             O pipeline inclui etapas de leitura, tratamento de nulos, renomeação de colunas, filtragem de idade e criação de novas variáveis, além de ajustes específicos para visualizações. Como mostra o diagrama abaixo, cada etapa é crucial para transformar a base bruta em um conjunto de dados limpo e estruturado, pronto para análise e visualização. Tal processo está representado no diagrama a seguir, que detalha cada fase do pipeline de dados, desde a ingestão até a exportação dos gráficos finais.
          </p>
             <h3>3.1 Pipeline</h3>
+            <div class="mermaid-wrap">
             <pre class="mermaid">
                flowchart TB
                A["Fonte<br/>Kaggle (kagglehub)<br/>dataset: Prouni Brazilian Scholarship Program"] --> B["Ingestão<br/>Leitura do CSV com Pandas"]
@@ -103,7 +104,8 @@
                F --> G["Visualizações<br/>Plotly + ipywidgets<br/>Sexo x tipo, Raça x tipo, Crescimento por período<br/>Mapa por UF (GeoJSON local)"]
                G --> H["Exportação<br/>Salva gráficos em figures/"]
             </pre>
-           </section>
+            </div>
+         </section>
 
            <section id="insights" class="report-section">
          <h2>4. Análises dos visuais e insights</h2>

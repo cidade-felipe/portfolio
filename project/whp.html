@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Happiness Prediction | Projeto</title>
+  <link rel="stylesheet" href="../src/css/style.css" />
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+    </a>
+
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projetos</a>
+      <a href="../profile.html">Perfil</a>
+      <a href="../contact.html">Contato</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="project-hero">
+    <div class="container project-title">
+      <h1>World Happiness Prediction</h1>
+      <p>
+        Projeto de análise e modelagem para entender fatores associados ao Índice de Felicidade
+        e criar uma camada de predição, com dashboard interativo para exploração dos resultados.
+      </p>
+
+      <div class="badges">
+        <span>Python</span><span>Pandas</span><span>EDA</span><span>Machine Learning</span><span>Power BI</span>
+      </div>
+
+      <div class="meta">
+        <span>Autor: Felipe Cidade Soares</span>
+        <span>Tipo: EDA + Modelagem + Dashboard</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="report">
+    <div class="container report-grid">
+
+      <aside class="toc">
+        <h3>Sumário</h3>
+        <a href="#intro">1. Introdução</a>
+        <a href="#perguntas">2. Perguntas de análise</a>
+        <a href="#dados">3. Fonte e preparação</a>
+        <a href="#pipeline">3.1 Pipeline</a>
+        <a href="#eda">4. EDA e insights</a>
+        <a href="#dashboard">5. Dashboard (Power BI)</a>
+        <a href="#conclusao">6. Conclusão</a>
+        <a href="#proximos">7. Próximos passos</a>
+      </aside>
+
+      <article class="report-content">
+
+        <section id="intro" class="report-section">
+          <h2>1. Introdução</h2>
+          <p>
+            Este projeto investiga dados do World Happiness para entender quais variáveis se relacionam com o Índice de Felicidade
+            e como essas relações podem ser transformadas em um modelo preditivo. Além da análise, o projeto entrega um dashboard
+            para exploração visual (mapa e correlações) e uma estrutura de preparação de dados para treinar modelos de forma repetível.
+          </p>
+        </section>
+
+        <section id="perguntas" class="report-section">
+          <h2>2. Perguntas de análise</h2>
+          <p>
+            As perguntas que guiam o projeto são: quais fatores têm maior associação com o Índice de Felicidade, como o índice varia
+            ao longo do tempo, como o indicador se distribui globalmente e se é possível prever o índice a partir de variáveis socioeconômicas
+            e institucionais (por exemplo PIB per capita, expectativa de vida, apoio social, liberdade de escolhas e confiança no governo).
+          </p>
+        </section>
+
+        <section id="dados" class="report-section">
+          <h2>3. Fonte e preparação</h2>
+          <p>
+            A preparação dos dados organiza a base para análise e para treino de modelos. O foco é padronizar colunas, tratar nulos,
+            garantir tipos corretos, evitar vazamento de informação e criar uma base final consistente para EDA e modelagem.
+            O pipeline abaixo resume o fluxo de ponta a ponta.
+          </p>
+        </section>
+
+        <section id="pipeline" class="report-section">
+          <h2>3.1 Pipeline</h2>
+
+          <div class="mermaid-wrap">
+            <pre class="mermaid">
+flowchart TB
+  A["Fonte de dados<br/>World Happiness (dataset)"] --> B["Ingestão<br/>Leitura com Pandas"]
+  B --> C["Pré-processamento<br/>Padronização de colunas<br/>Tratamento de nulos<br/>Tipos e filtros"]
+  C --> D["Base final<br/>Dataset limpo e consistente"]
+  D --> E["EDA<br/>Tendências por ano<br/>Distribuição global<br/>Correlação entre variáveis"]
+  D --> F["Modelagem<br/>Split treino/teste<br/>Treino do modelo<br/>Avaliação e ajuste"]
+  F --> G["Predição e insights<br/>Comparação real vs previsto<br/>Exploração por país/ano"]
+  E --> H["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
+  G --> H
+            </pre>
+          </div>
+        </section>
+
+        <section id="eda" class="report-section">
+          <h2>4. EDA e insights</h2>
+          <p>
+            Na exploração, a ideia é visualizar a variação temporal do índice e entender relações entre variáveis explicativas.
+            Os gráficos de dispersão com linha de tendência ajudam a enxergar associações fortes e fracas, e o mapa permite ler o cenário
+            global rapidamente.
+          </p>
+
+          <h3>4.1 Mapa global do Índice de Felicidade</h3>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page3.png" alt="Mapa do Índice de Felicidade por país" />
+          </div>
+
+          <h3>4.2 Correlações visuais</h3>
+          <p>
+            As correlações ajudam a entender o que “anda junto” com o índice. Em geral, indicadores como PIB per capita, expectativa de vida,
+            apoio social e liberdade de escolhas tendem a acompanhar o aumento do índice, enquanto variáveis ligadas a confiança institucional
+            podem apresentar padrões menos lineares dependendo do recorte.
+          </p>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page2.png" alt="Gráficos de correlação com linha de tendência" />
+          </div>
+
+          <h3>4.3 Evolução ao longo do tempo</h3>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page1.png" alt="Visão geral com linha temporal e rankings" />
+          </div>
+        </section>
+
+        <section id="dashboard" class="report-section">
+          <h2>5. Dashboard (Power BI)</h2>
+          <p>
+            O dashboard consolida a exploração em três páginas principais: visão geral, mapa e correlações.
+            Ele permite filtrar o ano e comparar padrões sem precisar abrir notebook, o que deixa o projeto mais apresentável e fácil de navegar.
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Página</th>
+                  <th>Objetivo</th>
+                  <th>O que o usuário descobre rápido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Visão Geral</td>
+                  <td>Resumo de métricas e tendências</td>
+                  <td>Top/Bottom países e variação temporal</td>
+                </tr>
+                <tr>
+                  <td>Mapa</td>
+                  <td>Distribuição geográfica</td>
+                  <td>Diferenças regionais claras no primeiro olhar</td>
+                </tr>
+                <tr>
+                  <td>Correlações</td>
+                  <td>Relações entre variáveis</td>
+                  <td>Quais fatores se associam mais ao índice</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="conclusao" class="report-section">
+          <h2>6. Conclusão</h2>
+          <p>
+            O projeto mostra como dados sociais e econômicos podem ser transformados em análise visual e em uma abordagem preditiva,
+            conectando exploração, interpretação e produto final (dashboard). O resultado é uma visão clara do comportamento do Índice de Felicidade
+            no tempo e no espaço, além de um caminho consistente para estimar o índice a partir de variáveis explicativas.
+          </p>
+          <p>
+            Na prática, o valor aqui é duplo: entendimento dos padrões e uma estrutura replicável de preparação e modelagem. Isso deixa o projeto
+            pronto tanto para storytelling quanto para evolução técnica.
+          </p>
+        </section>
+
+        <section id="proximos" class="report-section">
+          <h2>7. Próximos passos</h2>
+          <p>
+            Como evolução, dá para adicionar comparação entre modelos, análise de importância de variáveis, validação temporal (treinar em anos anteriores e testar em anos seguintes),
+            e uma camada de explicabilidade (por exemplo SHAP) para tornar a predição mais interpretável. No dashboard, dá para incluir uma aba “Predição vs Real”
+            e um ranking de países com maior erro, que costuma render bons insights.
+          </p>
+        </section>
+
+        <div class="cta-row-final">
+          <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+          <a class="btn-premium secondary" href="https://github.com/cidade-felipe/world-happiness-prediction" target="_blank" rel="noreferrer">Repositório</a>
+        </div>
+
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-premium">
+  <div class="container footer-inner">
+    <p>© 2026 Felipe Cidade</p>
+  </div>
+</footer>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+</body>
+</html>

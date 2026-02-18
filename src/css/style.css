@@ -1032,3 +1032,44 @@ body {
 .mermaid {
   text-align: center;
 }
+/* Imagens responsivas */
+.report-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mermaid costuma estourar em zoom, então deixa scroll só nela */
+.mermaid-wrap {
+  width: 100%;
+  overflow-x: auto;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(16, 22, 38, 0.08);
+  border: 1px dashed rgba(110,168,254,0.35);
+}
+
+.mermaid {
+  min-width: 720px;      /* mantém legível em desktop, mas sem quebrar layout */
+}
+
+/* Se você usar <pre> para mermaid, ele precisa quebrar também */
+pre.mermaid {
+  white-space: pre;      /* mantém o código como é */
+  overflow-x: auto;      /* scroll horizontal só no bloco */
+  max-width: 100%;
+}
+
+/* Evita que wrappers "max-content" destruam o layout */
+.figure,
+.chars,
+.pipeline {
+  min-width: 0 !important;
+}
+
+/* Se teu .chars tava com max-content, isso aqui conserta */
+.chars {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
