@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LPG Installation Sizer | Projeto</title>
+<link rel="stylesheet" href="../src/css/style.css" />
+</head>
+
+<body>
+<header class="topbar">
+   <div class="topbar-inner">
+   <a class="brand" href="../index.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+   </a>
+
+   <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projetos</a>
+      <a href="../profile.html">Perfil</a>
+      <a href="../contact.html">Contato</a>
+   </nav>
+
+   <div class="topbar-actions">
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
+   </div>
+   </div>
+</header>
+
+<main>
+   <section class="project-hero">
+   <div class="container project-title">
+      <h1>LPG Installation Sizer</h1>
+      <p>
+         Sistema de apoio ao dimensionamento de instalações de GLP com banco relacional, dados base e
+         scripts para criação do schema, índices e carga inicial.
+      </p>
+
+      <div class="badges">
+         <span>PostgreSQL</span><span>Python</span><span>psycopg</span><span>SQL</span><span>ETL</span>
+      </div>
+
+      <div class="meta">
+         <span>Autor: Felipe Cidade Soares</span>
+         <span>Tipo: Backend + Dados</span>
+      </div>
+   </div>
+   </section>
+
+   <section class="report">
+   <div class="container report-grid">
+
+      <aside class="toc">
+         <h3>Sumário</h3>
+         <a href="#intro">1. Introdução</a>
+         <a href="#objetivos">2. Objetivos</a>
+         <a href="#modelo">3. Modelo de dados</a>
+         <a href="#pipeline">4. Pipeline e automação</a>
+         <a href="#features">5. Funcionalidades</a>
+         <a href="#conclusao">6. Conclusão</a>
+         <a href="#proximos">7. Próximos passos</a>
+      </aside>
+
+      <article class="report-content">
+
+         <section id="intro" class="report-section">
+         <h2>1. Introdução</h2>
+         <p>
+            O projeto organiza parâmetros técnicos usados no dimensionamento de instalações de GLP,
+            reunindo materiais, tubos, peças e cilindros em um banco relacional com foco em integridade,
+            reuso e rastreabilidade. A base é complementada por scripts que automatizam criação de tabelas,
+            índices e carga inicial dos dados.
+         </p>
+         </section>
+
+         <section id="objetivos" class="report-section">
+         <h2>2. Objetivos</h2>
+         <p>Principais objetivos do projeto:</p>
+         <ul>
+            <li>Centralizar parâmetros técnicos em um modelo relacional consistente.</li>
+            <li>Garantir integridade com chaves e constraints (FKs, uniques e checks).</li>
+            <li>Automatizar criação e carga inicial para reprodutibilidade.</li>
+         </ul>
+         </section>
+
+         <section id="modelo" class="report-section">
+         <h2>3. Modelo de dados</h2>
+         <p>
+            O schema organiza dados base (materiais, tubos, peças e cilindros) e dados de projeto
+            (projetos, equipamentos, trechos, critérios e cálculos). Relacionamentos são protegidos
+            por chaves estrangeiras, garantindo consistência nas operações.
+         </p>
+
+         <div class="kpi-grid">
+            <div class="kpi">
+               <div class="label">Base</div>
+               <div class="value">Materiais, Tubos, Peças</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Projeto</div>
+               <div class="value">Trechos, Critérios, Cálculos</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Operação</div>
+               <div class="value">Índices e Upsert</div>
+            </div>
+         </div>
+         </section>
+
+         <section id="pipeline" class="report-section">
+         <h2>4. Pipeline e automação</h2>
+         <p>
+            A automação é feita por scripts Python que executam SQL bruto para criação do schema e índices,
+            além de carga inicial via JSON com upsert. O objetivo é manter consistência entre ambientes e
+            facilitar atualizações sem perda de dados.
+         </p>
+         <h3>Pipeline de dados e setup</h3>
+         <div class="mermaid-wrap">
+            <pre class="mermaid">
+               flowchart TB
+               A[".env com credenciais"] --> B["functions/criar_tabelas.py"]
+               B --> C["sql/tabelas.sql (schema)"]
+               C --> D["functions/criar_indices.py"]
+               D --> E["sql/indices.sql (indices)"]
+               E --> F["functions/popular_banco.py"]
+               F --> G["json/ (materiais, tubos, pecas, cilindros)"]
+            </pre>
+         </div>
+         </section>
+
+         <section id="features" class="report-section">
+         <h2>5. Funcionalidades</h2>
+         <p>
+            O repositório entrega um fluxo completo para manter o banco técnico de GLP consistente e
+            pronto para uso em cálculos de dimensionamento e análise de projetos.
+         </p>
+         <ul>
+            <li>Criação e remoção de schema e índices via scripts.</li>
+            <li>Carga inicial com dados base e upsert para atualização segura.</li>
+            <li>Estrutura preparada para cálculo de trechos e perda de carga.</li>
+            <li>Suporte a interface gráfica (PySide6) para cadastro e cálculo.</li>
+         </ul>
+         </section>
+
+         <section id="conclusao" class="report-section">
+         <h2>6. Conclusão</h2>
+         <p>
+            O projeto estabelece uma base sólida para dimensionamento de instalações de GLP,
+            combinando um modelo relacional consistente com automação de setup e dados base.
+            Isso reduz retrabalho, facilita manutenção e garante confiabilidade para cálculos.
+         </p>
+         </section>
+
+         <section id="proximos" class="report-section">
+         <h2>7. Próximos passos</h2>
+         <p>
+            Evoluções naturais incluem versionamento do schema com migrações, padronização de logs
+            nos scripts e publicação de um dashboard para acompanhar métricas dos projetos.
+         </p>
+         </section>
+
+         <div class="cta-row-final">
+            <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/lpg-installation-sizer" target="_blank" rel="noopener noreferrer">Repositório</a>
+         </div>
+
+      </article>
+   </div>
+   </section>
+</main>
+
+<footer class="footer-premium">
+   <div class="container footer-inner">
+   <p>© 2026 Felipe Cidade</p>
+   </div>
+</footer>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>
