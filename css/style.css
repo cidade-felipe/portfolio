@@ -853,6 +853,11 @@ p {
 /* Report Content */
 .report-content {
   min-width: 0;
+  text-align: justify;
+}
+
+.project-description{
+  text-align: justify;
 }
 
 .report-section {
