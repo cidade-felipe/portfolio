@@ -134,8 +134,8 @@ p {
   right: 0;
   z-index: 1000;
   background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
 }
 

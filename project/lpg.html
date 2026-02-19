@@ -177,12 +177,12 @@ CREATE INDEX idx_central_glp_projeto ON central_glp (projeto_id);
          <div class="mermaid-wrap">
             <pre class="mermaid">
                flowchart TB
-               A[".env com credenciais"] --> B["functions/criar_tabelas.py"]
-               B --> C["sql/tabelas.sql (schema)"]
-               C --> D["functions/criar_indices.py"]
-               D --> E["sql/indices.sql (indices)"]
-               E --> F["functions/popular_banco.py"]
-               F --> G["json/ (materiais, tubos, pecas, cilindros)"]
+                  A[".env com credenciais"] --&gt; B["functions/criar_tabelas.py"]
+                  B --&gt; C["sql/tabelas.sql (schema)"]
+                  C --&gt; D["functions/criar_indices.py"]
+                  D --&gt; E["sql/indices.sql (indices)"]
+                  E --&gt; F["functions/popular_banco.py"]
+                  F --&gt; G["json/ (materiais, tubos, pecas, cilindros)"]
             </pre>
          </div>
          </section>

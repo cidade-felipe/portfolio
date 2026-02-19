@@ -102,14 +102,14 @@
           <div class="mermaid-wrap">
             <pre class="mermaid">
               flowchart TB
-                A["Fonte de dados<br/>World Happiness (dataset)"] --> B["Ingestão<br/>Leitura com Pandas"]
-                B --> C["Pré-processamento<br/>Padronização de colunas<br/>Tratamento de nulos<br/>Tipos e filtros"]
-                C --> D["Base final<br/>Dataset limpo e consistente"]
-                D --> E["EDA<br/>Tendências por ano<br/>Distribuição global<br/>Correlação entre variáveis"]
-                D --> F["Modelagem<br/>Split treino/teste<br/>Treino do modelo<br/>Avaliação e ajuste"]
-                F --> G["Predição e insights<br/>Comparação real vs previsto<br/>Exploração por país/ano"]
-                E --> H["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
-                G --> H
+                A["Fonte de dados<br/>World Happiness (dataset)"] &gt; B["Ingestão<br/>Leitura com Pandas"]
+                B &gt; C["Pré-processamento<br/>Padronização de colunas<br/>Tratamento de nulos<br/>Tipos e filtros"]
+                C &gt; D["Base final<br/>Dataset limpo e consistente"]
+                D &gt; E["EDA<br/>Tendências por ano<br/>Distribuição global<br/>Correlação entre variáveis"]
+                D &gt; F["Modelagem<br/>Split treino/teste<br/>Treino do modelo<br/>Avaliação e ajuste"]
+                F &gt; G["Predição e insights<br/>Comparação real vs previsto<br/>Exploração por país/ano"]
+                E &gt; H["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
+                G &gt; H
             </pre>
           </div>
         </section>
