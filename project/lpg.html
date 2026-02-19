@@ -39,7 +39,7 @@
       </p>
 
       <div class="badges">
-         <span>PostgreSQL</span><span>Python</span><span>psycopg</span><span>SQL</span><span>ETL</span>
+         <span>PostgreSQL</span><span>Python</span><span>psycopg</span><span>SQL</span>
       </div>
 
       <div class="meta">
@@ -107,6 +107,31 @@
                <div class="value">Índices e Upsert</div>
             </div>
          </div>
+
+         <h3>Resumo do schema SQL</h3>
+         <pre><code class="language-sql codebox">
+            -- Catálogo técnico
+            CREATE TABLE material (...);
+            CREATE TABLE tubo (...);
+            CREATE TABLE peca (...);
+            CREATE TABLE cilindro (...);
+
+            -- Projetos e operação
+            CREATE TABLE projeto (...);
+            CREATE TABLE equipamento (...);
+            CREATE TABLE equipamento_projeto (...);
+            CREATE TABLE trecho (...);
+            CREATE TABLE trecho_peca (...);
+
+            -- Cálculos e critérios
+            CREATE TABLE calculo (...);
+            CREATE TABLE criterio_projeto (...);
+            CREATE TABLE valores_entrada (...);
+
+            -- Documentos e conformidade
+            CREATE TABLE documento_projeto (...);
+            CREATE TABLE central_glp (...);
+         </code></pre>
          </section>
 
          <section id="pipeline" class="report-section">
@@ -116,6 +141,28 @@
             além de carga inicial via JSON com upsert. O objetivo é manter consistência entre ambientes e
             facilitar atualizações sem perda de dados.
          </p>
+         <div class="kpi-grid">
+            <div class="kpi">
+               <div class="label">Integridade</div>
+               <div class="value">PKs + FKs + UNIQUE</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Qualidade</div>
+               <div class="value">CHECKs (>= 0 / > 0)</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Performance</div>
+               <div class="value">Índices em joins críticos</div>
+            </div>
+         </div>
+         <pre><code class="language-sql codebox">
+            -- Índices para joins e filtros
+            CREATE INDEX idx_eqproj_projeto ON equipamento_projeto (projeto_id);
+            CREATE INDEX idx_trecho_projeto ON trecho (projeto_id);
+            CREATE INDEX idx_trechopeca_trecho ON trecho_peca (trecho_id);
+            CREATE INDEX idx_criterio_projeto ON criterio_projeto (projeto_id);
+            CREATE INDEX idx_central_glp_projeto ON central_glp (projeto_id);
+         </code></pre>
          <h3>Pipeline de dados e setup</h3>
          <div class="mermaid-wrap">
             <pre class="mermaid">
@@ -136,11 +183,23 @@
             O repositório entrega um fluxo completo para manter o banco técnico de GLP consistente e
             pronto para uso em cálculos de dimensionamento e análise de projetos.
          </p>
+         <pre><code class="language-sql codebox">
+            -- Regras e integridade
+            ALTER TABLE equipamento
+            ADD CONSTRAINT uq_equipamento UNIQUE (nome, unidade_medida, pot_unitaria);
+
+            ALTER TABLE trecho
+            ADD CONSTRAINT uq_trecho UNIQUE (projeto_id, rede);
+
+            ALTER TABLE regulador
+            ADD CONSTRAINT chk_regulador_estagio
+            CHECK (estagio IN ('primeiro', 'segundo'));
+         </code></pre>
          <ul>
             <li>Criação e remoção de schema e índices via scripts.</li>
             <li>Carga inicial com dados base e upsert para atualização segura.</li>
             <li>Estrutura preparada para cálculo de trechos e perda de carga.</li>
-            <li>Suporte a interface gráfica (PySide6) para cadastro e cálculo.</li>
+            <li>Suporte a interface gráfica (PySide6) para cadastro e cálculo (em desenvolvimento).</li>
          </ul>
          </section>
 
@@ -177,9 +236,18 @@
    </div>
 </footer>
 
+<link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+   hljs.highlightAll();
+</script>
+
 <script type="module">
-  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-  mermaid.initialize({ startOnLoad: true });
+   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+   mermaid.initialize({ startOnLoad: true });
 </script>
 </body>
 </html>
