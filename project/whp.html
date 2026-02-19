@@ -57,8 +57,8 @@
         <a href="#intro">1. Introdução</a>
         <a href="#perguntas">2. Perguntas de análise</a>
         <a href="#dados">3. Fonte e preparação</a>
-        <a href="#eda">4. EDA e insights</a>
-        <a href="#dashboard">5. Dashboard (Power BI)</a>
+        <a href="#eda">4. Dashboard, EDA e insights</a>
+        <a href="#predicao">5. Predição</a>
         <a href="#conclusao">6. Conclusão</a>
         <a href="#proximos">7. Próximos passos</a>
       </aside>
@@ -68,27 +68,21 @@
         <section id="intro" class="report-section">
           <h2>1. Introdução</h2>
           <p>
-            Este projeto investiga dados do World Happiness para entender quais variáveis se relacionam com o Índice de Felicidade
-            e como essas relações podem ser transformadas em um modelo preditivo. Além da análise, o projeto entrega um dashboard
-            para exploração visual (mapa e correlações) e uma estrutura de preparação de dados para treinar modelos de forma repetível.
+            Este projeto analisa os dados do World Happiness para identificar quais fatores estão mais associados ao Índice de Felicidade e de que forma essas relações podem ser convertidas em um modelo preditivo confiável. A iniciativa combina exploração estatística, limpeza e padronização dos dados, construção de features e avaliação de modelos, garantindo um fluxo reprodutível de preparação e treino. Como entrega prática, o trabalho disponibiliza um dashboard interativo com mapa e visualizações de correlação, permitindo investigar padrões por país e comparar variáveis ao longo do tempo. O resultado é uma base sólida tanto para entendimento dos determinantes da felicidade quanto para aplicações analíticas e preditivas futuras.
           </p>
         </section>
 
         <section id="perguntas" class="report-section">
           <h2>2. Perguntas de análise</h2>
           <p>
-            As perguntas que guiam o projeto são: quais fatores têm maior associação com o Índice de Felicidade, como o índice varia
-            ao longo do tempo, como o indicador se distribui globalmente e se é possível prever o índice a partir de variáveis socioeconômicas
-            e institucionais (por exemplo PIB per capita, expectativa de vida, apoio social, liberdade de escolhas e confiança no governo).
+            As perguntas que orientam o projeto são: quais fatores apresentam maior associação com o Índice de Felicidade; como esse índice evolui ao longo do tempo; como ele se distribui entre regiões e países; e se é possível prever o índice com base em variáveis socioeconômicas e institucionais — por exemplo, PIB per capita, expectativa de vida, apoio social, liberdade de escolhas e confiança no governo.
           </p>
         </section>
 
         <section id="dados" class="report-section">
           <h2>3. Fonte e preparação</h2>
           <p>
-            A preparação dos dados organiza a base para análise e para treino de modelos. O foco é padronizar colunas, tratar nulos,
-            garantir tipos corretos, evitar vazamento de informação e criar uma base final consistente para EDA e modelagem.
-            O pipeline abaixo resume o fluxo de ponta a ponta.
+            A preparação dos dados estrutura a base tanto para a análise quanto para o treino de modelos. O processo envolve padronizar nomes de colunas, tratar valores nulos, garantir tipos corretos, controlar possíveis vazamentos de informação e consolidar um dataset final consistente para EDA e modelagem. O pipeline a seguir sintetiza esse fluxo completo, do dado bruto à base pronta para análise e predição.
           </p>
         </section>
 
@@ -102,47 +96,23 @@
                 B --> C["Pré-processamento<br/>Padronização de colunas<br/>Tratamento de nulos<br/>Tipos e filtros"]
                 C --> D["Base final<br/>Dataset limpo e consistente"]
                 D --> E["EDA<br/>Tendências por ano<br/>Distribuição global<br/>Correlação entre variáveis"]
-                E --> F["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
+                D --> F["Modelagem<br/>Split treino/teste<br/>Treino do modelo<br/>Avaliação e ajuste"]
+                F --> G["Predição e insights<br/>Comparação real vs previsto<br/>Exploração por país/ano"]
+                E --> H["Dashboard (Power BI)<br/>Mapa + correlações + visão geral"]
+                G --> H
             </pre>
           </div>
         </section>
 
         <section id="eda" class="report-section">
-          <h2>4. EDA e insights</h2>
+          <h2>4. Dashboard, EDA e insights</h2>
           <p>
-            Na exploração, a ideia é visualizar a variação temporal do índice e entender relações entre variáveis explicativas.
-            Os gráficos de dispersão com linha de tendência ajudam a enxergar associações fortes e fracas, e o mapa permite ler o cenário
-            global rapidamente.
+            Na exploração, o objetivo é visualizar a evolução temporal do índice e compreender como as variáveis explicativas se relacionam com ele. Gráficos de dispersão com linha de tendência ajudam a identificar associações mais fortes ou mais fracas, enquanto o mapa facilita a leitura do panorama global de forma rápida e intuitiva.
           </p>
-
-          <h3>4.1 Mapa global do Índice de Felicidade</h3>
-          <div class="chars">
-            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page3.png" alt="Mapa do Índice de Felicidade por país" />
-          </div>
-
-          <h3>4.2 Correlações visuais</h3>
-          <p>
-            As correlações ajudam a entender o que “anda junto” com o índice. Em geral, indicadores como PIB per capita, expectativa de vida,
-            apoio social e liberdade de escolhas tendem a acompanhar o aumento do índice, enquanto variáveis ligadas a confiança institucional
-            podem apresentar padrões menos lineares dependendo do recorte.
-          </p>
-          <div class="chars">
-            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page2.png" alt="Gráficos de correlação com linha de tendência" />
-          </div>
-
-          <h3>4.3 Evolução ao longo do tempo</h3>
-          <div class="chars">
-            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page1.png" alt="Visão geral com linha temporal e rankings" />
-          </div>
-        </section>
-
-        <section id="dashboard" class="report-section">
-          <h2>5. Dashboard (Power BI)</h2>
           <p>
             O dashboard consolida a exploração em três páginas principais: visão geral, mapa e correlações.
             Ele permite filtrar o ano e comparar padrões sem precisar abrir notebook, o que deixa o projeto mais apresentável e fácil de navegar.
           </p>
-
           <div class="table-wrap">
             <table class="data-table">
               <thead>
@@ -171,18 +141,159 @@
               </tbody>
             </table>
           </div>
-        </section>
+          <h3>4.1 Evolução ao longo do tempo</h3>
+          <p>
+            O índice de felicidade apresenta uma queda acentuada entre 2005 e 2008, seguida por uma recuperação gradual. Essa tendência pode estar relacionada a eventos globais como a crise financeira de 2008, que impactou negativamente o bem-estar em muitos países. A partir de 2010, observa-se uma recuperação consistente, embora o ritmo varie entre as nações, sugerindo que fatores locais e regionais também desempenham um papel importante na evolução do índice.
+          </p>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page1.png" alt="Visão geral com linha temporal e rankings" />
+          </div>
 
+          <h3>4.2 Mapa global do Índice de Felicidade</h3>
+          <p>
+            O mapa revela uma distribuição geográfica clara, com países nórdicos como Finlândia, Dinamarca e Noruega consistentemente no topo do ranking, enquanto nações em desenvolvimento enfrentam desafios maiores para alcançar altos índices de felicidade. A visualização destaca as disparidades regionais e sugere que fatores culturais, econômicos e sociais influenciam significativamente o bem-estar das populações.
+          </p>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page3.png" alt="Mapa do Índice de Felicidade por país" />
+          </div>
+          <h3>4.3 Correlações entre variáveis</h3>
+
+          <p>
+            As correlações ajudam a entender o que “anda junto” com o índice de felicidade. Em geral, indicadores como PIB per capita, expectativa de vida e liberdade de escolhas tendem a acompanhar o aumento do índice, enquanto variáveis ligadas a confiança institucional podem apresentar padrões menos lineares dependendo do recorte.
+          </p>
+          <p>
+            Esse comportamento reforça a ideia de que o bem-estar é multifacetado e depende de uma combinação de fatores econômicos, sociais e institucionais. A análise de correlação também orienta a escolha de features para o modelo preditivo, destacando quais variáveis têm maior potencial explicativo.
+          </p>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page2.png" alt="Gráficos de correlação com linha de tendência" />
+          </div>
+        </section>        
+        <section id="predicao" class="report-section">
+          <h2>5. Predição do Índice de Felicidade</h2>
+
+          <p>
+            Além da análise exploratória e das visualizações, o projeto também inclui uma etapa de
+            modelagem preditiva com o objetivo de estimar o Índice de Felicidade a partir de variáveis
+            socioeconômicas e institucionais. A proposta é transformar padrões observados nos dados
+            em previsões quantitativas, permitindo simular cenários e compreender melhor os fatores
+            que influenciam o bem-estar médio dos países.
+          </p>
+
+          <h3>5.1. Preparação dos dados para modelagem</h3>
+
+          <p>
+            Antes do treinamento dos modelos, os dados passaram por um processo de preparação
+            específico para aprendizado de máquina, garantindo consistência e evitando vazamento
+            de informação entre os conjuntos de treino e teste.
+          </p>
+
+          <p>
+            As principais etapas incluíram seleção das variáveis explicativas, definição da variável alvo,
+            tratamento de valores ausentes, normalização quando necessário e separação dos dados
+            em conjuntos de treino e teste, preservando a reprodutibilidade dos experimentos.
+          </p>
+
+          <h3>5.2. Modelos avaliados</h3>
+
+          <p>
+            Foram utilizados modelos de regressão supervisionada para prever um valor contínuo
+            correspondente ao Índice de Felicidade. Inicialmente, foi adotado um modelo de referência
+            simples como baseline, seguido por modelos mais robustos capazes de capturar relações
+            não lineares entre as variáveis.
+          </p>
+
+          <p>
+            A escolha do modelo final considerou não apenas o desempenho numérico, mas também
+            estabilidade, interpretabilidade e capacidade de generalização.
+          </p>
+
+          <h3>5.3. Avaliação de desempenho</h3>
+
+          <p>
+            O desempenho dos modelos foi avaliado por meio de métricas clássicas de regressão,
+            permitindo uma análise objetiva da qualidade das previsões.
+          </p>
+
+          <ul>
+            <li>R²: mede a proporção da variância explicada pelo modelo.</li>
+            <li>MAE: representa o erro médio absoluto das previsões.</li>
+            <li>RMSE: penaliza erros maiores e indica a dispersão dos resíduos.</li>
+          </ul>
+          <p>
+            Os resultados obtidos indicam que o modelo é capaz de capturar uma parcela significativa da variação do Índice de Felicidade, apresentando erros médios compatíveis com a escala do indicador analisado.
+          </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Modelo</th>
+                    <th>R²</th>
+                    <th>RMSE</th>
+                    <th>Observação</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Regressão Linear</td>
+                    <td>0.755</td>
+                    <td>0.535</td>
+                    <td>Captura tendência geral</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Random Forest</strong></td>
+                    <td><strong>0.856</strong></td>
+                    <td><strong>0.410</strong></td>
+                    <td><strong>Melhor desempenho</strong></td>
+                  </tr>
+                  <tr>
+                    <td>XGBoost</td>
+                    <td>0.850</td>
+                    <td>0.418</td>
+                    <td>Alto desempenho com potencial de tuning</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <p>
+                Após a avaliação, o modelo de Random Forest apresentou o melhor desempenho, com um R² de 0.856 e um RMSE de 0.410, indicando que é capaz de explicar uma grande parte da variação do Índice de Felicidade com um erro médio relativamente baixo. O modelo de Regressão Linear, embora capture a tendência geral, apresentou um desempenho inferior, sugerindo que as relações entre as variáveis explicativas e o índice não são estritamente lineares. O XGBoost também mostrou um desempenho competitivo, mas o Random Forest se destacou como a melhor opção para este conjunto de dados específico.
+              </p>
+          <h3>4.5. Importância das variáveis</h3>
+
+          <p>
+            A análise da contribuição das variáveis revelou que fatores relacionados a condições
+            materiais, apoio social e autonomia individual apresentam maior impacto nas previsões.
+          </p>
+          <p>
+            Entre as variáveis mais relevantes, destacam-se indicadores como PIB per capita,
+            expectativa de vida, apoio social e liberdade de escolhas, confirmando padrões
+            observados previamente na análise exploratória.
+          </p>
+          <p>
+            Já variáveis associadas à percepção institucional, como confiança no governo,
+            apresentam influência mais instável, variando conforme região e período.
+          </p>
+          <div class="chars">
+            <img src="../src/figure/chars/world_happiness/importancia_rf.png" alt="Gráficos de correlação com linha de tendência" />
+          </div>
+          <h3>5.6. Conclusão da etapa preditiva</h3>
+          <p>
+            A etapa de predição demonstra que é possível estimar o Índice de Felicidade com boa
+            precisão a partir de variáveis socioeconômicas e de bem-estar. O modelo não apenas
+            fornece previsões, mas também contribui para a compreensão dos fatores que sustentam
+            os níveis de felicidade observados globalmente.
+          </p>
+          <p>
+            Dessa forma, a modelagem complementa as análises visuais, transformando dados
+            históricos em uma ferramenta analítica capaz de apoiar estudos comparativos e
+            discussões baseadas em evidências.
+          </p>
+        </section>
         <section id="conclusao" class="report-section">
           <h2>6. Conclusão</h2>
           <p>
-            O projeto mostra como dados sociais e econômicos podem ser transformados em análise visual e em uma abordagem preditiva,
-            conectando exploração, interpretação e produto final (dashboard). O resultado é uma visão clara do comportamento do Índice de Felicidade
+            O projeto mostra como dados sociais e econômicos podem ser transformados em análise visual e em uma abordagem preditiva, conectando exploração, interpretação e produto final (dashboard). O resultado é uma visão clara do comportamento do Índice de Felicidade
             no tempo e no espaço, além de um caminho consistente para estimar o índice a partir de variáveis explicativas.
-          </p>
-          <p>
-            Na prática, o valor aqui é duplo: entendimento dos padrões e uma estrutura replicável de preparação e modelagem. Isso deixa o projeto
-            pronto tanto para storytelling quanto para evolução técnica.
           </p>
         </section>
 
