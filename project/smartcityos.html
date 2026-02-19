@@ -134,19 +134,18 @@
               estrangeiras, constraints e índices. Há controle de status, soft delete e relacionamentos
               entre cidadão, veículo, sensor, incidentes e multas.
             </p>
+            <pre><code class="language-sql codebox">
+              CREATE TABLE app_user (...);
+              CREATE TABLE citizen (...);
+              CREATE TABLE vehicle (...);
+              CREATE TABLE sensor (...);
+              CREATE TABLE traffic_incident (...);
+              CREATE TABLE fine (...);
+              CREATE TABLE fine_payment (...);
 
-            <div class="codebox">
-CREATE TABLE app_user (...);
-CREATE TABLE citizen (...);
-CREATE TABLE vehicle (...);
-CREATE TABLE sensor (...);
-CREATE TABLE traffic_incident (...);
-CREATE TABLE fine (...);
-CREATE TABLE fine_payment (...);
-
-CREATE VIEW citizen_active AS
-SELECT * FROM citizen WHERE deleted_at IS NULL;
-            </div>
+              CREATE VIEW citizen_active AS
+              SELECT * FROM citizen WHERE deleted_at IS NULL;              
+              </code></pre>
           </section>
 
           <section id="automacoes" class="report-section">
@@ -157,21 +156,21 @@ SELECT * FROM citizen WHERE deleted_at IS NULL;
               de saldo e dívida.
             </p>
 
-            <div class="codebox">
--- Multas e pagamentos
-CREATE TRIGGER trg_apply_fine
-AFTER INSERT ON fine
-EXECUTE FUNCTION apply_fine_to_wallet();
+            <pre><code class="language-sql codebox">
+              -- Multas e pagamentos
+              CREATE TRIGGER trg_apply_fine
+              AFTER INSERT ON fine
+              EXECUTE FUNCTION apply_fine_to_wallet();
 
-CREATE TRIGGER trg_apply_fine_payment
-AFTER INSERT ON fine_payment
-EXECUTE FUNCTION apply_fine_payment();
+              CREATE TRIGGER trg_apply_fine_payment
+              AFTER INSERT ON fine_payment
+              EXECUTE FUNCTION apply_fine_payment();
 
--- Auditoria genérica
-CREATE TRIGGER audit_app_user
-AFTER INSERT OR UPDATE OR DELETE ON app_user
-EXECUTE FUNCTION audit_log_generic();
-            </div>
+              -- Auditoria genérica
+              CREATE TRIGGER audit_app_user
+              AFTER INSERT OR UPDATE OR DELETE ON app_user
+              EXECUTE FUNCTION audit_log_generic();
+            </code></pre>
 
             <p>
               Além disso, há bloqueio de atualização em registros deletados, cancelamento de multas
@@ -236,16 +235,16 @@ EXECUTE FUNCTION audit_log_generic();
               regras do banco.
             </p>
 
-            <div class="codebox">
--- Exemplo de leitura rápida
-SELECT * FROM app_user_active LIMIT 10;
+            <pre><code class="language-sql codebox">
+              -- Exemplo de leitura rápida
+              SELECT * FROM app_user_active LIMIT 10;
 
--- Multas pendentes por cidadão
-SELECT citizen_id, COUNT(*) AS pendentes, SUM(amount) AS total
-FROM fine
-WHERE status = 'pending'
-GROUP BY citizen_id;
-            </div>
+              -- Multas pendentes por cidadão
+              SELECT citizen_id, COUNT(*) AS pendentes, SUM(amount) AS total
+              FROM fine
+              WHERE status = 'pending'
+              GROUP BY citizen_id;
+            </code></pre>
           </section>
 
           <section id="conclusao" class="report-section">
@@ -277,4 +276,13 @@ GROUP BY citizen_id;
     </div>
   </footer>
 </body>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
 </html>

@@ -892,13 +892,15 @@ body {
   background: rgba(10, 12, 18, 0.55);
   border: 1px solid rgba(31, 38, 53, 0.9);
   border-radius: 16px;
-  padding: 14px;
-  overflow: auto;
+  padding: 16px;
+  overflow-x: auto;
   color: #ffffff;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 15px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
   line-height: 1.6;
 }
+
 
 .badges {
   display: flex;
