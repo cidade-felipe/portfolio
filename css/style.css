@@ -850,6 +850,14 @@ p {
   border-left-color: var(--accent-primary);
 }
 
+.about{
+  text-align: justify;
+}
+
+.course-description{
+  text-align: justify;
+}
+
 /* Report Content */
 .report-content {
   min-width: 0;
