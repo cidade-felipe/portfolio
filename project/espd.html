@@ -36,15 +36,16 @@
         <p>
           Análise de performance logística com foco em SLA, atrasos e impacto no faturamento (GMV).
           Dashboard no Power BI com visão executiva, operação por estado e evolução temporal.
+          Complemento em Python para EDA e modelagem preditiva de satisfação do cliente.
         </p>
 
         <div class="badges">
-          <span>Power BI</span><span>DAX</span><span>KPIs</span><span>SLA</span><span>Logística</span><span>Storytelling</span>
+            <span>Power BI</span><span>ML</span><span>DAX</span><span>SQL</span><span>ETL</span><span>Storytelling</span><span>Python</span>
         </div>
 
         <div class="meta">
           <span>Autor: Felipe Cidade Soares</span>
-          <span>Tipo: BI e Analytics</span>
+          <span>Tipo: BI + Analytics + ML</span>
         </div>
       </div>
     </section>
@@ -58,8 +59,10 @@
           <a href="#objetivos">2. Objetivos</a>
           <a href="#kpis">3. KPIs e definições</a>
           <a href="#dashboard">4. Dashboard e páginas</a>
-          <a href="#insights">5. Insights principais</a>
-          <a href="#conclusao">6. Conclusão</a>
+          <a href="#python">5. Analytics em Python</a>
+          <a href="#ml">6. Predição com Machine Learning</a>
+          <a href="#conclusao">7. Conclusão</a>
+          <a href="#proximos">8. Próximos passos</a>
         </aside>
 
         <article class="report-content">
@@ -68,13 +71,14 @@
             <h2>1. Contexto</h2>
             <p>
               Em operações de ecommerce, a entrega é um dos maiores fatores de experiência do cliente.
-              Atrasos e falhas logísticas impactam diretamente métricas de negócio como GMV,
-              ticket médio e avaliação do pedido.
+              Atrasos, falhas logísticas e promessas de prazo mal calibradas geram impacto direto em percepção,
+              recompra e reputação. Em um cenário competitivo, a logística deixa de ser apenas operação e passa
+              a compor a proposta de valor do produto.
             </p>
             <p>
-              Este projeto organiza a visão de performance de entregas em um dashboard com recortes
-              por tempo, método de pagamento, categoria e geografia, permitindo identificar padrões,
-              gargalos e oportunidades de melhoria operacional.
+              Este projeto organiza a visão de performance de entregas em um dashboard no Power BI e complementa
+              a análise com notebooks em Python, incluindo exploração de dados, engenharia de variáveis e um modelo
+              preditivo para estimar a satisfação do cliente a partir de sinais de entrega e compra.
             </p>
           </section>
 
@@ -85,8 +89,9 @@
             <ul>
               <li>Medir performance de SLA (no prazo vs atrasado) e taxa de não entrega.</li>
               <li>Encontrar estados e períodos com maior risco operacional.</li>
-              <li>Relacionar atrasos com impacto em GMV, ticket médio e avaliações.</li>
+              <li>Relacionar atrasos com impacto em GMV, ticket médio e avaliação.</li>
               <li>Dar uma visão executiva rápida e uma visão operacional detalhada.</li>
+              <li>Adicionar uma camada preditiva para antecipar risco de baixa satisfação.</li>
             </ul>
 
             <div class="kpi-grid">
@@ -100,7 +105,7 @@
               </div>
               <div class="kpi">
                 <div class="label">Foco</div>
-                <div class="value">Operação</div>
+                <div class="value">Predição</div>
               </div>
             </div>
           </section>
@@ -114,17 +119,17 @@
             </p>
 
             <ul>
-              <li><strong>Tempo médio de entrega:</strong> tempo médio (dias) dos pedidos entregues.</li>
-              <li><strong>% entregues no prazo:</strong> proporção de pedidos entregues dentro do SLA.</li>
-              <li><strong>% atrasados:</strong> proporção de pedidos fora do SLA.</li>
-              <li><strong>GMV:</strong> faturamento bruto associado aos pedidos (entregues e total).</li>
-              <li><strong>Ticket médio:</strong> média do valor por pedido.</li>
-              <li><strong>Avaliação média:</strong> satisfação do cliente por entregas no prazo vs atrasadas.</li>
+              <li>Tempo médio de entrega: tempo médio (dias) dos pedidos entregues.</li>
+              <li>% entregues no prazo: proporção de pedidos entregues dentro do SLA.</li>
+              <li>% atrasados: proporção de pedidos fora do SLA.</li>
+              <li>GMV: faturamento bruto associado aos pedidos (entregues e total).</li>
+              <li>Ticket médio: média do valor por pedido.</li>
+              <li>Avaliação média: satisfação do cliente por entregas no prazo vs atrasadas.</li>
             </ul>
 
             <p>
-              Um ponto importante do dashboard é a comparação temporal entre anos e meses, além de leituras
-              de tendência que ajudam a separar os “picos do mês” de mudanças reais no comportamento.
+              Um ponto importante do dashboard é a leitura temporal, porque ela separa pico sazonal de tendência.
+              Isso evita interpretações precipitadas, em que oscilações pontuais são tratadas como falhas estruturais.
             </p>
           </section>
 
@@ -141,25 +146,25 @@
               e comparação de GMV com ano anterior.
             </p>
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/visao_geral.png" alt="Visão geral do dashboard de entregas" >
+              <img src="../src/figure/chars/ecommerce/visao_geral.png" alt="Visão geral do dashboard de entregas">
             </div>
 
             <h3>4.2. Operação e SLA</h3>
             <p>
-              Diagnóstico operacional com mapa por estado, análise de atrasos ao longo do tempo e relações
+              Diagnóstico operacional com mapa por estado, leitura de atrasos ao longo do tempo e relações
               com GMV e ticket médio.
             </p>
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/operacao_sla.png" alt="Operação e SLA no dashboard" >
+              <img src="../src/figure/chars/ecommerce/operacao_sla.png" alt="Operação e SLA no dashboard">
             </div>
 
             <h3>4.3. Evolução e tendência</h3>
             <p>
-              Leitura temporal com recorte dos últimos meses vs período anterior, comportamento do GMV
-              mensal e sinais de desaceleração ou recuperação.
+              Leitura temporal com recorte de meses, comparação com períodos anteriores, comportamento do GMV
+              e sinais de desaceleração ou recuperação.
             </p>
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/evolucao_tendencia.png" alt="Evolução e tendência do dashboard" >
+              <img src="../src/figure/chars/ecommerce/evolucao_tendencia.png" alt="Evolução e tendência do dashboard">
             </div>
 
             <p style="margin-top: 12px;">
@@ -168,50 +173,205 @@
             </p>
           </section>
 
-          <section id="insights" class="report-section">
-            <h2>5. Insights principais</h2>
+          <section id="python" class="report-section">
+            <h2>5. Analytics em Python</h2>
 
-            <h3>5.1. Atrasos tendem a “anteceder” queda em ticket médio</h3>
             <p>
-              Em períodos com aumento de atrasos, o ticket médio tende a perder força nos meses seguintes,
-              sugerindo impacto indireto na conversão, na recompra ou no mix de produtos adquiridos.
+              Além do dashboard, o projeto tem notebooks em Python para aprofundar a análise e garantir
+              rastreabilidade das decisões. A proposta é sustentar as conclusões com evidências analíticas,
+              garantindo que interpretações sejam respaldadas pelos dados.
             </p>
 
-            <h3>5.2. GMV cresce, mas a operação pode estar “pagando a conta”</h3>
+            <h3>5.1. Integração e base analítica</h3>
             <p>
-              A comparação de GMV com ano anterior ajuda a mostrar crescimento, mas a leitura conjunta com
-              o percentual de atrasos revela momentos em que o crescimento ocorre com pressão operacional,
-              o que pode comprometer experiência e margem no longo prazo.
+              A base analítica é construída integrando tabelas do dataset de ecommerce (pedidos, itens, pagamentos,
+              reviews e informações do cliente). A partir disso, são geradas variáveis prontas para responder perguntas
+              de operação e negócio.
+            </p>
+            <h4>5.1.1. Pipeline analítico</h4>
+            <p>
+              Visão resumida do fluxo em Python, da qualidade dos dados até a modelagem de satisfação.
+            </p>            
+            <div class="mermaid-wrap">
+              <pre class="mermaid">
+                flowchart TB
+                  A["Dados brutos Olist<br/>CSVs em data/archive"] --> B["Checagem de qualidade<br/>NaNs e colunas problemáticas"]
+                  B --> C["Relatórios de NaN<br/>nan_report.txt + nan_report.csv"]
+                  C --> D["Análise exploratória<br/>gráficos de NaNs"]
+                  D --> E["Merge dos datasets<br/>orders + customers + payments + reviews + items"]
+                  E --> F["Tratamento e features<br/>delivery_days, is_delayed, year_month"]
+                  F --> G["Dataset final<br/>data/processed/dataset_merged.csv"]
+                  G --> H["ML: review_target<br/>1-2=0, 4-5=1"]
+                  H --> I["Encoding<br/>dummies (payment_type, state)"]
+                  I --> J["Train/Test Split 80/20"]
+                  J --> K["Modelos<br/>LogReg + RF + XGBoost"]
+                  K --> L["Avaliação<br/>accuracy + report + confusion matrix"]
+                  L --> M["Insights<br/>atraso x satisfação"]
+              </pre>
+            </div>
+            <h3>5.3. Engenharia de variáveis logísticas</h3>
+            <p>
+              Para medir SLA e atraso de forma consistente, o notebook cria variáveis de tempo como:
+              tempo esperado de entrega, tempo real de entrega e a diferença entre eles. A partir do gap, nasce uma label
+              operacional (atrasou ou não atrasou) para análises e para o modelo de ML.
             </p>
 
-            <h3>5.3. Concentração geográfica de atraso</h3>
-            <p>
-              O mapa evidencia que alguns estados concentram mais dias de atraso do que outros.
-              Isso abre caminho para ações específicas, como renegociação com transportadoras regionais,
-              revisão de prazo prometido ou ajuste de roteirização.
-            </p>
+            <ul>
+              <li>expected_days: dias entre compra e data estimada.</li>
+              <li>gap_delivery_days: diferença entre entregue e estimado (quanto “furou” o prazo).</li>
+              <li>is_delayed: flag de atraso a partir do gap.</li>
+            </ul>
 
-            <h3>5.4. Pagamento e categorias ajudam a explicar o GMV</h3>
+            <h3>5.4. Leitura por recortes</h3>
             <p>
-              A leitura de GMV por meio de pagamento e o Top 10 categorias permite separar crescimento real
-              de mudanças no mix. Isso evita conclusões erradas do tipo “o GMV caiu porque a entrega atrasou”,
-              quando na verdade o mix ou o método de pagamento mudou.
+              Com a base pronta, o Python ajuda a validar padrões que depois viram narrativa no BI:
+              variação regional, sazonalidade, concentração de atraso por estado e sinais de impacto no comportamento
+              do cliente. O notebook funciona como ambiente de investigação, e o Power BI consolida a
+              narrativa executiva.
             </p>
           </section>
 
+          <section id="ml" class="report-section">
+            <h2>6. Predição com Machine Learning</h2>
+
+            <p>
+              A parte de ML do projeto busca responder uma pergunta prática: dá para antecipar risco de baixa satisfação
+              usando sinais que já existem na compra e na entrega?
+            </p>
+
+            <h3>6.1. Problema e variável alvo</h3>
+            <p>
+              O modelo é tratado como classificação binária de satisfação do cliente, com base no review score.
+              A regra usada é direta: avaliações 4 ou 5 representam “satisfeito” (classe positiva), abaixo disso representa
+              “não satisfeito” (classe negativa). É uma escolha pragmática, porque 4 e 5 normalmente já indicam experiência boa.
+            </p>
+
+            <h3>6.2. Variáveis usadas no modelo</h3>
+            <p>
+              O notebook usa um conjunto de features que misturam preço, frete, pagamento, categoria, estado e sinal logístico.
+              Entre elas:
+            </p>
+
+            <ul>
+              <li>freight_value, price</li>
+              <li>payment_installments, payment_type</li>
+              <li>product_category_name, customer_state</li>
+              <li>expected_days, gap_delivery_days, is_delayed</li>
+            </ul>
+
+            <p>
+              Como o dataset é desbalanceado, o treino considera balanceamento via class_weight nos modelos que suportam isso,
+              para reduzir o viés de privilegiar a classe majoritária.
+            </p>
+
+            <h3>6.3. Modelos testados</h3>
+            <p>
+              Foram comparados três modelos, com foco em interpretação e performance:
+              Regressão Logística (baseline), Random Forest (não linear) e XGBoost (boosting).
+            </p>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Modelo</th>
+                    <th>Acurácia</th>
+                    <th>Precisão (classe 0)</th>
+                    <th>Recall (classe 0)</th>
+                    <th>F1 (classe 0)</th>
+                    <th>Precisão (classe 1)</th>
+                    <th>Recall (classe 1)</th>
+                    <th>F1 (classe 1)</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Regressão Logística</td>
+                    <td>0.74</td>
+                    <td>0.33</td>
+                    <td>0.56</td>
+                    <td>0.41</td>
+                    <td>0.90</td>
+                    <td>0.78</td>
+                    <td>0.84</td>
+                  </tr>
+                  <tr>
+                    <td>Random Forest</td>
+                    <td>0.90</td>
+                    <td>0.82</td>
+                    <td>0.47</td>
+                    <td>0.60</td>
+                    <td>0.91</td>
+                    <td>0.98</td>
+                    <td>0.94</td>
+                  </tr>
+                  <tr>
+                    <td>XGBoost</td>
+                    <td>0.87</td>
+                    <td>0.77</td>
+                    <td>0.28</td>
+                    <td>0.41</td>
+                    <td>0.88</td>
+                    <td>0.98</td>
+                    <td>0.93</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>6.4. Leitura dos resultados</h3>
+            <p>
+              O Random Forest é o modelo com melhor desempenho geral (maior acurácia e melhor F1 na classe 1), mantendo alta
+              precisão e recall na classe 1. O XGBoost vem logo atrás em acurácia e F1 da classe 1, mas é o mais fraco para 
+              identificar a classe 0 (recall bem baixo), apesar de ter precisão razoável nessa classe. A Regressão Logística 
+              é a que menos acerta no geral, porém é a que mais recupera casos da classe 0 (maior recall), ainda que com baixa 
+              precisão.
+            </p>
+            <p>
+              O objetivo do modelo é justamente antecipar risco de baixa satisfação (classe 0), então o recall nessa classe é
+              um indicador importante. Nesse sentido, a Regressão Logística, apesar de ser o modelo mais simples, tem um papel 
+              relevante por recuperar mais casos de insatisfação, mesmo que com muitos falsos positivos. O Random Forest tem um
+              desempenho sólido, mas o XGBoost, apesar de ser mais sofisticado, não consegue recuperar bem a classe 0, o que pode limitar sua utilidade prática para esse caso específico.
+            </p>            
+            <div class="chars">
+              <img src="../src/figure/chars/ecommerce/matriz_confusao_rf.png" alt="Operação e SLA no dashboard">
+            </div>
+          </section>
+
           <section id="conclusao" class="report-section">
-            <h2>6. Conclusão</h2>
+            <h2>7. Conclusão</h2>
             <p>
-              O dashboard consolida uma visão completa de performance logística, conectando indicadores operacionais
-              (SLA, atraso e não entrega) com indicadores de negócio (GMV, ticket e avaliação).
+              O projeto consolida uma visão integrada da performance logística, conectando indicadores operacionais
+              (SLA, atraso e não entrega) com métricas de negócio (GMV, ticket e avaliação).
             </p>
             <p>
-              O resultado é um painel que permite agir rápido: identificar períodos críticos, localizar gargalos por estado,
-              e entender se o crescimento está saudável ou acompanhado de degradação de experiência.
+              O Power BI sustenta a leitura executiva e operacional com storytelling. O Python aprofunda a análise,
+              garante rastreabilidade e adiciona uma camada preditiva para antecipar risco de baixa satisfação.
             </p>
             <p>
-              Este projeto demonstra capacidade de modelar um problema real de operação, definir métricas claras e
-              construir uma narrativa analítica pronta para tomada de decisão.
+              O resultado é um conjunto de entregáveis que acelera a tomada de decisão, dá lastro analítico às escolhas
+              e abre caminho para evoluir a iniciativa rumo a um produto analítico.
+            </p>
+            <p>
+              Na frente de ML, os resultados mostram potencial para antecipar insatisfações, mas também evidenciam o impacto
+              do desbalanceamento. Os modelos têm boa performance na classe satisfeita, porém recuperam pouco a classe 0.
+              Para avançar, vale testar técnicas de balanceamento, ajuste de limiar e enriquecimento de features — além de
+              calibrar o objetivo conforme o custo de errar cada tipo de caso.
+            </p>
+
+          </section>
+
+          <section id="proximos" class="report-section">
+            <h2>8. Próximos passos</h2>
+            <p>
+              Alguns próximos passos naturais seriam: calibrar limiar de decisão do modelo (para priorizar recall da classe 0),
+              explorar explicabilidade (feature importance e SHAP no XGBoost) e testar novas features, como distância aproximada,
+              densidade logística por região, e recortes por transportadora (se houver esse dado).
+            </p>
+            <p>
+              Também dá para transformar o resultado em um fluxo de monitoramento: quando o risco de baixa satisfação subir,
+              acionar intervenção operacional (revisão de prazo prometido, priorização de rota, contato proativo).
             </p>
           </section>
 
@@ -219,6 +379,7 @@
             <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
             <a class="btn-premium secondary" href="https://github.com/cidade-felipe/ecommerce-shipping-performance-dashboard" target="_blank" rel="noreferrer">Repositório do Dashboard</a>
             <a class="btn-premium secondary" href="https://github.com/cidade-felipe/ecommerce-shipping-analytics" target="_blank" rel="noreferrer">Repositório do Analytics</a>
+            <a class="btn-premium secondary" href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" rel="noreferrer">Fonte dos Dados</a>
           </div>
 
         </article>
@@ -229,11 +390,13 @@
   <footer class="footer-premium">
     <div class="container footer-inner">
       <p>© 2026 Felipe Cidade</p>
-      <!-- <div class="footer-links">
-        <a href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
-      </div> -->
     </div>
   </footer>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
 </body>
 </html>
+
+
