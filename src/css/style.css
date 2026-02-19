@@ -598,6 +598,12 @@ body {
   grid-column: 1 / -1;
 }
 
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 124, 255, 0.35);
+  box-shadow: 0 0 28px rgba(124, 124, 255, 0.18);
+}
+
 .email-row {
   display: flex;
   gap: 10px;
