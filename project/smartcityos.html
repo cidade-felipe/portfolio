@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartCityOS | Projeto</title>
-  <link rel="stylesheet" href="../src/css/style.css" />
+  <meta name="description" content="Sistema operacional inteligente para cidades com PostgreSQL, Python e PySide6." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -26,6 +30,12 @@
         <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
+
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -135,17 +145,17 @@
               entre cidadão, veículo, sensor, incidentes e multas.
             </p>
             <pre><code class="language-sql codebox">
-              CREATE TABLE app_user (...);
-              CREATE TABLE citizen (...);
-              CREATE TABLE vehicle (...);
-              CREATE TABLE sensor (...);
-              CREATE TABLE traffic_incident (...);
-              CREATE TABLE fine (...);
-              CREATE TABLE fine_payment (...);
+CREATE TABLE app_user (...);
+CREATE TABLE citizen (...);
+CREATE TABLE vehicle (...);
+CREATE TABLE sensor (...);
+CREATE TABLE traffic_incident (...);
+CREATE TABLE fine (...);
+CREATE TABLE fine_payment (...);
 
-              CREATE VIEW citizen_active AS
-              SELECT * FROM citizen WHERE deleted_at IS NULL;              
-              </code></pre>
+CREATE VIEW citizen_active AS
+SELECT * FROM citizen WHERE deleted_at IS NULL;              
+            </code></pre>
           </section>
 
           <section id="automacoes" class="report-section">
@@ -157,19 +167,19 @@
             </p>
 
             <pre><code class="language-sql codebox">
-              -- Multas e pagamentos
-              CREATE TRIGGER trg_apply_fine
-              AFTER INSERT ON fine
-              EXECUTE FUNCTION apply_fine_to_wallet();
+-- Multas e pagamentos
+CREATE TRIGGER trg_apply_fine
+AFTER INSERT ON fine
+EXECUTE FUNCTION apply_fine_to_wallet();
 
-              CREATE TRIGGER trg_apply_fine_payment
-              AFTER INSERT ON fine_payment
-              EXECUTE FUNCTION apply_fine_payment();
+CREATE TRIGGER trg_apply_fine_payment
+AFTER INSERT ON fine_payment
+EXECUTE FUNCTION apply_fine_payment();
 
-              -- Auditoria genérica
-              CREATE TRIGGER audit_app_user
-              AFTER INSERT OR UPDATE OR DELETE ON app_user
-              EXECUTE FUNCTION audit_log_generic();
+-- Auditoria genérica
+CREATE TRIGGER audit_app_user
+AFTER INSERT OR UPDATE OR DELETE ON app_user
+EXECUTE FUNCTION audit_log_generic();
             </code></pre>
 
             <p>
@@ -188,42 +198,42 @@
 
             <h3>6.1. Dashboard</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/dashboard.png" alt="Dashboard geral do SmartCityOS">
+              <img src="../assets/images/smartcityos/dashboard.png" alt="Dashboard geral do SmartCityOS">
             </div>
 
             <h3>6.2. Gestão de cidadãos</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/cidadaos.png" alt="Tela de gestão de cidadãos">
+              <img src="../assets/images/smartcityos/cidadaos.png" alt="Tela de gestão de cidadãos">
             </div>
 
             <h3>6.3. Gestão de veículos</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/veiculos.png" alt="Tela de gestão de veículos">
+              <img src="../assets/images/smartcityos/veiculos.png" alt="Tela de gestão de veículos">
             </div>
 
             <h3>6.4. Gestão de sensores</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/sensores.png" alt="Tela de gestão de sensores">
+              <img src="../assets/images/smartcityos/sensores.png" alt="Tela de gestão de sensores">
             </div>
 
             <h3>6.5. Gestão de incidentes</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/incidentes.png" alt="Tela de gestão de incidentes">
+              <img src="../assets/images/smartcityos/incidentes.png" alt="Tela de gestão de incidentes">
             </div>
 
             <h3>6.6. Gestão de multas</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/multas.png" alt="Tela de gestão de multas">
+              <img src="../assets/images/smartcityos/multas.png" alt="Tela de gestão de multas">
             </div>
 
             <h3>6.7. Estatísticas e relatórios</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/estatisticas.png" alt="Tela de estatísticas do sistema">
+              <img src="../assets/images/smartcityos/estatisticas.png" alt="Tela de estatísticas do sistema">
             </div>
 
             <h3>6.8. Console SQL</h3>
             <div class="chars">
-              <img src="../src/figure/chars/smartcityos/console-sql.png" alt="Console SQL com editor e resultados">
+              <img src="../assets/images/smartcityos/console_sql.png" alt="Console SQL com editor e resultados">
             </div>
           </section>
 
@@ -236,14 +246,14 @@
             </p>
 
             <pre><code class="language-sql codebox">
-              -- Exemplo de leitura rápida
-              SELECT * FROM app_user_active LIMIT 10;
+-- Exemplo de leitura rápida
+SELECT * FROM app_user_active LIMIT 10;
 
-              -- Multas pendentes por cidadão
-              SELECT citizen_id, COUNT(*) AS pendentes, SUM(amount) AS total
-              FROM fine
-              WHERE status = 'pending'
-              GROUP BY citizen_id;
+-- Multas pendentes por cidadão
+SELECT citizen_id, COUNT(*) AS pendentes, SUM(amount) AS total
+FROM fine
+WHERE status = 'pending'
+GROUP BY citizen_id;
             </code></pre>
           </section>
 
@@ -269,20 +279,17 @@
   <footer class="footer-premium">
     <div class="container footer-inner">
       <p>© 2026 Felipe Cidade</p>
-      <!-- <div class="footer-links">
-        <a href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer">GitHub</a>
-      </div> -->
     </div>
   </footer>
-</body>
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-    <script>
-      hljs.highlightAll();
-    </script>
+<script src="../js/main.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+</body>
 </html>

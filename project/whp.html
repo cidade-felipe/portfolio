@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>World Happiness Prediction | Projeto</title>
-  <link rel="stylesheet" href="../src/css/style.css" />
+  <meta name="description" content="Análise e predição do Índice de Felicidade Mundial com Power BI, Python e Machine Learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -26,6 +30,12 @@
       <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
 
@@ -146,7 +156,7 @@
             O índice de felicidade apresenta uma queda acentuada entre 2005 e 2008, seguida por uma recuperação gradual. Essa tendência pode estar relacionada a eventos globais como a crise financeira de 2008, que impactou negativamente o bem-estar em muitos países. A partir de 2010, observa-se uma recuperação consistente, embora o ritmo varie entre as nações, sugerindo que fatores locais e regionais também desempenham um papel importante na evolução do índice.
           </p>
           <div class="chars">
-            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page1.png" alt="Visão geral com linha temporal e rankings" />
+            <img src="../assets/images/world_happiness/world-happiness-prediction-report_Page1.png" alt="Visão geral com linha temporal e rankings" />
           </div>
 
           <h3>4.2 Mapa global do Índice de Felicidade</h3>
@@ -154,18 +164,18 @@
             O mapa revela uma distribuição geográfica clara, com países nórdicos como Finlândia, Dinamarca e Noruega consistentemente no topo do ranking, enquanto nações em desenvolvimento enfrentam desafios maiores para alcançar altos índices de felicidade. A visualização destaca as disparidades regionais e sugere que fatores culturais, econômicos e sociais influenciam significativamente o bem-estar das populações.
           </p>
           <div class="chars">
-            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page3.png" alt="Mapa do Índice de Felicidade por país" />
+            <img src="../assets/images/world_happiness/world-happiness-prediction-report_Page3.png" alt="Mapa do Índice de Felicidade por país" />
           </div>
           <h3>4.3 Correlações entre variáveis</h3>
 
           <p>
-            As correlações ajudam a entender o que “anda junto” com o índice de felicidade. Em geral, indicadores como PIB per capita, expectativa de vida e liberdade de escolhas tendem a acompanhar o aumento do índice, enquanto variáveis ligadas a confiança institucional podem apresentar padrões menos lineares dependendo do recorte.
+            As correlações ajudam a entender o que "anda junto" com o índice de felicidade. Em geral, indicadores como PIB per capita, expectativa de vida e liberdade de escolhas tendem a acompanhar o aumento do índice, enquanto variáveis ligadas a confiança institucional podem apresentar padrões menos lineares dependendo do recorte.
           </p>
           <p>
             Esse comportamento reforça a ideia de que o bem-estar é multifacetado e depende de uma combinação de fatores econômicos, sociais e institucionais. A análise de correlação também orienta a escolha de features para o modelo preditivo, destacando quais variáveis têm maior potencial explicativo.
           </p>
           <div class="chars">
-            <img src="../src/figure/chars/world_happiness/world-happiness-prediction-report_Page2.png" alt="Gráficos de correlação com linha de tendência" />
+            <img src="../assets/images/world_happiness/world-happiness-prediction-report_Page2.png" alt="Gráficos de correlação com linha de tendência" />
           </div>
         </section>        
         <section id="predicao" class="report-section">
@@ -274,7 +284,7 @@
             apresentam influência mais instável, variando conforme região e período.
           </p>
           <div class="chars">
-            <img src="../src/figure/chars/world_happiness/importancia_rf.png" alt="Gráficos de correlação com linha de tendência" />
+            <img src="../assets/images/world_happiness/importancia_rf.png" alt="Importância das variáveis - Random Forest" />
           </div>
           <h3>5.6. Conclusão da etapa preditiva</h3>
           <p>
@@ -301,7 +311,7 @@
           <h2>7. Próximos passos</h2>
           <p>
             Como evolução, dá para adicionar comparação entre modelos, análise de importância de variáveis, validação temporal (treinar em anos anteriores e testar em anos seguintes)
-            e uma camada de explicabilidade (por exemplo, SHAP) para tornar a predição mais interpretável. No dashboard, dá para incluir uma aba “Predição vs Real”
+            e uma camada de explicabilidade (por exemplo, SHAP) para tornar a predição mais interpretável. No dashboard, dá para incluir uma aba "Predição vs Real"
             e um ranking de países com maior erro, que costuma render bons insights.
           </p>
         </section>
@@ -323,6 +333,7 @@
   </div>
 </footer>
 
+<script src="../js/main.js"></script>
 <script type="module">
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
   mermaid.initialize({ startOnLoad: true });

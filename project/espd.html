@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ecommerce Shipping Performance | Projeto</title>
-  <link rel="stylesheet" href="../src/css/style.css" />
+  <meta name="description" content="Dashboard estratégico de performance logística com Power BI, Python e Machine Learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -26,6 +30,12 @@
         <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
+
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -146,7 +156,7 @@
               e comparação de GMV com ano anterior.
             </p>
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/visao_geral.png" alt="Visão geral do dashboard de entregas">
+              <img src="../assets/images/ecommerce/visao_geral.png" alt="Visão geral do dashboard de entregas">
             </div>
 
             <h3>4.2. Operação e SLA</h3>
@@ -155,7 +165,7 @@
               com GMV e ticket médio.
             </p>
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/operacao_sla.png" alt="Operação e SLA no dashboard">
+              <img src="../assets/images/ecommerce/operacao_sla.png" alt="Operação e SLA no dashboard">
             </div>
 
             <h3>4.3. Evolução e tendência</h3>
@@ -164,13 +174,9 @@
               e sinais de desaceleração ou recuperação.
             </p>
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/evolucao_tendencia.png" alt="Evolução e tendência do dashboard">
+              <img src="../assets/images/ecommerce/evolucao_tendencia.png" alt="Evolução e tendência do dashboard">
             </div>
 
-            <p style="margin-top: 12px;">
-              Observação: os prints acima representam o storytelling do painel, conectando operação (atrasos)
-              com impacto de negócio (GMV e ticket).
-            </p>
           </section>
 
           <section id="python" class="report-section">
@@ -195,18 +201,18 @@
             <div class="mermaid-wrap">
               <pre class="mermaid">
                 flowchart TB
-                  A["Dados brutos Olist<br/>CSVs em data/archive"] --> B["Checagem de qualidade<br/>NaNs e colunas problemáticas"]
-                  B --> C["Relatórios de NaN<br/>nan_report.txt + nan_report.csv"]
-                  C --> D["Análise exploratória<br/>gráficos de NaNs"]
-                  D --> E["Merge dos datasets<br/>orders + customers + payments + reviews + items"]
-                  E --> F["Tratamento e features<br/>delivery_days, is_delayed, year_month"]
-                  F --> G["Dataset final<br/>data/processed/dataset_merged.csv"]
-                  G --> H["ML: review_target<br/>1-2=0, 4-5=1"]
-                  H --> I["Encoding<br/>dummies (payment_type, state)"]
-                  I --> J["Train/Test Split 80/20"]
-                  J --> K["Modelos<br/>LogReg + RF + XGBoost"]
-                  K --> L["Avaliação<br/>accuracy + report + confusion matrix"]
-                  L --> M["Insights<br/>atraso x satisfação"]
+                  A["Dados brutos Olist&lt;br/&gt;CSVs em data/archive"] --&gt; B["Checagem de qualidade&lt;br/&gt;NaNs e colunas problemáticas"]
+                  B --&gt; C["Relatórios de NaN&lt;br/&gt;nan_report.txt + nan_report.csv"]
+                  C --&gt; D["Análise exploratória&lt;br/&gt;gráficos de NaNs"]
+                  D --&gt; E["Merge dos datasets&lt;br/&gt;orders + customers + payments + reviews + items"]
+                  E --&gt; F["Tratamento e features&lt;br/&gt;delivery_days, is_delayed, year_month"]
+                  F --&gt; G["Dataset final&lt;br/&gt;data/processed/dataset_merged.csv"]
+                  G --&gt; H["ML: review_target&lt;br/&gt;1-2=0, 4-5=1"]
+                  H --&gt; I["Encoding&lt;br/&gt;dummies (payment_type, state)"]
+                  I --&gt; J["Train/Test Split 80/20"]
+                  J --&gt; K["Modelos&lt;br/&gt;LogReg + RF + XGBoost"]
+                  K --&gt; L["Avaliação&lt;br/&gt;accuracy + report + confusion matrix"]
+                  L --&gt; M["Insights&lt;br/&gt;atraso x satisfação"]
               </pre>
             </div>
             <h3>5.3. Engenharia de variáveis logísticas</h3>
@@ -218,7 +224,7 @@
 
             <ul>
               <li>expected_days: dias entre compra e data estimada.</li>
-              <li>gap_delivery_days: diferença entre entregue e estimado (quanto “furou” o prazo).</li>
+              <li>gap_delivery_days: diferença entre entregue e estimado (quanto "furou" o prazo).</li>
               <li>is_delayed: flag de atraso a partir do gap.</li>
             </ul>
 
@@ -241,8 +247,8 @@
             <h3>6.1. Problema e variável alvo</h3>
             <p>
               O modelo é tratado como classificação binária de satisfação do cliente, com base no review score.
-              A regra usada é direta: avaliações 4 ou 5 representam “satisfeito” (classe positiva), abaixo disso representa
-              “não satisfeito” (classe negativa). É uma escolha pragmática, porque 4 e 5 normalmente já indicam experiência boa.
+              A regra usada é direta: avaliações 4 ou 5 representam "satisfeito" (classe positiva), abaixo disso representa
+              "não satisfeito" (classe negativa). É uma escolha pragmática, porque 4 e 5 normalmente já indicam experiência boa.
             </p>
 
             <h3>6.2. Variáveis usadas no modelo</h3>
@@ -334,7 +340,7 @@
               desempenho sólido, mas o XGBoost, apesar de ser mais sofisticado, não consegue recuperar bem a classe 0, o que pode limitar sua utilidade prática para esse caso específico.
             </p>            
             <div class="chars">
-              <img src="../src/figure/chars/ecommerce/matriz_confusao_rf.png" alt="Operação e SLA no dashboard">
+              <img src="../assets/images/ecommerce/matriz_confusao_rf.png" alt="Matriz de confusão - Random Forest">
             </div>
           </section>
 
@@ -391,11 +397,11 @@
       <p>© 2026 Felipe Cidade</p>
     </div>
   </footer>
+
+<script src="../js/main.js"></script>
 <script type="module">
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
   mermaid.initialize({ startOnLoad: true });
 </script>
 </body>
 </html>
-
-

@@ -4,7 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Prouni Data Insights | Projeto</title>
-<link rel="stylesheet" href="../src/css/style.css" />
+<meta name="description" content="Análise visual dos dados do PROUNI com Python, Pandas e Plotly." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -26,6 +30,12 @@
       <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
    </div>
+
+   <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+   </button>
    </div>
 </header>
 
@@ -96,18 +106,18 @@
             <div class="mermaid-wrap">
             <pre class="mermaid">
                flowchart TB
-               A["Fonte<br/>Kaggle (kagglehub)<br/>dataset: Prouni Brazilian Scholarship Program"] --> B["Ingestão<br/>Leitura do CSV com Pandas"]
-               B --> C["Pré-processamento<br/>Renomeia colunas<br/>Remove nulos (dropna)<br/>Remove colunas sensíveis (como o CPF)<br/>Filtra idade (15–90)"]
-               C --> D["Saída limpa<br/>data/prouni_2005_2019_processed.csv"]
-               D --> E["Carregamento<br/>Lê CSV processado com Pandas<br/>"]
-               E --> F["Transformações<br/>Renomeia colunas legíveis<br/>Remove “BOLSA COMPLEMENTAR 25%”<br/>Cria “FAIXA DE IDADE”"]
-               F --> G["Visualizações<br/>Plotly + ipywidgets<br/>Sexo x tipo, Raça x tipo, Crescimento por período<br/>Mapa por UF (GeoJSON local)"]
-               G --> H["Exportação<br/>Salva gráficos em figures/"]
+                  A["Fonte&lt;br/&gt;Kaggle (kagglehub)&lt;br/&gt;dataset: Prouni Brazilian Scholarship Program"] --&gt; B["Ingestão&lt;br/&gt;Leitura do CSV com Pandas"]
+                  B --&gt; C["Pré-processamento&lt;br/&gt;Renomeia colunas&lt;br/&gt;Remove nulos (dropna)&lt;br/&gt;Remove colunas sensíveis (como o CPF)&lt;br/&gt;Filtra idade (15–90)"]
+                  C --&gt; D["Saída limpa&lt;br/&gt;data/prouni_2005_2019_processed.csv"]
+                  D --&gt; E["Carregamento&lt;br/&gt;Lê CSV processado com Pandas&lt;br/&gt;"]
+                  E --&gt; F["Transformações&lt;br/&gt;Renomeia colunas legíveis&lt;br/&gt;Remove 'BOLSA COMPLEMENTAR 25%' por ter dados insuficientes&lt;br/&gt;Cria 'FAIXA DE IDADE'"]
+                  F --&gt; G["Visualizações&lt;br/&gt;Plotly + ipywidgets&lt;br/&gt;Sexo x tipo, Raça x tipo, Crescimento por período&lt;br/&gt;Mapa por UF (GeoJSON local)"]
+                  G --&gt; H["Exportação&lt;br/&gt;Salva gráficos em figures/"]
             </pre>
             </div>
          </section>
 
-           <section id="insights" class="report-section">
+         <section id="insights" class="report-section">
          <h2>4. Análise dos visuais e insights</h2>
          <p>
             O projeto foca em visualizações com Plotly, incluindo comparações por ano, recortes por sexo e idade, além de um mapa interativo com GeoJSON para mostrar distribuição por UF.
@@ -122,7 +132,7 @@
             superior fora dos grandes centros tradicionais.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Crescimento_percentual_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Crescimento percentual de todas as bolsas comparando regiões por ano" >
+               <img src="..\assets\images\prouni\crescimento_bolsas_anos\Crescimento_percentual_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Crescimento percentual de todas as bolsas comparando regiões por ano" >
             </div>
          <p>
             Apesar disso, o Sudeste permanece como principal concentrador absoluto de bolsas, mostrando que,
@@ -130,14 +140,13 @@
          </p>
             
             <div class="chars">
-               <img src="../src/figure/chars/prouni/crescimento_bolsas_anos/Quantidade_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Quantidade de todas as bolsas comparando regiões ao longo dos anos" >
+               <img src="..\assets\images\prouni\crescimento_bolsas_anos\Quantidade_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Quantidade de todas as bolsas comparando regiões ao longo dos anos" >
                
             </div>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/mapa_bolsas_por_uf/Bolsas_do_Prouni_em_de_2005_a_2019.png" alt="Mapa de todas as bolsas no Brasil (2005 a 2019)" >
+               <img src="..\assets\images\prouni\mapa_bolsas_por_uf\Bolsas_do_Prouni_em_de_2005_a_2019.png" alt="Mapa de todas as bolsas no Brasil (2005 a 2019)" >
             </div>
-
-
+            
          <h3>4.2. Concentração por perfil racial</h3>
          <p>
             Os dados mostram que estudantes autodeclarados pardos e brancos concentram a maior parte das bolsas
@@ -148,7 +157,7 @@
             indicando um possível gargalo de acesso para esse grupo específico.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/total_idade_tipo_e_raça/Quantidade_de_bolsas_por_tipo_e_raça_de_2005_a_2019.png" alt="Quantidade de bolsas por tipo e raça (2005 a 2019)" >
+               <img src="../assets\images\prouni\total_idade_tipo_e_raça\Quantidade_de_bolsas_por_tipo_e_raça_de_2005_a_2019.png" alt="Quantidade de bolsas por tipo e raça (2005 a 2019)" >
             </div>
          <h3>4.3. Diferenças por sexo</h3>
          <p>
@@ -160,7 +169,7 @@
             superior via políticas públicas.
          </p>
             <div class="chars">
-               <img src="../src/figure/chars/prouni/grafico_crescimento_por_periodo_sexo/Quantidade_de_todas_as_bolsas_por_ano_comparando_sexo.png" alt="Quantidade de bolsas por sexo ao longo dos anos" >
+               <img src="../assets\images\prouni\grafico_crescimento_por_periodo_sexo\Quantidade_de_todas_as_bolsas_por_ano_comparando_sexo.png" alt="Quantidade de bolsas por sexo ao longo dos anos" >
             </div>
          <h3>4.4. Predominância de bolsas integrais</h3>
          <p>
@@ -173,7 +182,9 @@
             As bolsas parciais apresentam volume menor e crescimento mais moderado, sugerindo que o programa
             prioriza, majoritariamente, estudantes com menor capacidade de custeio.
          </p>
-
+            <div class="chars">
+               <img src="../assets\images\prouni\total_idade_tipo\Quantidade_de_bolsas_por_tipo_de_bolsa_de_2005_a_2019.png" alt="Quantidade de bolsas por sexo ao longo dos anos" >
+            </div>
          <h3>4.5. Pico e estabilização após 2015</h3>
          <p>
             Em praticamente todos os recortes analisados, observa-se um pico entre 2014 e 2016, seguido por um
@@ -252,6 +263,8 @@
    </div>
 </footer>
 
+<script src="../js/main.js"></script>
+<script src="../js/main.js"></script>
 <script type="module">
   import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
   mermaid.initialize({ startOnLoad: true });

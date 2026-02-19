@@ -8,7 +8,6 @@ Portfólio profissional focado em dados, BI e engenharia, com projetos completos
 - GitHub: [https://github.com/cidade-felipe](https://github.com/cidade-felipe)
 - LinkedIn: [https://www.linkedin.com/in/cidadefelipe/](https://www.linkedin.com/in/cidadefelipe/)
 
-
 ## O que você encontra aqui
 
 - Página inicial com visão geral e projetos em destaque
@@ -28,8 +27,40 @@ Portfólio profissional focado em dados, BI e engenharia, com projetos completos
 - `projects.html` — Projetos
 - `profile.html` — Perfil
 - `contact.html` — Contato
-- `src/css/style.css` — Estilos globais
+- `css/style.css` — Estilos globais
+- `js/main.js` — Scripts principais
 - `project/` — Páginas individuais de projetos
+- `assets/images/` — Imagens do site e dos projetos
+
+Árvore do projeto:
+
+```text
+.
+├─ assets/
+│  └─ images/
+│     ├─ ecommerce/
+│     ├─ prouni/
+│     ├─ sccp/
+│     ├─ smartcityos/
+│     └─ world_happiness/
+├─ css/
+│  └─ style.css
+├─ js/
+│  └─ main.js
+├─ project/
+│  ├─ espd.html
+│  ├─ lpg.html
+│  ├─ prouni.html
+│  ├─ sccp.html
+│  ├─ smartcityos.html
+│  └─ whp.html
+├─ contact.html
+├─ index.html
+├─ profile.html
+├─ projects.html
+├─ LICENSE
+└─ README.md
+```
 
 ## Rodando localmente
 

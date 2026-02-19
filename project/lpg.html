@@ -4,7 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>LPG Installation Sizer | Projeto</title>
-<link rel="stylesheet" href="../src/css/style.css" />
+<meta name="description" content="Sistema de apoio ao dimensionamento de instalações de GLP com PostgreSQL e Python." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body>
@@ -26,6 +30,12 @@
       <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
    </div>
+
+   <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+   </button>
    </div>
 </header>
 
@@ -110,27 +120,27 @@
 
          <h3>Resumo do schema SQL</h3>
          <pre><code class="language-sql codebox">
-            -- Catálogo técnico
-            CREATE TABLE material (...);
-            CREATE TABLE tubo (...);
-            CREATE TABLE peca (...);
-            CREATE TABLE cilindro (...);
+-- Catálogo técnico
+CREATE TABLE material (...);
+CREATE TABLE tubo (...);
+CREATE TABLE peca (...);
+CREATE TABLE cilindro (...);
 
-            -- Projetos e operação
-            CREATE TABLE projeto (...);
-            CREATE TABLE equipamento (...);
-            CREATE TABLE equipamento_projeto (...);
-            CREATE TABLE trecho (...);
-            CREATE TABLE trecho_peca (...);
+-- Projetos e operação
+CREATE TABLE projeto (...);
+CREATE TABLE equipamento (...);
+CREATE TABLE equipamento_projeto (...);
+CREATE TABLE trecho (...);
+CREATE TABLE trecho_peca (...);
 
-            -- Cálculos e critérios
-            CREATE TABLE calculo (...);
-            CREATE TABLE criterio_projeto (...);
-            CREATE TABLE valores_entrada (...);
+-- Cálculos e critérios
+CREATE TABLE calculo (...);
+CREATE TABLE criterio_projeto (...);
+CREATE TABLE valores_entrada (...);
 
-            -- Documentos e conformidade
-            CREATE TABLE documento_projeto (...);
-            CREATE TABLE central_glp (...);
+-- Documentos e conformidade
+CREATE TABLE documento_projeto (...);
+CREATE TABLE central_glp (...);
          </code></pre>
          </section>
 
@@ -156,12 +166,12 @@
             </div>
          </div>
          <pre><code class="language-sql codebox">
-            -- Índices para joins e filtros
-            CREATE INDEX idx_eqproj_projeto ON equipamento_projeto (projeto_id);
-            CREATE INDEX idx_trecho_projeto ON trecho (projeto_id);
-            CREATE INDEX idx_trechopeca_trecho ON trecho_peca (trecho_id);
-            CREATE INDEX idx_criterio_projeto ON criterio_projeto (projeto_id);
-            CREATE INDEX idx_central_glp_projeto ON central_glp (projeto_id);
+-- Índices para joins e filtros
+CREATE INDEX idx_eqproj_projeto ON equipamento_projeto (projeto_id);
+CREATE INDEX idx_trecho_projeto ON trecho (projeto_id);
+CREATE INDEX idx_trechopeca_trecho ON trecho_peca (trecho_id);
+CREATE INDEX idx_criterio_projeto ON criterio_projeto (projeto_id);
+CREATE INDEX idx_central_glp_projeto ON central_glp (projeto_id);
          </code></pre>
          <h3>Pipeline de dados e setup</h3>
          <div class="mermaid-wrap">
@@ -184,16 +194,16 @@
             pronto para uso em cálculos de dimensionamento e análise de projetos.
          </p>
          <pre><code class="language-sql codebox">
-            -- Regras e integridade
-            ALTER TABLE equipamento
-            ADD CONSTRAINT uq_equipamento UNIQUE (nome, unidade_medida, pot_unitaria);
+-- Regras e integridade
+ALTER TABLE equipamento
+ADD CONSTRAINT uq_equipamento UNIQUE (nome, unidade_medida, pot_unitaria);
 
-            ALTER TABLE trecho
-            ADD CONSTRAINT uq_trecho UNIQUE (projeto_id, rede);
+ALTER TABLE trecho
+ADD CONSTRAINT uq_trecho UNIQUE (projeto_id, rede);
 
-            ALTER TABLE regulador
-            ADD CONSTRAINT chk_regulador_estagio
-            CHECK (estagio IN ('primeiro', 'segundo'));
+ALTER TABLE regulador
+ADD CONSTRAINT chk_regulador_estagio
+CHECK (estagio IN ('primeiro', 'segundo'));
          </code></pre>
          <ul>
             <li>Criação e remoção de schema e índices via scripts.</li>
@@ -236,6 +246,7 @@
    </div>
 </footer>
 
+<script src="../js/main.js"></script>
 <link
    rel="stylesheet"
    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"

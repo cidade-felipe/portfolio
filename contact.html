@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Felipe Cidade Soares | Contato</title>
-  <link rel="stylesheet" href="src/css/style.css" />
+  <meta name="description" content="Entre em contato com Felipe Cidade Soares - LinkedIn, GitHub, Email e WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="topbar">
@@ -24,8 +28,13 @@
       <div class="topbar-actions">
         <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noreferrer noopener">GitHub</a>
         <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-      
       </div>
+
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -99,30 +108,22 @@
     </div>
   </footer>
 
+  <script src="js/main.js"></script>
   <script>
     (function () {
       const btn = document.getElementById("copyEmailBtn");
       const emailEl = document.getElementById("emailText");
       const hint = document.getElementById("copyHint");
 
-      if (!btn || !emailEl) {
-        alert("Não achei os elementos do botão ou do e-mail. Confira os IDs.");
-        return;
-      }
+      if (!btn || !emailEl) return;
 
       btn.addEventListener("click", async function () {
         const email = (emailEl.textContent || "").trim();
 
-        // Teste imediato: se isso aparecer, o clique está chegando
-        // Você pode apagar depois
-        console.log("Clique no botão OK. E-mail:", email);
-
-        // Tenta clipboard moderno (quando permitido)
         try {
           if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(email);
           } else {
-            // Fallback que funciona em mais casos
             const ta = document.createElement("textarea");
             ta.value = email;
             ta.style.position = "fixed";
@@ -145,7 +146,6 @@
         } catch (err) {
           console.error(err);
           if (hint) hint.textContent = "Não consegui copiar automaticamente. Copie manualmente o e-mail ali em cima.";
-          alert("Falhou ao copiar. Abra o Console (F12) que eu te digo exatamente o motivo.");
         }
       });
     })();
