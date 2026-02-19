@@ -803,6 +803,7 @@ p {
   gap: var(--space-lg);
   font-size: var(--text-sm);
   color: var(--text-muted);
+  justify-content: center;
 }
 
 /* Report Layout */
