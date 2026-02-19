@@ -32,7 +32,7 @@
   <main class="page">
     <section class="page-hero">
       <h2>Contato</h2>
-      <p>Quer conversar sobre uma vaga, projeto ou colaboração? Me chama por aqui.</p>
+      <p>Quer conversar sobre uma vaga, projeto ou colaboração? Me chame por aqui.</p>
     </section>
 
     <section class="section">
@@ -69,7 +69,7 @@
 
           <article class="contact-card">
             <h3>WhatsApp</h3>
-            <p>Pode me chamar no WhatsApp, também.</p>
+            <p>Pode me chamar no WhatsApp também.</p>
             <a class="btn-premium" href="https://wa.me/5548999091094" target="_blank" rel="noreferrer noopener">
               +55 48 99909-1094
             </a>
@@ -106,7 +106,7 @@
       const hint = document.getElementById("copyHint");
 
       if (!btn || !emailEl) {
-        alert("Não achei os elementos do botão ou do e-mail. Confere os IDs.");
+        alert("Não achei os elementos do botão ou do e-mail. Confira os IDs.");
         return;
       }
 
@@ -115,7 +115,7 @@
 
         // Teste imediato: se isso aparecer, o clique está chegando
         // Você pode apagar depois
-        console.log("Clique no botão OK. Email:", email);
+        console.log("Clique no botão OK. E-mail:", email);
 
         // Tenta clipboard moderno (quando permitido)
         try {
@@ -145,7 +145,7 @@
         } catch (err) {
           console.error(err);
           if (hint) hint.textContent = "Não consegui copiar automaticamente. Copie manualmente o e-mail ali em cima.";
-          alert("Falhou ao copiar. Abre o Console (F12) que eu te digo exatamente o motivo.");
+          alert("Falhou ao copiar. Abra o Console (F12) que eu te digo exatamente o motivo.");
         }
       });
     })();
