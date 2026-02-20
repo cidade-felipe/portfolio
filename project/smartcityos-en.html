@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartCityOS | Project</title>
+  <meta name="description" content="Smart operating system for cities with PostgreSQL, Python and PySide6." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index-en.html">
+        <span class="brand-dot"></span>
+        <span>Felipe Cidade Soares</span>
+      </a>
+
+      <nav class="nav">
+        <a href="../index-en.html">Home</a>
+        <a href="../projects-en.html" class="active">Projects</a>
+        <a href="../profile-en.html">Profile</a>
+        <a href="../contact-en.html">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+      <a class="lang-switch" href="smartcityos.html" aria-label="Switch language to Portuguese">PT</a>
+
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="container project-title">
+        <h1>SmartCityOS</h1>
+        <p>
+          Smart operating system for cities, focused on relational modeling, business rules
+          in the database, auditing and a desktop application for operations and queries.
+        </p>
+
+        <div class="badges">
+          <span>PostgreSQL</span><span>SQL</span><span>Triggers</span><span>Audit</span><span>Python</span><span>PySide6</span>
+        </div>
+
+        <div class="meta">
+          <span>Author: Felipe Cidade Soares</span>
+          <span>Type: Database + Application</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="report">
+      <div class="container report-grid">
+
+        <aside class="toc">
+          <h3>Summary</h3>
+          <a href="#intro">1. Context</a>
+          <a href="#objetivos">2. Objectives</a>
+          <a href="#arquitetura">3. Architecture</a>
+          <a href="#modelo">4. Data model</a>
+          <a href="#automacoes">5. Automation and rules</a>
+          <a href="#interface">6. Interface and screens</a>
+          <a href="#sql">7. SQL and queries</a>
+          <a href="#conclusao">8. Conclusion</a>
+        </aside>
+
+        <article class="report-content">
+
+          <section id="intro" class="report-section">
+            <h2>1. Context</h2>
+            <p>
+              SmartCityOS was designed to simulate a real urban operation, connecting citizens,
+              vehicles, sensors, incidents and fines in a centralized database. The priority was to create
+              a consistent base with automated rules inside the database and full traceability.
+            </p>
+            <p>
+              The project demonstrates relational modeling, advanced SQL, automation triggers and a
+              desktop interface focused on navigation, filters and operational reports.
+            </p>
+          </section>
+
+          <section id="objetivos" class="report-section">
+            <h2>2. Objectives</h2>
+            <p>Build a solid data core and an application ready for operational use.</p>
+
+            <ul>
+              <li>Model urban entities with referential integrity and database-level rules.</li>
+              <li>Automate critical processes (fines, payments, auditing, soft delete).</li>
+              <li>Provide screens with KPIs, filters and common operational actions.</li>
+            </ul>
+
+            <div class="kpi-grid">
+              <div class="kpi">
+                <div class="label">Focus</div>
+                <div class="value">Modeling</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Focus</div>
+                <div class="value">Automation</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Focus</div>
+                <div class="value">Operations</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="arquitetura" class="report-section">
+            <h2>3. Architecture</h2>
+            <p>
+              The project has two main blocks: PostgreSQL database (DDL, indexes, views and
+              triggers) and a Python desktop application for daily operations and queries.
+            </p>
+            <div class="kpi-grid">
+              <div class="kpi">
+                <div class="label">Database</div>
+                <div class="value">PostgreSQL + PL/pgSQL</div>
+              </div>
+              <div class="kpi">
+                <div class="label">App</div>
+                <div class="value">PySide6</div>
+              </div>
+              <div class="kpi">
+                <div class="label">Interface</div>
+                <div class="value">Dashboards + CRUD</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="modelo" class="report-section">
+            <h2>4. Data model</h2>
+            <p>
+              The model covers essential urban operation entities and maintains consistency with foreign
+              keys, constraints and indexes. It includes status control, soft delete and relationships
+              between citizens, vehicles, sensors, incidents and fines.
+            </p>
+            <pre><code class="language-sql codebox">
+CREATE TABLE app_user (...);
+CREATE TABLE citizen (...);
+CREATE TABLE vehicle (...);
+CREATE TABLE sensor (...);
+CREATE TABLE traffic_incident (...);
+CREATE TABLE fine (...);
+CREATE TABLE fine_payment (...);
+
+CREATE VIEW citizen_active AS
+SELECT * FROM citizen WHERE deleted_at IS NULL;
+            </code></pre>
+          </section>
+
+          <section id="automacoes" class="report-section">
+            <h2>5. Automation and rules</h2>
+            <p>
+              Main rules run in the database to keep consistency even with multiple
+              connected clients. Triggers control auditing, soft delete and automatic updates
+              of wallet balance and debt.
+            </p>
+
+            <pre><code class="language-sql codebox">
+-- Fines and payments
+CREATE TRIGGER trg_apply_fine
+AFTER INSERT ON fine
+EXECUTE FUNCTION apply_fine_to_wallet();
+
+CREATE TRIGGER trg_apply_fine_payment
+AFTER INSERT ON fine_payment
+EXECUTE FUNCTION apply_fine_payment();
+
+-- Generic audit
+CREATE TRIGGER audit_app_user
+AFTER INSERT OR UPDATE OR DELETE ON app_user
+EXECUTE FUNCTION audit_log_generic();
+            </code></pre>
+
+            <p>
+              In addition, updates are blocked on deleted records, pending fines can be canceled
+              in specific cases, and indexes accelerate status/date filtering.
+            </p>
+          </section>
+
+          <section id="interface" class="report-section">
+            <h2>6. Interface and screens</h2>
+            <p>
+              The desktop application provides panels for managing citizens, vehicles, sensors, incidents
+              and fines, with KPIs and ready-to-use filters for analysis. The screens below represent the
+              main operation flow.
+            </p>
+
+            <h3>6.1. Dashboard</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/dashboard.png" alt="SmartCityOS overall dashboard">
+            </div>
+
+            <h3>6.2. Citizen management</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/cidadaos.png" alt="Citizen management screen">
+            </div>
+
+            <h3>6.3. Vehicle management</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/veiculos.png" alt="Vehicle management screen">
+            </div>
+
+            <h3>6.4. Sensor management</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/sensores.png" alt="Sensor management screen">
+            </div>
+
+            <h3>6.5. Incident management</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/incidentes.png" alt="Incident management screen">
+            </div>
+
+            <h3>6.6. Fine management</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/multas.png" alt="Fine management screen">
+            </div>
+
+            <h3>6.7. Statistics and reports</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/estatisticas.png" alt="System statistics screen">
+            </div>
+
+            <h3>6.8. SQL console</h3>
+            <div class="chars">
+              <img src="../assets/images/smartcityos/console_sql.png" alt="SQL console with editor and results">
+            </div>
+          </section>
+
+          <section id="sql" class="report-section">
+            <h2>7. SQL and queries</h2>
+            <p>
+              The SQL console enables safe queries (read-only mode), result export and ready examples
+              to speed up analysis. The focus is enabling operational investigation without breaking
+              database rules.
+            </p>
+
+            <pre><code class="language-sql codebox">
+-- Quick read example
+SELECT * FROM app_user_active LIMIT 10;
+
+-- Pending fines per citizen
+SELECT citizen_id, COUNT(*) AS pendentes, SUM(amount) AS total
+FROM fine
+WHERE status = 'pending'
+GROUP BY citizen_id;
+            </code></pre>
+          </section>
+
+          <section id="conclusao" class="report-section">
+            <h2>8. Conclusion</h2>
+            <p>
+              SmartCityOS delivers a solid relational base, automated rules and an interface
+              ready for operation. The result is an end-to-end system that demonstrates SQL mastery,
+              data architecture and user experience.
+            </p>
+
+            <div class="cta-row-final">
+              <a class="btn-premium" href="../projects-en.html">Back to projects</a>
+              <a class="btn-premium secondary" href="https://github.com/cidade-felipe/smart-city-os" target="_blank" rel="noopener noreferrer">Repository</a>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="container footer-inner">
+      <p>© 2026 Felipe Cidade</p>
+    </div>
+  </footer>
+
+<script src="../js/main.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  hljs.highlightAll();
+</script>
+</body>
+</html>

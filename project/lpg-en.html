@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en-US">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LPG Installation Sizer | Projeto</title>
-<meta name="description" content="Sistema de apoio ao dimensionamento de instalações de GLP com PostgreSQL e Python." />
+<title>LPG Installation Sizer | Project</title>
+<meta name="description" content="Support system for LPG installation sizing with PostgreSQL and Python." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,16 +14,16 @@
 <body>
 <header class="topbar">
    <div class="topbar-inner">
-   <a class="brand" href="../index.html">
+   <a class="brand" href="../index-en.html">
       <span class="brand-dot"></span>
       <span>Felipe Cidade Soares</span>
    </a>
 
    <nav class="nav">
-      <a href="../index.html">Home</a>
-      <a href="../projects.html" class="active">Projetos</a>
-      <a href="../profile.html">Perfil</a>
-      <a href="../contact.html">Contato</a>
+      <a href="../index-en.html">Home</a>
+      <a href="../projects-en.html" class="active">Projects</a>
+      <a href="../profile-en.html">Profile</a>
+      <a href="../contact-en.html">Contact</a>
    </nav>
 
    <div class="topbar-actions">
@@ -31,7 +31,7 @@
       <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
    </div>
 
-   <a class="lang-switch" href="lpg-en.html" aria-label="Mudar idioma para inglês">EN</a>
+   <a class="lang-switch" href="lpg.html" aria-label="Switch language to Portuguese">PT</a>
 
    <button class="menu-toggle" aria-label="Menu">
       <span></span>
@@ -46,8 +46,8 @@
    <div class="container project-title">
       <h1>LPG Installation Sizer</h1>
       <p>
-         Sistema de apoio ao dimensionamento de instalações de GLP com banco relacional, dados base e
-         scripts para criação do schema, índices e carga inicial.
+         Support system for LPG installation sizing with relational database, base data and
+         scripts for schema creation, indexing and initial load.
       </p>
 
       <div class="badges">
@@ -55,8 +55,8 @@
       </div>
 
       <div class="meta">
-         <span>Autor: Felipe Cidade Soares</span>
-         <span>Tipo: Backend + Dados</span>
+         <span>Author: Felipe Cidade Soares</span>
+         <span>Type: Backend + Data</span>
       </div>
    </div>
    </section>
@@ -65,138 +65,138 @@
    <div class="container report-grid">
 
       <aside class="toc">
-         <h3>Sumário</h3>
-         <a href="#intro">1. Introdução</a>
-         <a href="#objetivos">2. Objetivos</a>
-         <a href="#modelo">3. Modelo de dados</a>
-         <a href="#pipeline">4. Pipeline e automação</a>
-         <a href="#features">5. Funcionalidades</a>
-         <a href="#conclusao">6. Conclusão</a>
-         <a href="#proximos">7. Próximos passos</a>
+         <h3>Summary</h3>
+         <a href="#intro">1. Introduction</a>
+         <a href="#objetivos">2. Objectives</a>
+         <a href="#modelo">3. Data model</a>
+         <a href="#pipeline">4. Pipeline and automation</a>
+         <a href="#features">5. Features</a>
+         <a href="#conclusao">6. Conclusion</a>
+         <a href="#proximos">7. Next steps</a>
       </aside>
 
       <article class="report-content">
 
          <section id="intro" class="report-section">
-         <h2>1. Introdução</h2>
+         <h2>1. Introduction</h2>
          <p>
-            O projeto organiza parâmetros técnicos usados no dimensionamento de instalações de GLP,
-            reunindo materiais, tubos, peças e cilindros em um banco relacional com foco em integridade,
-            reuso e rastreabilidade. A base é complementada por scripts que automatizam criação de tabelas,
-            índices e carga inicial dos dados.
+            The project organizes technical parameters used in LPG installation sizing,
+            grouping materials, pipes, fittings and cylinders in a relational database focused on integrity,
+            reuse and traceability. The base is complemented by scripts that automate table creation,
+            indexes and initial data load.
          </p>
          </section>
 
          <section id="objetivos" class="report-section">
-         <h2>2. Objetivos</h2>
-         <p>Principais objetivos do projeto:</p>
+         <h2>2. Objectives</h2>
+         <p>Main project objectives:</p>
          <ul>
-            <li>Centralizar parâmetros técnicos em um modelo relacional consistente.</li>
-            <li>Garantir integridade com chaves e constraints (FKs, uniques e checks).</li>
-            <li>Automatizar criação e carga inicial para reprodutibilidade.</li>
+            <li>Centralize technical parameters in a consistent relational model.</li>
+            <li>Ensure integrity with keys and constraints (FKs, uniques and checks).</li>
+            <li>Automate creation and initial load for reproducibility.</li>
          </ul>
          </section>
 
          <section id="modelo" class="report-section">
-         <h2>3. Modelo de dados</h2>
+         <h2>3. Data model</h2>
          <p>
-            O schema organiza dados base (materiais, tubos, peças e cilindros) e dados de projeto
-            (projetos, equipamentos, trechos, critérios e cálculos). Relacionamentos são protegidos
-            por chaves estrangeiras, garantindo consistência nas operações.
+            The schema organizes base data (materials, pipes, fittings and cylinders) and project data
+            (projects, equipment, sections, criteria and calculations). Relationships are protected
+            by foreign keys, ensuring operational consistency.
          </p>
 
          <div class="kpi-grid">
             <div class="kpi">
                <div class="label">Base</div>
-               <div class="value">Materiais, Tubos, Peças</div>
+               <div class="value">Materials, Pipes, Fittings</div>
             </div>
             <div class="kpi">
-               <div class="label">Projeto</div>
-               <div class="value">Trechos, Critérios, Cálculos</div>
+               <div class="label">Project</div>
+               <div class="value">Sections, Criteria, Calculations</div>
             </div>
             <div class="kpi">
-               <div class="label">Operação</div>
-               <div class="value">Índices e Upsert</div>
+               <div class="label">Operation</div>
+               <div class="value">Indexes and Upsert</div>
             </div>
          </div>
 
-         <h3>Resumo do schema SQL</h3>
+         <h3>SQL schema summary</h3>
          <pre><code class="language-sql codebox">
--- Catálogo técnico
+-- Technical catalog
 CREATE TABLE material (...);
 CREATE TABLE tubo (...);
 CREATE TABLE peca (...);
 CREATE TABLE cilindro (...);
 
--- Projetos e operação
+-- Projects and operation
 CREATE TABLE projeto (...);
 CREATE TABLE equipamento (...);
 CREATE TABLE equipamento_projeto (...);
 CREATE TABLE trecho (...);
 CREATE TABLE trecho_peca (...);
 
--- Cálculos e critérios
+-- Calculations and criteria
 CREATE TABLE calculo (...);
 CREATE TABLE criterio_projeto (...);
 CREATE TABLE valores_entrada (...);
 
--- Documentos e conformidade
+-- Documents and compliance
 CREATE TABLE documento_projeto (...);
 CREATE TABLE central_glp (...);
          </code></pre>
          </section>
 
          <section id="pipeline" class="report-section">
-         <h2>4. Pipeline e automação</h2>
+         <h2>4. Pipeline and automation</h2>
          <p>
-            A automação é feita por scripts Python que executam SQL bruto para criação do schema e índices,
-            além de carga inicial via JSON com upsert. O objetivo é manter consistência entre ambientes e
-            facilitar atualizações sem perda de dados.
+            Automation is done by Python scripts that execute raw SQL for schema and index creation,
+            plus initial load through JSON upsert. The objective is to keep consistency across environments
+            and facilitate updates without data loss.
          </p>
          <div class="kpi-grid">
             <div class="kpi">
-               <div class="label">Integridade</div>
+               <div class="label">Integrity</div>
                <div class="value">PKs + FKs + UNIQUE</div>
             </div>
             <div class="kpi">
-               <div class="label">Qualidade</div>
-               <div class="value">CHECKs (≥ 0 / &gt; 0)</div>
+               <div class="label">Quality</div>
+               <div class="value">CHECKs (&gt;= 0 / &gt; 0)</div>
             </div>
             <div class="kpi">
                <div class="label">Performance</div>
-               <div class="value">Índices em joins críticos</div>
+               <div class="value">Indexes on critical joins</div>
             </div>
          </div>
          <pre><code class="language-sql codebox">
--- Índices para joins e filtros
+-- Indexes for joins and filters
 CREATE INDEX idx_eqproj_projeto ON equipamento_projeto (projeto_id);
 CREATE INDEX idx_trecho_projeto ON trecho (projeto_id);
 CREATE INDEX idx_trechopeca_trecho ON trecho_peca (trecho_id);
 CREATE INDEX idx_criterio_projeto ON criterio_projeto (projeto_id);
 CREATE INDEX idx_central_glp_projeto ON central_glp (projeto_id);
          </code></pre>
-         <h3>Pipeline de dados e setup</h3>
+         <h3>Data and setup pipeline</h3>
          <div class="mermaid-wrap">
             <pre class="mermaid">
                flowchart TB
-                  A[".env com credenciais"] --&gt; B["functions/criar_tabelas.py"]
+                  A[".env with credentials"] --&gt; B["functions/criar_tabelas.py"]
                   B --&gt; C["sql/tabelas.sql (schema)"]
                   C --&gt; D["functions/criar_indices.py"]
-                  D --&gt; E["sql/indices.sql (indices)"]
+                  D --&gt; E["sql/indices.sql (indexes)"]
                   E --&gt; F["functions/popular_banco.py"]
-                  F --&gt; G["json/ (materiais, tubos, pecas, cilindros)"]
+                  F --&gt; G["json/ (materials, pipes, fittings, cylinders)"]
             </pre>
          </div>
          </section>
 
          <section id="features" class="report-section">
-         <h2>5. Funcionalidades</h2>
+         <h2>5. Features</h2>
          <p>
-            O repositório entrega um fluxo completo para manter o banco técnico de GLP consistente e
-            pronto para uso em cálculos de dimensionamento e análise de projetos.
+            The repository delivers a complete flow to keep the LPG technical database consistent
+            and ready for sizing calculations and project analysis.
          </p>
          <pre><code class="language-sql codebox">
--- Regras e integridade
+-- Rules and integrity
 ALTER TABLE equipamento
 ADD CONSTRAINT uq_equipamento UNIQUE (nome, unidade_medida, pot_unitaria);
 
@@ -208,33 +208,33 @@ ADD CONSTRAINT chk_regulador_estagio
 CHECK (estagio IN ('primeiro', 'segundo'));
          </code></pre>
          <ul>
-            <li>Criação e remoção de schema e índices via scripts.</li>
-            <li>Carga inicial com dados base e upsert para atualização segura.</li>
-            <li>Estrutura preparada para cálculo de trechos e perda de carga.</li>
-            <li>Suporte a interface gráfica (PySide6) para cadastro e cálculo (em desenvolvimento).</li>
+            <li>Schema and index creation/removal via scripts.</li>
+            <li>Initial base-data load and upsert for safe updates.</li>
+            <li>Structure prepared for section calculation and pressure drop analysis.</li>
+            <li>Support for PySide6 graphical interface for registration and calculations (in development).</li>
          </ul>
          </section>
 
          <section id="conclusao" class="report-section">
-         <h2>6. Conclusão</h2>
+         <h2>6. Conclusion</h2>
          <p>
-            O projeto estabelece uma base sólida para dimensionamento de instalações de GLP,
-            combinando um modelo relacional consistente com automação de setup e dados base.
-            Isso reduz retrabalho, facilita manutenção e garante confiabilidade para cálculos.
+            The project establishes a solid base for LPG installation sizing,
+            combining a consistent relational model with setup automation and base data.
+            This reduces rework, simplifies maintenance and ensures reliable calculations.
          </p>
          </section>
 
          <section id="proximos" class="report-section">
-         <h2>7. Próximos passos</h2>
+         <h2>7. Next steps</h2>
          <p>
-            Evoluções naturais incluem versionamento do schema com migrações, padronização de logs
-            nos scripts e publicação de um dashboard para acompanhar métricas dos projetos.
+            Natural evolutions include schema versioning with migrations, log standardization
+            in scripts and publication of a dashboard to monitor project metrics.
          </p>
          </section>
 
          <div class="cta-row-final">
-            <a class="btn-premium" href="../projects.html">Voltar para projetos</a>
-            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/lpg-installation-sizer" target="_blank" rel="noopener noreferrer">Repositório</a>
+            <a class="btn-premium" href="../projects-en.html">Back to projects</a>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/lpg-installation-sizer" target="_blank" rel="noopener noreferrer">Repository</a>
          </div>
 
       </article>

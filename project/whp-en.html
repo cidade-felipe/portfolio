@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Happiness Prediction | Project</title>
+  <meta name="description" content="Analysis and prediction of the World Happiness Index with Power BI, Python and Machine Learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index-en.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+    </a>
+
+    <nav class="nav">
+      <a href="../index-en.html">Home</a>
+      <a href="../projects-en.html" class="active">Projects</a>
+      <a href="../profile-en.html">Profile</a>
+      <a href="../contact-en.html">Contact</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <a class="lang-switch" href="whp.html" aria-label="Switch language to Portuguese">PT</a>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="project-hero">
+    <div class="container project-title">
+      <h1>World Happiness Prediction</h1>
+      <p>
+        Analysis and modeling project to understand factors associated with the Happiness Index
+        and build a prediction layer, with an interactive dashboard for result exploration.
+      </p>
+
+      <div class="badges">
+        <span>Power BI</span><span>ML</span><span>DAX</span><span>SQL</span><span>ETL</span><span>Storytelling</span><span>Python</span>
+      </div>
+
+      <div class="meta">
+        <span>Author: Felipe Cidade Soares</span>
+        <span>Type: EDA + Modeling + Dashboard</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="report">
+    <div class="container report-grid">
+
+      <aside class="toc">
+        <h3>Summary</h3>
+        <a href="#intro">1. Introduction</a>
+        <a href="#perguntas">2. Analysis questions</a>
+        <a href="#dados">3. Source and preparation</a>
+        <a href="#eda">4. Dashboard, EDA and insights</a>
+        <a href="#predicao">5. Prediction</a>
+        <a href="#conclusao">6. Conclusion</a>
+        <a href="#proximos">7. Next steps</a>
+      </aside>
+
+      <article class="report-content">
+
+        <section id="intro" class="report-section">
+          <h2>1. Introduction</h2>
+          <p>
+            This project analyzes World Happiness data to identify which factors are most associated with the Happiness Index and how these relationships can be converted into a reliable predictive model. The initiative combines statistical exploration, data cleaning and standardization, feature engineering and model evaluation, ensuring a reproducible preparation and training flow. As a practical delivery, the work provides an interactive dashboard with map and correlation visualizations, allowing pattern investigation by country and variable comparison over time. The result is a solid foundation both for understanding happiness determinants and for future analytical and predictive applications.
+          </p>
+        </section>
+
+        <section id="perguntas" class="report-section">
+          <h2>2. Analysis questions</h2>
+          <p>
+            The guiding questions are: which factors show the strongest association with the Happiness Index; how this index evolves over time; how it is distributed across regions and countries; and whether it is possible to predict the index from socioeconomic and institutional variables, such as GDP per capita, life expectancy, social support, freedom of choice and trust in government.
+          </p>
+        </section>
+
+        <section id="dados" class="report-section">
+          <h2>3. Source and preparation</h2>
+          <p>
+            Data preparation structures the base for both analysis and model training. The process includes standardizing column names, handling null values, ensuring correct types, controlling possible information leakage, and consolidating a consistent final dataset for EDA and modeling. The pipeline below summarizes this full flow, from raw data to prediction-ready analysis base.
+          </p>
+        </section>
+
+        <section id="pipeline" class="report-section">
+          <h2>3.1 Pipeline</h2>
+
+          <div class="mermaid-wrap">
+            <pre class="mermaid">
+              flowchart TB
+                A["Data source<br/>World Happiness (dataset)"] --&gt; B["Ingestion<br/>Read with Pandas"]
+                B --&gt; C["Preprocessing<br/>Column standardization<br/>Null handling<br/>Types and filters"]
+                C --&gt; D["Final base<br/>Clean and consistent dataset"]
+                D --&gt; E["EDA<br/>Year trends<br/>Global distribution<br/>Variable correlations"]
+                D --&gt; F["Modeling<br/>Train/test split<br/>Model training<br/>Evaluation and tuning"]
+                F --&gt; G["Prediction and insights<br/>Real vs predicted comparison<br/>Country/year exploration"]
+                E --&gt; H["Dashboard (Power BI)<br/>Map + correlations + overview"]
+                G --&gt; H
+            </pre>
+          </div>
+        </section>
+
+        <section id="eda" class="report-section">
+          <h2>4. Dashboard, EDA and insights</h2>
+          <p>
+            In exploration, the objective is to visualize the temporal evolution of the index and understand how explanatory variables relate to it. Scatter plots with trend lines help identify stronger or weaker associations, while the map provides a quick and intuitive global overview.
+          </p>
+          <p>
+            The dashboard consolidates exploration into three main pages: overview, map and correlations.
+            It allows year filtering and pattern comparison without opening notebooks, making the project more presentable and easier to navigate.
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th>Objective</th>
+                  <th>What users quickly discover</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Overview</td>
+                  <td>Metric and trend summary</td>
+                  <td>Top/Bottom countries and temporal variation</td>
+                </tr>
+                <tr>
+                  <td>Map</td>
+                  <td>Geographical distribution</td>
+                  <td>Clear regional differences at first glance</td>
+                </tr>
+                <tr>
+                  <td>Correlations</td>
+                  <td>Relationships between variables</td>
+                  <td>Which factors are most associated with the index</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>4.1 Evolution over time</h3>
+          <p>
+            The happiness index shows a sharp drop between 2005 and 2008, followed by gradual recovery. This trend may be related to global events such as the 2008 financial crisis, which negatively affected well-being in many countries. From 2010 onward, a consistent recovery is observed, although pace varies across nations, suggesting local and regional factors also play an important role in index evolution.
+          </p>
+          <div class="chars">
+            <img src="../assets/images/world_happiness/world-happiness-prediction-report_Page1.png" alt="Overview with timeline and rankings" />
+          </div>
+
+          <h3>4.2 Global Happiness Index map</h3>
+          <p>
+            The map reveals a clear geographical distribution, with Nordic countries such as Finland, Denmark and Norway consistently at the top of the ranking, while developing nations face greater challenges to achieve high happiness levels. The visualization highlights regional disparities and suggests that cultural, economic and social factors strongly influence population well-being.
+          </p>
+          <div class="chars">
+            <img src="../assets/images/world_happiness/world-happiness-prediction-report_Page3.png" alt="Happiness Index map by country" />
+          </div>
+          <h3>4.3 Correlations between variables</h3>
+
+          <p>
+            Correlations help explain what moves together with the happiness index. In general, indicators such as GDP per capita, life expectancy and freedom of choice tend to track index growth, while variables linked to institutional trust may show less linear patterns depending on the segment.
+          </p>
+          <p>
+            This behavior reinforces the idea that well-being is multifaceted and depends on a combination of economic, social and institutional factors. Correlation analysis also guides feature selection for predictive modeling, highlighting variables with higher explanatory potential.
+          </p>
+          <div class="chars">
+            <img src="../assets/images/world_happiness/world-happiness-prediction-report_Page2.png" alt="Correlation charts with trend line" />
+          </div>
+        </section>
+        <section id="predicao" class="report-section">
+          <h2>5. Happiness Index prediction</h2>
+
+          <p>
+            In addition to exploratory analysis and visualizations, the project also includes a predictive
+            modeling stage aimed at estimating the Happiness Index from socioeconomic and institutional
+            variables. The proposal is to transform observed patterns in data into quantitative forecasts,
+            enabling scenario simulation and deeper understanding of factors that influence average country well-being.
+          </p>
+
+          <h3>5.1. Data preparation for modeling</h3>
+
+          <p>
+            Before model training, data went through a machine learning-oriented preparation process,
+            ensuring consistency and avoiding information leakage between train and test sets.
+          </p>
+
+          <p>
+            Main steps included explanatory variable selection, target variable definition,
+            missing value handling, normalization when needed, and train/test split while preserving experiment reproducibility.
+          </p>
+
+          <h3>5.2. Evaluated models</h3>
+
+          <p>
+            Supervised regression models were used to predict a continuous value corresponding
+            to the Happiness Index. A simple baseline model was adopted first, followed by more robust models
+            capable of capturing non-linear relationships between variables.
+          </p>
+
+          <p>
+            Final model selection considered not only numerical performance, but also
+            stability, interpretability and generalization capability.
+          </p>
+
+          <h3>5.3. Performance evaluation</h3>
+
+          <p>
+            Model performance was evaluated using classic regression metrics,
+            enabling an objective assessment of prediction quality.
+          </p>
+
+          <ul>
+            <li>R²: measures the proportion of variance explained by the model.</li>
+            <li>MAE: represents mean absolute prediction error.</li>
+            <li>RMSE: penalizes larger errors and indicates residual dispersion.</li>
+          </ul>
+          <p>
+            The obtained results indicate that the model captures a significant share of Happiness Index variation, with average errors compatible with the analyzed indicator scale.
+          </p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>R²</th>
+                    <th>RMSE</th>
+                    <th>Observation</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Linear Regression</td>
+                    <td>0.755</td>
+                    <td>0.535</td>
+                    <td>Captures general trend</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Random Forest</strong></td>
+                    <td><strong>0.856</strong></td>
+                    <td><strong>0.410</strong></td>
+                    <td><strong>Best performance</strong></td>
+                  </tr>
+                  <tr>
+                    <td>XGBoost</td>
+                    <td>0.850</td>
+                    <td>0.418</td>
+                    <td>High performance with tuning potential</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <p>
+                After evaluation, the Random Forest model showed the best performance, with R² of 0.856 and RMSE of 0.410, indicating strong explanatory power with relatively low average error. The Linear Regression model, although capturing the general trend, performed worse, suggesting that relationships between explanatory variables and the index are not strictly linear. XGBoost also showed competitive performance, but Random Forest stood out as the best option for this specific dataset.
+              </p>
+          <h3>5.4. Variable importance</h3>
+
+          <p>
+            Variable contribution analysis showed that factors related to material conditions,
+            social support and individual autonomy have stronger impact on predictions.
+          </p>
+          <p>
+            Among the most relevant variables are indicators such as GDP per capita,
+            life expectancy, social support and freedom of choice, confirming patterns
+            previously observed in exploratory analysis.
+          </p>
+          <p>
+            Variables associated with institutional perception, such as trust in government,
+            show less stable influence, varying by region and period.
+          </p>
+          <div class="chars">
+            <img src="../assets/images/world_happiness/importancia_rf.png" alt="Variable importance - Random Forest" />
+          </div>
+          <h3>5.6. Predictive stage conclusion</h3>
+          <p>
+            The prediction stage demonstrates that it is possible to estimate the Happiness Index with good
+            precision using socioeconomic and well-being variables. The model not only produces forecasts,
+            but also contributes to understanding factors that sustain globally observed happiness levels.
+          </p>
+          <p>
+            In this way, modeling complements visual analyses, turning historical data
+            into an analytical tool that supports comparative studies and evidence-based discussions.
+          </p>
+        </section>
+        <section id="conclusao" class="report-section">
+          <h2>6. Conclusion</h2>
+          <p>
+            The project shows how social and economic data can be transformed into visual analysis and a predictive approach, connecting exploration, interpretation and final product (dashboard). The result is a clear view of Happiness Index behavior over time and space, plus a consistent path for estimating the index from explanatory variables.
+          </p>
+        </section>
+
+        <section id="proximos" class="report-section">
+          <h2>7. Next steps</h2>
+          <p>
+            As an evolution path, it is possible to add model comparison, variable-importance analysis, temporal validation (train on earlier years and test on later years), and an explainability layer (for example, SHAP) to make predictions more interpretable. In the dashboard, a "Prediction vs Actual" tab and a ranking of countries with highest error can produce valuable insights.
+          </p>
+        </section>
+
+        <div class="cta-row-final">
+          <a class="btn-premium" href="../projects-en.html">Back to projects</a>
+          <a class="btn-premium secondary" href="https://github.com/cidade-felipe/world-happiness-prediction" target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="btn-premium secondary" href="https://www.kaggle.com/datasets/usamabuttar/world-happiness-report-2005-present" target="_blank" rel="noopener noreferrer">Data Source</a>
+        </div>
+
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-premium">
+  <div class="container footer-inner">
+    <p>© 2026 Felipe Cidade</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+</body>
+</html>

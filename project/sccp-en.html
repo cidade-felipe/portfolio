@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Course Completion Prediction | Project</title>
+<meta name="description" content="Analysis and completion prediction in online courses with Python and Machine Learning." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+<header class="topbar">
+   <div class="topbar-inner">
+   <a class="brand" href="../index-en.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+   </a>
+
+   <nav class="nav">
+      <a href="../index-en.html">Home</a>
+      <a href="../projects-en.html" class="active">Projects</a>
+      <a href="../profile-en.html">Profile</a>
+      <a href="../contact-en.html">Contact</a>
+   </nav>
+
+   <div class="topbar-actions">
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+   </div>
+
+   <a class="lang-switch" href="sccp.html" aria-label="Switch language to Portuguese">PT</a>
+
+   <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+   </button>
+   </div>
+</header>
+
+<main>
+   <section class="project-hero">
+   <div class="container project-title">
+      <h1>Student Course Completion Prediction</h1>
+      <p>
+         Analysis and prediction of completion in online courses, with a preparation pipeline,
+         engagement exploration and supervised models to predict completion.
+      </p>
+
+      <div class="badges">
+         <span>Python</span><span>Pandas</span><span>Plotly</span><span>GeoJSON</span><span>Jupyter</span><span>EDA</span>
+      </div>
+
+      <div class="meta">
+         <span>Author: Felipe Cidade Soares</span>
+         <span>Type: EDA + ML</span>
+      </div>
+   </div>
+   </section>
+
+   <section class="report">
+   <div class="container report-grid">
+
+      <aside class="toc">
+         <h3>Summary</h3>
+         <a href="#intro">1. Introduction</a>
+         <a href="#objetivos">2. Objectives</a>
+         <a href="#dados">3. Data source and structure</a>
+         <a href="#pipeline">4. Data extraction and preparation</a>
+         <a href="#insights">5. Visual analysis and insights</a>
+         <a href="#conclusao">6. Conclusion</a>
+         <a href="#proximos">7. Next steps</a>
+
+      </aside>
+
+      <article class="report-content">
+
+         <section id="intro" class="report-section">
+         <h2>1. Introduction</h2>
+         <p>
+            Online education grew significantly, especially during the COVID-19 pandemic.
+            In this context, educational institutions had to adapt and implement new technologies,
+            which led to stronger technology integration in teaching. In addition, online education
+            made course access easier for students in remote areas, contributing to democratization of access to education.
+         </p>
+         <p>
+            This work aims to perform exploratory data analysis to understand student and course characteristics,
+            identify factors that influence course completion through engagement patterns, and generate actionable insights
+            for follow-up.
+         </p>
+         </section>
+
+         <section id="objetivos" class="report-section">
+         <h2>2. Objectives</h2>
+         <p>
+            The general objective of this work is to analyze factors that lead students
+            to complete or not complete online courses.
+         </p>
+         <p>The specific objectives of this work are:</p>
+         <ul>
+            <li>Perform exploratory data analysis to understand student and course characteristics.</li>
+            <li>Identify factors that influence course completion through engagement patterns.</li>
+            <li>Generate actionable insights for follow-up.</li>
+         </ul>
+
+         <div class="kpi-grid">
+            <div class="kpi">
+               <div class="label">Focus</div>
+               <div class="value">Engagement</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Focus</div>
+               <div class="value">Prediction</div>
+            </div>
+            <div class="kpi">
+               <div class="label">Focus</div>
+               <div class="value">Reproducibility</div>
+            </div>
+         </div>
+         </section>
+
+         <section id="dados" class="report-section">
+         <h2>3. Data source and structure</h2>
+         <p>
+            Data comes from a dataset available on Kaggle,
+            available <a href="https://www.kaggle.com/datasets/nisargpatel344/student-course-completion-prediction-dataset" target="_blank" rel="noopener noreferrer">here</a>.
+            The dataset contains student information, such as age, gender, time spent on the platform,
+            educational background, among others, and course information, such as course name,
+            duration, price, and others. The target variable is in the
+            "Completed" column, indicating whether the student completed the course.
+         </p>
+         </section>
+
+         <section id="pipeline" class="report-section">
+         <h2>4. Data extraction and preparation</h2>
+         <p>
+            The dataset was extracted from Kaggle and saved in the file "student_course_completion.csv".
+            The file was loaded with the pandas library in Python, and data
+            was explored to understand student and course characteristics. The source
+            code is available <a href="https://github.com/cidade-felipe/Student-Course-Completion-Prediction-Dataset" target="_blank" rel="noopener noreferrer">here</a>.
+         </p>
+         <p>
+            Variables selected for analysis are categorized, listed and described in the
+            table below.
+         </p>
+
+         <div class="table-wrap">
+            <table class="data-table">
+               <thead>
+                  <tr>
+                     <th>Category</th>
+                     <th>Column</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Target variable</td>
+                     <td>Completed</td>
+                     <td>Indicates whether the course was completed</td>
+                  </tr>
+                  <tr>
+                     <td>Derived variable</td>
+                     <td>Completed_Label</td>
+                     <td>Categorical label for course completion</td>
+                  </tr>
+                  <tr>
+                     <td>Engagement</td>
+                     <td>Login_Frequency</td>
+                     <td>Platform access frequency</td>
+                  </tr>
+                  <tr>
+                     <td>Engagement</td>
+                     <td>Time_Spent_Hours</td>
+                     <td>Total hours dedicated to the course</td>
+                  </tr>
+                  <tr>
+                     <td>Engagement</td>
+                     <td>Days_Since_Last_Login</td>
+                     <td>Days since last login</td>
+                  </tr>
+                  <tr>
+                     <td>Engagement</td>
+                     <td>Video_Completion_Rate</td>
+                     <td>Percentage of completed videos</td>
+                  </tr>
+                  <tr>
+                     <td>Academic assessment</td>
+                     <td>Quiz_Score_Avg</td>
+                     <td>Average quiz score</td>
+                  </tr>
+                  <tr>
+                     <td>Academic assessment</td>
+                     <td>Assignments_Submitted</td>
+                     <td>Number of submitted assignments</td>
+                  </tr>
+                  <tr>
+                     <td>Academic assessment</td>
+                     <td>Assignments_Missed</td>
+                     <td>Number of missed assignments</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         </section>
+
+         <section id="insights" class="report-section">
+         <h2>5. Visual analysis and insights</h2>
+         <p>
+            Exploratory data analyses were performed to understand factors
+            that influence course completion through engagement patterns.
+         </p>
+         <h3>Missed assignments vs completion</h3>
+         <p>
+            Students who completed the course have a lower median of missed assignments and a
+            more concentrated distribution. Those who did not complete show greater dispersion and higher
+            maximum values. This suggests that missing assignments is not an isolated event, but a
+            recurring behavior associated with dropout. A student does not drop out because they
+            missed one assignment, but due to progressive disengagement caused by a sequence of missed tasks.
+         </p>
+            <div class="chars">
+               <img src="../assets/images/sccp/Boxplot_atividades_perdidas.png" alt="Boxplot comparing missed assignments between students who completed and did not complete the course" >
+            </div>
+         <h3>Days since last login</h3>
+         <p>
+            Students who completed the course tend to have fewer days since last login, with most
+            values concentrated near zero. Students who did not complete show long tails,
+            with many cases of long periods without access. The longer the time without logging in,
+            the lower the chance of completion.
+         </p>
+         <div class="chars">
+               <img src="../assets/images/sccp/Boxplot_dias_desde_ultimo_login.png" alt="Boxplot comparing days since last access between students who completed and did not complete the course" >
+            </div>
+
+         <h3>Total time dedicated to the course</h3>
+         <p>
+            Students who completed the course show a clearly higher median of dedicated hours,
+            with distribution shifted toward higher values. Students who did not complete
+            concentrate on fewer hours, with some outliers indicating occasional attempts
+            but no consistency.
+         </p>
+         <p>
+            Here we see the difference between continuous effort and sporadic effort. Dedicating more
+            time does not guarantee completion, but dedicating little almost guarantees the opposite.
+         </p>
+            <div class="chars">
+               <img src="../assets/images/sccp/Boxplot_tempo_gasto_vs_conclusão.png" alt="Boxplot comparing total time dedicated to the course between students who completed and did not complete the course" >
+            </div>
+         <h3>Video completion rate</h3>
+         <p>
+            The distribution of students who completed is clearly shifted toward higher
+            video consumption rates, while students who did not complete concentrate in medium
+            and lower values. This indicates that watching content through to the end is a strong proxy
+            for real engagement. It is not just accessing the platform, but consuming content consistently.
+         </p>
+            <div class="chars">
+               <img src="../assets/images/sccp/Histograma_taxa_de_conclusao_de_vIdeos.png" alt="Histogram comparing video completion rate between students who completed and did not complete the course" >
+            </div>
+
+         <h3>Effort versus performance</h3>
+         <p>
+            There is a general trend where more dedicated hours are associated with
+            better quiz averages, but the most important aspect is visual group separation. Students
+            who complete appear more often in the higher-effort and better-performance region,
+            while those who do not complete are more spread across low and
+            intermediate levels.
+         </p>
+         <p>
+            This chart is great for discussion because it shows that effort helps, but does not
+            explain everything. Some students study a lot and still do not complete, opening room
+            for factors such as organization, conceptual difficulties or personal context.
+         </p>
+            <div class="chars">
+               <img src="../assets/images/sccp/Scatter_esforço_vs_desempenho.png" alt="Scatter plot comparing effort vs performance between students who completed and did not complete the course" >
+            </div>
+
+         <h3>Correlation between variables</h3>
+         <p>
+            Correlations with the Completed variable are moderate, not exaggerated, which is
+            expected in real behavioral data. Positive correlation stands out with
+            Video_Completion_Rate and Assignments_Submitted, and negative correlation with
+            Assignments_Missed. The strongest highlight in the map is the almost perfect negative correlation
+            between Assignments_Submitted and Assignments_Missed, which is coherent and helps validate dataset consistency.
+         </p>
+            <div class="chars">
+               <img src="../assets/images/sccp/Heatmap_de_correlacao_(variáveis_numericas).png" alt="Correlation heatmap between dataset variables" >
+            </div>
+         </section>
+
+         <section id="conclusao" class="report-section">
+         <h2>6. Conclusion</h2>
+         <p>
+            Exploratory data analysis revealed that factors influencing course completion
+            are multivariate, combining engagement, effort and academic performance.
+            No single variable fully explains completion. Therefore,
+            completion in online courses can be understood as a multivariate phenomenon,
+            combining engagement, effort and academic performance.
+         </p>
+         </section>
+
+         <section id="proximos" class="report-section">
+            <h2>7. Next steps</h2>
+            <p>
+               Natural next steps would be publishing visuals as a web dashboard, creating a ready-to-consume
+               data layer, and adding more detailed regional comparisons.
+            </p>
+         </section>
+         <div class="cta-row-final">
+            <a class="btn-premium" href="../projects-en.html">Back to projects</a>
+            <a class="btn-premium secondary" href="https://github.com/cidade-felipe/Student-Course-Completion-Prediction-Dataset" target="_blank" rel="noopener noreferrer">Repository</a>
+            <a class="btn-premium secondary" href="https://www.kaggle.com/datasets/nisargpatel344/student-course-completion-prediction-dataset" target="_blank" rel="noopener noreferrer">Data Source</a>
+         </div>
+      </article>
+   </div>
+   </section>
+</main>
+
+<footer class="footer-premium">
+   <div class="container footer-inner">
+   <p>© 2026 Felipe Cidade</p>
+
+   </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

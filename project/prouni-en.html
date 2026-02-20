@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prouni Data Insights | Project</title>
+<meta name="description" content="Visual analysis of PROUNI data with Python, Pandas and Plotly." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+<header class="topbar">
+   <div class="topbar-inner">
+   <a class="brand" href="../index-en.html">
+      <span class="brand-dot"></span>
+      <span>Felipe Cidade Soares</span>
+   </a>
+
+   <nav class="nav">
+      <a href="../index-en.html">Home</a>
+      <a href="../projects-en.html" class="active">Projects</a>
+      <a href="../profile-en.html">Profile</a>
+      <a href="../contact-en.html">Contact</a>
+   </nav>
+
+   <div class="topbar-actions">
+      <a class="ghost" href="https://github.com/cidade-felipe" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="primary" href="https://www.linkedin.com/in/cidadefelipe/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+   </div>
+
+   <a class="lang-switch" href="prouni.html" aria-label="Switch language to Portuguese">PT</a>
+
+   <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+   </button>
+   </div>
+</header>
+
+<main>
+   <section class="project-hero">
+   <div class="container project-title">
+      <h1>Prouni Data Insights</h1>
+      <p>
+         Visual analysis with public PROUNI data to understand beneficiary profile,
+         historical evolution and state-level distribution through an interactive map.
+      </p>
+
+      <div class="badges">
+         <span>Python</span><span>Pandas</span><span>Plotly</span><span>GeoJSON</span><span>Jupyter</span>
+      </div>
+
+      <div class="meta">
+         <span>Author: Felipe Cidade Soares</span>
+         <span>Type: EDA and Visualization</span>
+      </div>
+   </div>
+   </section>
+
+   <section class="report">
+   <div class="container report-grid">
+
+      <aside class="toc">
+         <h3>Summary</h3>
+         <a href="#intro">1. Introduction</a>
+         <a href="#perguntas">2. Analysis questions</a>
+         <a href="#dados">3. Source and preparation</a>
+         <a href="#pipeline">3.1 Pipeline</a>
+         <a href="#insights">4. Visual analysis and insights</a>
+         <a href="#conclusao">5. Conclusion</a>
+         <a href="#proximos">6. Next steps</a>
+      </aside>
+
+      <article class="report-content">
+
+         <section id="intro" class="report-section">
+         <h2>1. Introduction</h2>
+         <p>
+            This project explores public PROUNI data with focus on visualization and interpretation.
+            The goal is to transform a large dataset into clear answers: who receives scholarships, how it
+            changes over time, and how it is distributed across Brazil.
+         </p>
+         </section>
+
+         <section id="perguntas" class="report-section">
+         <h2>2. Analysis questions</h2>
+         <p>
+            Some questions that guide the project:
+            what is the proportion of full vs. partial scholarships,
+            how demographic profile is distributed (age and gender),
+            how it evolves over the years, and which states concentrate more grants.
+         </p>
+         </section>
+
+         <section id="dados" class="report-section">
+         <h2>3. Source and preparation</h2>
+         <p>
+            The dataset goes through cleaning, standardization and structuring for analysis. The objective is to reduce noise, ensure consistency, and prepare data for charts and state-level maps. This process is essential to ensure visualizations reflect data reality and generate reliable insights.
+         </p>
+         <p>
+            The pipeline includes reading, null handling, column renaming, age filtering and creation of new variables, plus specific adjustments for visualization. As shown in the diagram below, each step is crucial to transform raw data into a clean and structured dataset ready for analysis and visualization. This process is represented in the following diagram, detailing each stage from ingestion to final chart export.
+         </p>
+            <h3>3.1 Pipeline</h3>
+            <div class="mermaid-wrap">
+            <pre class="mermaid">
+               flowchart TB
+                  A["Source&lt;br/&gt;Kaggle (kagglehub)&lt;br/&gt;dataset: Prouni Brazilian Scholarship Program"] --&gt; B["Ingestion&lt;br/&gt;CSV read with Pandas"]
+                  B --&gt; C["Preprocessing&lt;br/&gt;Rename columns&lt;br/&gt;Drop nulls (dropna)&lt;br/&gt;Remove sensitive columns (like CPF)&lt;br/&gt;Filter age (15-90)"]
+                  C --&gt; D["Clean output&lt;br/&gt;data/prouni_2005_2019_processed.csv"]
+                  D --&gt; E["Loading&lt;br/&gt;Read processed CSV with Pandas&lt;br/&gt;"]
+                  E --&gt; F["Transformations&lt;br/&gt;Rename readable columns&lt;br/&gt;Remove 'BOLSA COMPLEMENTAR 25%' due to insufficient data&lt;br/&gt;Create 'AGE GROUP'"]
+                  F --&gt; G["Visualizations&lt;br/&gt;Plotly + ipywidgets&lt;br/&gt;Gender x type, Race x type, Growth by period&lt;br/&gt;State map (local GeoJSON)"]
+                  G --&gt; H["Export&lt;br/&gt;Save charts in figures/"]
+            </pre>
+            </div>
+         </section>
+
+         <section id="insights" class="report-section">
+         <h2>4. Visual analysis and insights</h2>
+         <p>
+            The project focuses on Plotly visualizations, including year-by-year comparisons, gender and age cuts, and an interactive GeoJSON map to show state-level distribution.
+            The analysis revealed consistent patterns in PROUNI scholarship distribution over time,
+            indicating relevant regional, demographic and socioeconomic differences.
+         </p>
+
+         <h3>4.1. Uneven regional expansion</h3>
+         <p>
+            North and Northeast regions showed the highest percentage growth over the years,
+            especially after 2013, indicating interiorization and broader access to higher education
+            outside traditional major urban centers.
+         </p>
+            <div class="chars">
+               <img src="..\assets\images\prouni\crescimento_bolsas_anos\Crescimento_percentual_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Percentage growth of all scholarships comparing regions by year" >
+            </div>
+         <p>
+            Even so, the Southeast remains the main absolute concentration of scholarships, showing that
+            despite growth in other regions, regional inequality is still significant.
+         </p>
+
+            <div class="chars">
+               <img src="..\assets\images\prouni\crescimento_bolsas_anos\Quantidade_de_todas_as_bolsas_comparando_regiões_por_ano.png" alt="Number of all scholarships comparing regions over years" >
+
+            </div>
+            <div class="chars">
+               <img src="..\assets\images\prouni\mapa_bolsas_por_uf\Bolsas_do_Prouni_em_de_2005_a_2019.png" alt="Map of all scholarships in Brazil (2005 to 2019)" >
+            </div>
+
+         <h3>4.2. Concentration by racial profile</h3>
+         <p>
+            Data shows that self-declared mixed-race (pardo) and white students account for most scholarships
+            granted in the analyzed period. Growth in these groups is consistent over the years.
+         </p>
+         <p>
+            In contrast, participation of Indigenous students remains low with limited growth,
+            indicating a possible access bottleneck for this specific group.
+         </p>
+            <div class="chars">
+               <img src="../assets\images\prouni\total_idade_tipo_e_raça\Quantidade_de_bolsas_por_tipo_e_raça_de_2005_a_2019.png" alt="Scholarship quantity by type and race (2005 to 2019)" >
+            </div>
+         <h3>4.3. Gender differences</h3>
+         <p>
+            A faster increase in female participation is observed over time, especially for
+            full scholarships. From 2014 onward, women represent the largest share of beneficiaries.
+         </p>
+         <p>
+            This pattern suggests stronger retention and engagement of women in access-to-higher-education
+            programs through public policy.
+         </p>
+            <div class="chars">
+               <img src="../assets\images\prouni\grafico_crescimento_por_periodo_sexo\Quantidade_de_todas_as_bolsas_por_ano_comparando_sexo.png" alt="Scholarship quantity by gender over years" >
+            </div>
+         <h3>4.4. Predominance of full scholarships</h3>
+         <p>
+            Most grants are full scholarships, especially among higher-population groups.
+            This reinforces PROUNI's role as an effective educational inclusion mechanism
+            for students in socioeconomic vulnerability.
+         </p>
+
+         <p>
+            Partial scholarships show lower volume and more moderate growth, suggesting that the program
+            mainly prioritizes students with lower ability to afford tuition.
+         </p>
+            <div class="chars">
+               <img src="../assets\images\prouni\total_idade_tipo\Quantidade_de_bolsas_por_tipo_de_bolsa_de_2005_a_2019.png" alt="Scholarship quantity by scholarship type over years" >
+            </div>
+         <h3>4.5. Peak and stabilization after 2015</h3>
+         <p>
+            In nearly all analyzed cuts, there is a peak between 2014 and 2016, followed by
+            stabilization or slight decline.
+         </p>
+
+         <p>
+            This behavior may be associated with economic changes, public policy adjustments,
+            and budget restrictions in the post-crisis period.
+         </p>
+         </section>
+         <section id="conclusao" class="report-section">
+         <h2>5. Conclusion</h2>
+            <p>
+               Analysis of PROUNI data from 2005 to 2019 highlights a relevant expansion process
+               of access to higher education in Brazil, with significant growth in total scholarships over the period.
+            </p>
+
+            <p>
+               A substantial increase is observed in North and Northeast regions, although the Southeast still concentrates
+               the highest absolute number of grants. This behavior reveals progress in interiorizing access,
+               but also reinforces persistent structural regional inequalities.
+            </p>
+
+            <p>
+               From a demographic perspective, rising female participation and consistent growth of historically
+               underrepresented groups indicate positive impact of inclusion public policies. Even so,
+               low representation of certain groups suggests equity challenges remain.
+            </p>
+
+            <p>
+               Overall, results show that PROUNI plays an important role in democratizing higher education,
+               especially through predominance of full scholarships. At the same time, data reinforces
+               the importance of continuous monitoring and evidence-based analysis to guide policy adjustments
+               and improvements.
+            </p>
+
+            <p>
+               This project demonstrates how public data, when organized and interpreted rigorously, can generate
+               concrete insights about social impact and distribution of educational opportunities.
+            </p>
+         </section>
+         <section id="proximos" class="report-section">
+         <h2>6. Next steps</h2>
+            <p>
+               To deepen the analysis, it would be useful to include more recent PROUNI data, especially
+               to evaluate pandemic impacts and post-2019 trends. In addition, crossing data with ENEM and
+               School Census information could enrich understanding of beneficiary profiles and educational trajectories.
+            </p>
+
+            <p>
+               Another possibility is to explore predictive analyses to identify factors that influence scholarship
+               granting and beneficiary academic performance using machine learning techniques.
+            </p>
+
+            <p>
+               Finally, developing an interactive dashboard with key indicators and visualizations could facilitate
+               access to these insights for public managers, researchers and society in general.
+            </p>
+         </section>
+
+   <div class="cta-row-final">
+      <a class="btn-premium" href="../projects-en.html">Back to projects</a>
+      <a class="btn-premium secondary" href="https://github.com/cidade-felipe/Prouni-Data-Insights" target="_blank" rel="noopener noreferrer">Repository</a>
+      <a class="btn-premium secondary" href="https://www.kaggle.com/datasets/lfarhat/brasil-students-scholarship-prouni-20052019" target="_blank" rel="noopener noreferrer">Data Source</a>
+   </div>
+
+      </article>
+   </div>
+   </section>
+</main>
+
+<footer class="footer-premium">
+   <div class="container footer-inner">
+   <p>© 2026 Felipe Cidade</p>
+   </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

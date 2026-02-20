@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
   initActiveNavLink();
 });
 
+function getPageLanguage() {
+  const lang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+  return lang.startsWith('en') ? 'en' : 'pt';
+}
+
 /**
  * Mobile Menu Toggle
  */
@@ -161,6 +166,26 @@ function initCopyToClipboard() {
   const hint = document.getElementById('copyHint');
   
   if (!copyBtn || !emailEl) return;
+
+  const messages = {
+    pt: {
+      copy: 'Copiar',
+      copied: 'Copiado!',
+      ready: 'Pronto. Agora é só colar no seu e-mail.',
+      tip: 'Dica: cole no seu e-mail e mande uma mensagem rápida com a vaga.',
+      manual: 'Não consegui copiar automaticamente. Copie manualmente o e-mail ali em cima.'
+    },
+    en: {
+      copy: 'Copy',
+      copied: 'Copied!',
+      ready: 'Done. Now paste it into your email.',
+      tip: 'Tip: paste it into your email and send a quick message about the role.',
+      manual: 'I could not copy automatically. Please copy the email above manually.'
+    }
+  };
+
+  const t = messages[getPageLanguage()];
+  copyBtn.textContent = t.copy;
   
   copyBtn.addEventListener('click', async function() {
     const email = (emailEl.textContent || '').trim();
@@ -181,17 +206,17 @@ function initCopyToClipboard() {
         document.body.removeChild(ta);
       }
       
-      copyBtn.textContent = 'Copiado!';
-      if (hint) hint.textContent = 'Pronto. Agora é só colar no seu e-mail.';
+      copyBtn.textContent = t.copied;
+      if (hint) hint.textContent = t.ready;
       
       setTimeout(function() {
-        copyBtn.textContent = 'Copiar';
-        if (hint) hint.textContent = 'Dica: cole no seu e-mail e mande uma mensagem rápida com a vaga.';
+        copyBtn.textContent = t.copy;
+        if (hint) hint.textContent = t.tip;
       }, 1400);
       
     } catch (err) {
       console.error(err);
-      if (hint) hint.textContent = 'Não consegui copiar automaticamente. Copie manualmente o e-mail ali em cima.';
+      if (hint) hint.textContent = t.manual;
     }
   });
 }
